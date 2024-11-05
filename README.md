@@ -58,4 +58,15 @@ Created and implemented the first versions of the following scripts in the `js/s
 
 - **`download_icons.js`**  
    - Purpose: Download skill icons from external sources, save them to `public/electronics/icons`, and handle error messages for any failed downloads.
-   
+ 
+### 05/11/2024
+
+** Implementation of the Front-End section**
+
+Created and implemented the script `skillsPanel.js`, which dynamically generates a visual representation of skills using SVG hexagons. The following features were incorporated:
+
+- Dynamic Data Loading: Fetches skill data from skills.json to create a visual skill representation.
+- SVG Hexagon Creation: Renders each skill as an SVG hexagon with the skill title displayed inside, ensuring proper fitting.
+- Icon Integration: Loads skill icons from the public/electronics/icons directory, aligning them with their respective hexagons.
+
+
