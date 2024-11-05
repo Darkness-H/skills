@@ -61,7 +61,7 @@ Created and implemented the first versions of the following scripts in the `js/s
  
 ### 05/11/2024
 
-** Implementation of the Front-End section**
+**Implementation of the Front-End section**
 
 Created and implemented the script `skillsPanel.js`, which dynamically generates a visual representation of skills using SVG hexagons. The following features were incorporated:
 
