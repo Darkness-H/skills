@@ -69,4 +69,14 @@ Created and implemented the script `skillsPanel.js`, which dynamically generates
 - SVG Hexagon Creation: Renders each skill as an SVG hexagon with the skill title displayed inside, ensuring proper fitting.
 - Icon Integration: Loads skill icons from the public/electronics/icons directory, aligning them with their respective hexagons.
 
+### 09/11/2024
 
+**Implementation of Badges and points**
+
+Created and implemented the following files:
+- **`scraper-badges.js`**
+  - Purpose: Extract the badge range explanation from an external URL and format it into JSON, including the name of the badge, the minimum and maximim points needed to obtain said badge, and the name of the image.
+- **`get-badge.js`**
+   - Purpose: Download the bages icons from external sources, save them to `public/badges`, and handle error messages for any failed downloads.
+- **`leaderboard.html`**
+  - Purpose: Visualize the badges and the points needed for each badge. 
