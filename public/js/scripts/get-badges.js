@@ -17,7 +17,7 @@ async function downloadBadge(badgeName, badgePath) {
     const fileName = `${badgePath}`;
     const filePath = path.join(downloadDir, fileName);
 
-    const response = await fetch(`https://github.com/Obijuan/digital-electronics-with-open-FPGAs-tutorial/tree/master/rangos/png/${badgeUrl}`);
+    const response = await fetch(`https://github.com/Obijuan/digital-electronics-with-open-FPGAs-tutorial/raw/master/rangos/png/${badgeUrl}`);
 
     // Check if the response is okay (status code 200-299)
     if (!response.ok) {
