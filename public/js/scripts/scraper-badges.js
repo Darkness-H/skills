@@ -26,7 +26,8 @@ let extract = async () => {
                     ids.push(cells[0] ? cells[0].innerText.trim() : null);
 
                     const img = cells[1]?.querySelector('img');
-                    badges.push(img ? img.getAttribute('src').split('/').pop() : null);
+                    const imageName = img ? img.getAttribute('src').split('/').pop() : null;
+                    badges.push(imageName ? imageName.replace('.png', '-min.png') : null);
 
                     ranges.push(cells[2] ? cells[2].innerText.trim() : null);
                     const idNum = parseInt(cells[0]?.innerText.trim() || '0');
@@ -36,11 +37,10 @@ let extract = async () => {
             });
 
             return ids.map((id, i) => ({
-                id,
                 rango: ranges[i],
                 bitpoints_min: points_min[i],
                 bitpoints_max: points_max[i],
-                badge: badges[i]
+                png: badges[i]
             }));
         });
 
