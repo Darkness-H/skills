@@ -80,7 +80,6 @@ h1 {
 }
 
 .svg-container {
-  border: 1px solid red; /* Agrega un borde rojo temporal para verificar la visibilidad */
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

@@ -1,6 +1,7 @@
 // skillsPanel.js
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById('svg-container');
+    const descriptionContainer = document.getElementById('skill-description');
 
     fetch('/js/scripts/skills.json')
         .then(response => response.json())
@@ -27,12 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     svg.style.transform = 'scale(1.2)';
                     pencilIcon.style.display = 'block';
                     notebookIcon.style.display = 'block';
+                    descriptionContainer.style.display = 'block';
+                    //descriptionContainer.textContent = skill.description;
+                    descriptionContainer.style.zIndex = '10';
+                    descriptionContainer.textContent = skill.text;
                 });
 
                 wrapper.addEventListener('mouseout', () => {
                     svg.style.transform = 'scale(1)';
                     pencilIcon.style.display = 'none';
                     notebookIcon.style.display = 'none';
+                    descriptionContainer.style.display = 'none';
+                    descriptionContainer.textContent = '';
                 });
 
                 const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
@@ -93,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 pencilIcon.style.bottom = '0%';
                 pencilIcon.style.fontSize = '20px';
                 pencilIcon.style.display = 'none';
-                pencilIcon.style.zIndex = '10';
+                pencilIcon.style.zIndex = '9';
                 pencilIcon.style.transform = 'rotate(270deg)';
                 pencilIcon.textContent = '✏️';
                 wrapper.appendChild(pencilIcon);
@@ -104,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 notebookIcon.style.bottom = '0%';
                 notebookIcon.style.fontSize = '20px';
                 notebookIcon.style.display = 'none';
-                notebookIcon.style.zIndex = '10';
+                notebookIcon.style.zIndex = '9';
                 notebookIcon.textContent = '📓';
                 wrapper.appendChild(notebookIcon);
 
