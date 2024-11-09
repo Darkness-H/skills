@@ -22,9 +22,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 hexagon.classList.add('hexagon');
                 svg.appendChild(hexagon);
 
+                // Añadir eventos de mouseover y mouseout
+                wrapper.addEventListener('mouseover', () => {
+                    svg.style.transform = 'scale(1.2)';
+                    pencilIcon.style.display = 'block';
+                    notebookIcon.style.display = 'block';
+                });
+
+                wrapper.addEventListener('mouseout', () => {
+                    svg.style.transform = 'scale(1)';
+                    pencilIcon.style.display = 'none';
+                    notebookIcon.style.display = 'none';
+                });
+
                 const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
                 text.setAttribute("x", "50%");
-                text.setAttribute("y", "18%");
+                text.setAttribute("y", "20%");
                 text.setAttribute("text-anchor", "middle");
                 text.setAttribute("fill", "black");
                 text.setAttribute("font-size", "10"); // Tamaño de fuente más pequeño
@@ -61,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     text.appendChild(tspan);
                 }
 
+
                 svg.appendChild(text);
 
 
@@ -71,6 +85,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 image.setAttribute("height", "30");
                 image.setAttribute("href", `/electronics/icons/${skill.icon}`);
                 svg.appendChild(image);
+
+                // Crear iconos de lápiz y cuaderno usando emojis
+                const pencilIcon = document.createElement('div');
+                pencilIcon.style.position = 'absolute';
+                pencilIcon.style.left = '0%';
+                pencilIcon.style.bottom = '0%';
+                pencilIcon.style.fontSize = '20px';
+                pencilIcon.style.display = 'none';
+                pencilIcon.style.zIndex = '10';
+                pencilIcon.style.transform = 'rotate(270deg)';
+                pencilIcon.textContent = '✏️';
+                wrapper.appendChild(pencilIcon);
+
+                const notebookIcon = document.createElement('div');
+                notebookIcon.style.position = 'absolute';
+                notebookIcon.style.right = '0%';
+                notebookIcon.style.bottom = '0%';
+                notebookIcon.style.fontSize = '20px';
+                notebookIcon.style.display = 'none';
+                notebookIcon.style.zIndex = '10';
+                notebookIcon.textContent = '📓';
+                wrapper.appendChild(notebookIcon);
 
                 wrapper.appendChild(svg);
                 container.appendChild(wrapper);
