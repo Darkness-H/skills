@@ -24,7 +24,7 @@ let extract = async () => {
             const points_max = [];
 
 
-            let table = Array.from(document.querySelector('div.markdown-body').querySelectorAll('table')).slice(6, 11);
+            let table = Array.from(document.getElementById('wiki-body').querySelector('div.markdown-body').querySelectorAll('table')).slice(6, 11);
             table.forEach(t => {
                 let trs = Array.from(t.querySelectorAll('tbody > tr'));
                 trs.forEach(tr =>{
