@@ -77,3 +77,107 @@ body {
 .resources a:hover {
     text-decoration: underline;
 }
+
+/* ------------------------------------- */
+
+/* Estilo para el título */
+#table-title {
+    margin-bottom: 10px;  /* Espacio entre el título y la tabla */
+    text-align: left;     /* Alinear el título a la izquierda */
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Tabla Estilo General */
+.styled-table {
+    width: 100%;                   /* Escala al 100% del ancho de la página */
+    border-collapse: collapse;     /* Quita espacio entre las celdas para un borde continuo */
+    background-color: white;       /* Fondo blanco */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+    margin: 20px 0;
+    font-size: 1em;
+}
+
+/* Estilos para el encabezado de la tabla */
+.styled-table thead th {
+    background-color: #f0f0f0;     /* Fondo gris claro para los encabezados */
+    color: #333;                   /* Texto negro */
+    font-weight: bold;
+    border: 2px solid #d3d3d3;     /* Borde gris oscuro para los encabezados */
+    padding: 12px 15px;
+    text-align: left;              /* Alinear el texto a la izquierda en los encabezados */
+}
+
+/* Estilos para las celdas del cuerpo de la tabla */
+.styled-table tbody td {
+    background-color: #ffffff;     /* Fondo blanco para las celdas de evidencia */
+    color: #333;
+    border: 2px solid #d3d3d3;     /* Bordes gris oscuro alrededor de cada celda */
+    padding: 12px 15px;
+    text-align: left;              /* Alinear el texto a la izquierda en las celdas */
+}
+
+/* Establecer ancho específico para la columna 'Usuario' */
+.styled-table tbody td:first-child,
+.styled-table thead th:first-child {
+    width: 20%;                   /* Ancho de la columna 'Usuario' más estrecha */
+}
+
+/* Establecer ancho para la columna 'Acciones' */
+.styled-table tbody td:last-child,
+.styled-table thead th:last-child {
+    width: 30%;                   /* Ancho de la columna 'Acciones' más ancha */
+}
+
+/* Estilos para el botón de verificación */
+.verify-button {
+    padding: 8px 12px;
+    background-color: #28a745; /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 15px;  /* Espacio entre los botones */
+}
+
+/* Estilos para el botón de rechazo */
+.reject-button {
+    padding: 8px 12px;
+    background-color: #dc3545; /* Color rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------ */
+
+.svg-wrapper {
+    /* Ensure the attached circle positions relative to this element */
+    position: relative;
+}
+
+.circle-indicator {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+
+    /* Shadow and gradient for realistic look */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px -2px 3px rgba(255, 255, 255, 0.5) inset;
+}
+
+.circle-indicator.red {
+    background-color: #dc3545; /* solid red color */
+}
+
+.circle-indicator.green {
+    background-color: #28a745; /* solid red color */
+}

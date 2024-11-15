@@ -11,7 +11,7 @@ function loadImage(url) {
     });
 }
 
-gestionarEventos = () => {
+const gestionarEventos = () => {
     fetch('../js/scripts/badges.json')
         .then(response => response.json()) // Convierte la respuesta en JSON
         .then(data => {

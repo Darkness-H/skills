@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skill Detail Page</title>
   <link rel="stylesheet" href="../css/skillNotebookStyle.css">
+  <script src="../js/scripts/skillNotebook.js"></script>
+  <!-- Script para usar canvas-confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -22,15 +25,19 @@
   <div class="tasks">
     <h3>Tasks to Complete</h3>
     <ul>
-      <li><input type="checkbox"> Gather necessary components (LED, resistor, battery, wires)</li>
-      <li><input type="checkbox"> Learn about LED polarity and how to identify anode/cathode</li>
-      <li><input type="checkbox"> Calculate appropriate resistor value for your LED and power source</li>
-      <li><input type="checkbox"> Build a simple circuit on a breadboard to light the LED</li>
-      <li><input type="checkbox"> Test the circuit and troubleshoot if needed</li>
-      <li><input type="checkbox"> Experiment with different color LEDs and resistor values</li>
-      <li><input type="checkbox"> Document your steps in a Google Drive doc and share its url as an evidence</li>
+      <li><input type="checkbox" class="task-checkbox"> Gather necessary components (LED, resistor, battery, wires)</li>
+      <li><input type="checkbox" class="task-checkbox"> Learn about LED polarity and how to identify anode/cathode</li>
+      <li><input type="checkbox" class="task-checkbox"> Calculate appropriate resistor value for your LED and power source</li>
+      <li><input type="checkbox" class="task-checkbox"> Build a simple circuit on a breadboard to light the LED</li>
+      <li><input type="checkbox" class="task-checkbox"> Test the circuit and troubleshoot if needed</li>
+      <li><input type="checkbox" class="task-checkbox"> Experiment with different color LEDs and resistor values</li>
+      <li><input type="checkbox" class="task-checkbox"> Document your steps in a Google Drive doc and share its url as an evidence</li>
     </ul>
   </div>
+
+  <!-- Form Container for "Submit Evidence" form, appears only when all tasks are completed -->
+  <div id="form-container"></div>
+
   <div class="resources">
     <h3>Resources</h3>
     <ul>
