@@ -95,4 +95,4 @@ Created and implemented the following files:
 - **`skillNotebook.js`**
   - Purpose: Displays a confetti animation when all checkboxes are ticked. Dynamically creates an evidence table with "Approve"/"Reject" buttons, saving statuses to localStorage. Adds new evidence to the table when the "Submit" button is clicked (currently set for task0 only).
 - **`redGreenCircles.js`**
-   - Purpose: 
+   - Purpose: This script processes the data stored by the previous script. After the DOM elements are loaded, it calculates the values that should be displayed in the red and green circles.
