@@ -79,4 +79,20 @@ Created and implemented the following files:
 - **`get-badge.js`**
    - Purpose: Download the bages icons from external sources, save them to `public/badges`, and handle error messages for any failed downloads.
 - **`leaderboard.html`**
-  - Purpose: Visualize the badges and the points needed for each badge. 
+  - Purpose: Visualize the badges and the points needed for each badge.
+
+### 14/11/2024
+
+**Implementation of ---**
+
+---
+
+### 15/11/2024
+
+**Implementation of "Unverified Evidence Submissions" table and red/green circles**
+
+Created and implemented the following files:
+- **`skillNotebook.js`**
+  - Purpose: Displays a confetti animation when all checkboxes are ticked. Dynamically creates an evidence table with "Approve"/"Reject" buttons, saving statuses to localStorage. Adds new evidence to the table when the "Submit" button is clicked (currently set for task0 only).
+- **`redGreenCircles.js`**
+   - Purpose: 
