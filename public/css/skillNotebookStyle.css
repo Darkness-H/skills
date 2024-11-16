@@ -3,7 +3,13 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
-    background-color: #f5f5f5;
+    background-color: #f0f0f0;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
 }
 
 .container {
@@ -20,11 +26,48 @@ body {
     align-items: center;
 }
 
+.svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Mantener por el indicador circular */
+    height: 20vh; /* Usar el viewport height para centrar verticalmente */
+}
+
 .hexagon {
-    width: 50px;
-    height: 50px;
-    background: gray; /* Cambiar cuando tengas el hexágono real */
-    margin-right: 20px;
+    fill: white;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+.svg-wrapper {
+    width: 100px;
+    height: 120px;
+    cursor: pointer;
+    position: relative; /* Mantener por el indicador circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.hexagon {
+    fill: white;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+/* Estilo para el texto dentro del SVG (Esto irá dentro del JS en la Parte 2, porque puede cambiar) */
+.svg-wrapper text {
+    font-size: 10px; /* Tamaño de fuente */
+    fill: black;
+    text-anchor: middle;
+    font-weight: bold;
+}
+
+.svg-wrapper image {
+    width: 30px; /* Asegúrate de ajustar esto según tus necesidades */
+    height: 30px;
 }
 
 .skill-title {
@@ -45,12 +88,6 @@ body {
 
 .tasks, .resources {
     margin-top: 20px;
-}
-
-.tasks h3, .resources h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #333;
 }
 
 .tasks ul, .resources ul {
@@ -75,6 +112,25 @@ body {
 }
 
 .resources a:hover {
+    text-decoration: underline;
+}
+
+.user-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #f5e589; /* Mismo color de skill-description */
+    padding: 10px;
+    font-weight: bold;
+    font-size: 0.9em;
+    font-family: Arial, sans-serif; /* Mismo tipo de letra */
+}
+.user-bar a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.user-bar a:hover {
     text-decoration: underline;
 }
 
@@ -149,35 +205,4 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-/* ------------------------------------------------------ */
-
-.svg-wrapper {
-    /* Ensure the attached circle positions relative to this element */
-    position: relative;
-}
-
-.circle-indicator {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-
-    /* Shadow and gradient for realistic look */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px -2px 3px rgba(255, 255, 255, 0.5) inset;
-}
-
-.circle-indicator.red {
-    background-color: #dc3545; /* solid red color */
-}
-
-.circle-indicator.green {
-    background-color: #28a745; /* solid red color */
 }
