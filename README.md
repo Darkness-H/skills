@@ -47,7 +47,7 @@ Before getting started, ensure you have the following software installed:
 
 ## Development Process
 
-### 31/10/2024
+### 10/31/2024
 
 **Initial Script Implementations**
 
@@ -59,7 +59,7 @@ Created and implemented the first versions of the following scripts in the `js/s
 - **`download_icons.js`**  
    - Purpose: Download skill icons from external sources, save them to `public/electronics/icons`, and handle error messages for any failed downloads.
  
-### 05/11/2024
+### 11/05/2024
 
 **Implementation of the Front-End section**
 
@@ -69,7 +69,7 @@ Created and implemented the script `main.js`, which dynamically generates a visu
 - SVG Hexagon Creation: Renders each skill as an SVG hexagon with the skill title displayed inside, ensuring proper fitting.
 - Icon Integration: Loads skill icons from the public/electronics/icons directory, aligning them with their respective hexagons.
 
-### 09/11/2024
+### 11/09/2024
 
 **Implementation of Badges and points**
 
@@ -81,7 +81,7 @@ Created and implemented the following files:
 - **`leaderboard.html`**
   - Purpose: Visualize the badges and the points needed for each badge.
 
-### 14/11/2024
+### 11/14/2024
 
 **Implementation of Skills and Tasks**
 
@@ -99,7 +99,7 @@ Created and implemented the following files:
 - **`skillNotebookStyle.css`**
    - Purpose: Provides styling for the notebook page, including layout for the skill details, task list, and navigation bar.
 
-### 15/11/2024
+### 11/15/2024
 
 **Implementation of "Unverified Evidence Submissions" table and red/green circles**
 
@@ -109,7 +109,7 @@ Created and implemented the following files:
 - **`redGreenCircles.js`**
    - Purpose: This script processes the data stored by the previous script. After the DOM elements are loaded, it calculates the values that should be displayed in the red and green circles.
  
-### 16/11/2024
+### 11/16/2024
 The following modifications have been made:
 - **Navigation Bar:** Added to the top-right of all pages for easy section access.
 - Changes in the organization of the files.
