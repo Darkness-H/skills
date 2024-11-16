@@ -66,8 +66,15 @@ function createApproveRejectButtons(actionCell, currentSkill, row) {
         const approvedMessage = document.createElement("span");
         approvedMessage.innerHTML = "<strong style='color: #28a745;'>Approved</strong>";
         actionCell.appendChild(approvedMessage);
-        row.style.backgroundColor = "#d4edda";
         saveEvidenceToLocalStorage(currentSkill, row, "Approved");
+    });
+
+    // Change the button color on hover
+    approveButton.addEventListener("mouseover", () => {
+        approveButton.style.backgroundColor = "#218838"; // Darker green on hover
+    });
+    approveButton.addEventListener("mouseout", () => {
+        approveButton.style.backgroundColor = "#28a745"; // Original green color
     });
 
     // "Reject" button
@@ -78,8 +85,15 @@ function createApproveRejectButtons(actionCell, currentSkill, row) {
         const rejectedMessage = document.createElement("span");
         rejectedMessage.innerHTML = "<strong style='color: #dc3545;'>Rejected</strong>";
         actionCell.appendChild(rejectedMessage);
-        row.style.backgroundColor = "#f8d7da";
         saveEvidenceToLocalStorage(currentSkill, row, "Rejected");
+    });
+
+    // Change the button color on hover
+    rejectButton.addEventListener("mouseover", () => {
+        rejectButton.style.backgroundColor = "#c0392b"; // Darker red on hover
+    });
+    rejectButton.addEventListener("mouseout", () => {
+        rejectButton.style.backgroundColor = "#dc3545"; // Original green color
     });
 
     actionCell.appendChild(approveButton);
@@ -115,11 +129,9 @@ function loadEvidenceFromLocalStorage(currentSkill) {
             const statusMessage = document.createElement("span");
 
             if (data.status === "Approved") {
-                row.style.backgroundColor = "#d4edda";
                 statusMessage.innerHTML = "<strong style='color: #28a745;'>Approved</strong>";
                 actionCell.appendChild(statusMessage);
             } else if (data.status === "Rejected") {
-                row.style.backgroundColor = "#f8d7da";
                 statusMessage.innerHTML = "<strong style='color: #dc3545;'>Rejected</strong>";
                 actionCell.appendChild(statusMessage);
             } else {
@@ -255,6 +267,9 @@ function main() {
 
                 // Save the initial "Unverified" status
                 saveEvidenceToLocalStorage(currentSkill, row, "Unverified");
+
+                // Clear evidenceTextarea.value
+                evidenceTextarea.value = "";
 
             })
 
