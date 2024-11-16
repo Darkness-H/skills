@@ -83,9 +83,21 @@ Created and implemented the following files:
 
 ### 14/11/2024
 
-**Implementation of ---**
+**Implementation of Skills and Tasks**
 
----
+Modifications in `main.js`, `index.ejs`, and `style.css`. The following features were incorporated:
+
+   - **Hover Effect on Skills:**
+       - Enlarges hexagons and shows pencil and notebook icons.
+       - Displays a yellow bar at the bottom with selected skill information.
+    
+Created and implemented the following files:
+- **`skillNotebook.html`**
+   - Purpose: Defines the structure of the notebook page for displaying a skill’s title, description, tasks, and resources. Static content is used temporarily until back-end integration is implemented.
+- **`skillNotebook.js`**
+   - Purpose: Manages task completion with checkboxes. Triggers a confetti animation and dynamically generates a form for evidence submission when all tasks are marked complete.   
+- **`skillNotebookStyle.css`**
+   - Purpose: Provides styling for the notebook page, including layout for the skill details, task list, and navigation bar.
 
 ### 15/11/2024
 
@@ -96,3 +108,8 @@ Created and implemented the following files:
   - Purpose: Displays a confetti animation when all checkboxes are ticked. Dynamically creates an evidence table with "Approve"/"Reject" buttons, saving statuses to localStorage. Adds new evidence to the table when the "Submit" button is clicked (currently set for task0 only).
 - **`redGreenCircles.js`**
    - Purpose: This script processes the data stored by the previous script. After the DOM elements are loaded, it calculates the values that should be displayed in the red and green circles.
+ 
+### 16/11/2024
+The following modifications have been made:
+- **Navigation Bar:** Added to the top-right of all pages for easy section access.
+- Changes in the organization of the files.
