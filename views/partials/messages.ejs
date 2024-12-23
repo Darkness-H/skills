@@ -1,0 +1,17 @@
+<% if (success_msg) { %>
+    <div style="background-color: #4CAF50; color: white; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+        <strong>Success!</strong> <%= success_msg %>
+    </div>
+<% } %>
+
+<% if (error_msg) { %>
+    <div style="background-color: #f44336; color: white; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+        <strong>Error!</strong> <%= error_msg %>
+    </div>
+<% } %>
+
+<% if (error) { %>
+    <div style="background-color: #f44336; color: white; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+        <strong>System Error!</strong> <%= error %>
+    </div>
+<% } %>
