@@ -90,6 +90,52 @@
         .login-container a:hover {
             text-decoration: underline;
         }
+
+        .oauth-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            padding: 10px 15px;
+            text-decoration: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .oauth-btn img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .oauth-btn.github {
+            border-color: #333;
+            color: #333;
+        }
+
+        .oauth-btn.github:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ccc;
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
@@ -109,6 +155,13 @@
             <button type="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="/register">Register here</a></p>
+
+        <div class="divider">or</div>
+
+        <a href="/auth/github" class="oauth-btn github">
+            <img src="/icons/github-icon.svg" alt="GitHub Logo">
+            Log in with GitHub
+        </a>
     </div>
 </body>
 </html>

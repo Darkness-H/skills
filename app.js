@@ -18,6 +18,9 @@ const connectDB = require('./config/database');
 // Módulo que permite almacenar sesiones en MongoDB
 const MongoStore = require('connect-mongo');
 
+const passport = require('passport');
+require('./config/passport-config'); // Configuración de Passport
+
 // Importar eschemas definidos
 const User = require('./models/user.model');
 
@@ -38,7 +41,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   // Clave secreta para firmar la sesión. Debe ser única y segura.
-  secret: 'your-secret-key',
+  secret: 'ndAZH1gDNaJURXRrQi5f1nfxb43NUecPT',
   // `resave: false` asegura que la sesión no se guarde de nuevo si no ha sido modificada.
   resave: false,
   // `saveUninitialized: true` guarda una sesión nueva incluso si no ha sido modificada.
@@ -52,6 +55,10 @@ app.use(session({
   })
 }));
 
+// Inicializa Passport en la aplicación.
+app.use(passport.initialize());
+// Habilita el manejo de la sesión (Github) con Passport.
+app.use(passport.session());
 
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
@@ -199,7 +206,7 @@ app.get('/logout', (req, res) => {
     res.redirect('/login?message=Logged out successfully');
 })
 
-// Endpoint para visualizar la clasificación de usuarios
+// Endpoint para visualizar la clasificación de usuarios: GET /users/leaderboard
 app.get('/leaderboard', (req, res) => {
     // Auntenticación
     if (!req.session.user) {
@@ -214,6 +221,18 @@ app.get('/leaderboard', (req, res) => {
     // res.render('leaderboard');
     res.render('/')
 })
+
+// Ruta para iniciar la autenticación con GitHub
+app.get('/auth/github', passport.authenticate('github'));
+// Callback de GitHub
+app.get('/auth/github/callback',
+    passport.authenticate('github', { failureRedirect: '/login' }),
+    (req, res) => {
+        // Si la autenticación es exitosa, establece la sesión y  redirige al sistema principal
+        req.session.user = res.req.user.username;
+        res.redirect('/system');
+    }
+);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
