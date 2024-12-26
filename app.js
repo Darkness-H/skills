@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var fs = require('fs');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -220,7 +221,88 @@ app.get('/leaderboard', (req, res) => {
     // Resultado: redirecciona a la vista leaderboard.ejs con la clasificación
     // res.render('leaderboard');
     res.render('/')
-})
+});
+
+// Endpoint para visualizar la clasificación de usuarios: GET /users/leaderboard
+app.get('/users/leaderboard', async (req, res) => {
+    // Autenticación
+    if (!req.session.user) {
+        return res.redirect('/');
+    }
+
+
+    try {
+        // Leer los datos del archivo badges.json
+        const badgesData = JSON.parse(fs.readFileSync(path.join(__dirname, 'public/js/scripts/badges.json')));
+
+
+        // Obtener todos los usuarios ordenados por bitpoints (de mayor a menor)
+        const users = await User.find().sort({ bitpoints: -1 });
+
+
+        // Crear un objeto para organizar los usuarios por medalla
+        const leaderboard = {
+            'Observador': [],
+            'Aspirante a Cadete': [],
+            'Cadete': [],
+            'Cadete nivel-1': [],
+            'Cadete nivel-2': [],
+            'Cadete nivel-3': [],
+            'Aspirante a Padawan': [],
+            'Aspirante a Padawan Nivel 1': [],
+            'Aspirante a Padawan Nivel 2': [],
+            'Aspirante a Padawan Nivel 3': [],
+            'Padawan': [],
+            'Padawan Nivel 1': [],
+            'Padawan Nivel 2': [],
+            'Padawan Nivel 3': [],
+            'Aspirante a Jedi': [],
+            'Aspirante a Jedi Nivel 1': [],
+            'Aspirante a Jedi Nivel 2': [],
+            'Aspirante a Jedi Nivel 3': [],
+            'Jedi': [],
+            'Jedi Nivel 1': [],
+            'Jedi Nivel 2': [],
+            'Jedi Nivel 3': [],
+            'Caballero Jedi': []
+        };
+        // Función para obtener el rango y la medalla basada en los bitpoints del usuario
+        function getBadgeForUser(bitpoints) {
+            for (let badge of badgesData) {
+                if (bitpoints >= badge.bitpoints_min && bitpoints <= badge.bitpoints_max) {
+                    return badge;
+                }
+            }
+            return null;
+        }
+
+
+
+
+        // Clasificar a los usuarios en su medalla de mayor rango
+        const usersArray = Array.from(users);  // Convierte a array si no es ya un array
+        usersArray.forEach((user) => {
+            const badge = getBadgeForUser(user.bitpoints);
+            if (badge) {
+                if (!leaderboard[badge.rango].find(u => u.username === user.username)) {
+                    leaderboard[badge.rango].push({
+                        username: user.username,
+                        score: user.bitpoints,
+                        badge: badge.png
+                    });
+                }
+            }
+        });
+
+
+        // Renderizar la vista 'leaderboard.ejs' pasando los datos
+        res.render('leaderboard', { leaderboard });
+    } catch (error) {
+        console.error('Error fetching leaderboard:', error);
+        res.status(500).send('Error fetching leaderboard');
+    }
+});
+
 
 // Ruta para iniciar la autenticación con GitHub
 app.get('/auth/github', passport.authenticate('github'));
