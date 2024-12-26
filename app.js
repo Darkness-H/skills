@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 // Routers
 const usersRouter = require('./routes/users.routes');
+const adminRouter = require('./routes/admin.routes');
 //var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 
@@ -63,6 +64,7 @@ app.use(passport.session());
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 
 /////////////////////
 /// Autenticación ///
