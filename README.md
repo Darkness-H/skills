@@ -136,10 +136,10 @@ Apart from the updates mentioned above, the authentication functionality has bee
 
 Implemented Authentication OAuth for Github. The following modifications have been made:
 - **config/passport-config.js**:
-      - Implemented the GitHub strategy for Passport.js to allow users to log in with their GitHub account.
-      - Added logic to handle existing users and new user creation, including assigning default usernames and credentials.
+     - Implemented the GitHub strategy for Passport.js to allow users to log in with their GitHub account.
+     - Added logic to handle existing users and new user creation, including assigning default usernames and credentials.
 - **public/icons/github-icon.svg**:
-      - Added a GitHub icon for the login button to enhance the UI.
+     - Added a GitHub icon for the login button to enhance the UI.
 - **app.js**:
      - Integrated Passport middleware (passport.initialize() and passport.session()).
      - Defined routes for GitHub authentication and callback handling.
