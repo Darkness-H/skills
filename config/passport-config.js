@@ -7,10 +7,8 @@ const User = require('../models/user.model');
 passport.use(
     new GitHubStrategy(
         {
-            //clientID: process.env.GITHUB_CLIENT_ID,
-            //clientSecret: process.env.GITHUB_CLIENT_SECRET,
-            clientID: "Ov23liBWspR63E1ARkfT",
-            clientSecret: "58e412953e24e111567fb58b7c92b435216a15ed",
+            clientID: process.env.GITHUB_CLIENT_ID,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET,
             callbackURL: '/auth/github/callback',
         },
         async (accessToken, refreshToken, profile, done) => {
