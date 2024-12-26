@@ -131,3 +131,15 @@ Apart from the updates mentioned above, the authentication functionality has bee
 - EJS Templates:
    - **`login.ejs`:** Provides the login form for the user to authenticate.
    - **`register.ejs`:** Provides the registration form for new users.
+
+ ### 12/26/2024
+
+Implemented Authentication OAuth for Github. The following modifications have been made:
+- **config/passport-config.js**:
+      - Implemented the GitHub strategy for Passport.js to allow users to log in with their GitHub account.
+      - Added logic to handle existing users and new user creation, including assigning default usernames and credentials.
+- **public/icons/github-icon.svg**:
+      - Added a GitHub icon for the login button to enhance the UI.
+- **app.js**:
+     - Integrated Passport middleware (passport.initialize() and passport.session()).
+     - Defined routes for GitHub authentication and callback handling.
