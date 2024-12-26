@@ -110,6 +110,24 @@ Created and implemented the following files:
    - Purpose: This script processes the data stored by the previous script. After the DOM elements are loaded, it calculates the values that should be displayed in the red and green circles.
  
 ### 11/16/2024
+
 The following modifications have been made:
 - **Navigation Bar:** Added to the top-right of all pages for easy section access.
 - Changes in the organization of the files.
+
+### 12/23/2024
+
+This repository has been updated to incorporate EJS templates for dynamic page rendering. Several key improvements and new folder structures have been implemented. Below are the main changes:
+- The **controllers** directory is used to organize and encapsulate the business logic of the application.
+   - **`user.controller.js`:** Currently, this file contains a single function, getUsers, which fetches all existing users from the database.
+- The **models:** directory contains the MongoDB schemas that define the structure of the data in the application.
+   - **`user.model.js`:** In this version, only the User schema has been implemented, which defines the structure for user data in the system.
+- The **routes** directory is responsible for organizing and defining the application's endpoints.
+   - **`user.routes.js`:** Currently, this file only defines the route for retrieving all users.
+- **views/partials:** This directory contains reusable EJS partial templates that can be included in various pages to maintain consistent UI components across the application.
+   - **`messages.ejs`:** This partial template is implemented in this version. It displays different messages, such as success or error messages, to the user across various pages in the application.
+
+Apart from the updates mentioned above, the authentication functionality has been successfully integrated into the application, allowing users to register, log in, and log out.
+- EJS Templates:
+   - **`login.ejs`:** Provides the login form for the user to authenticate.
+   - **`register.ejs`:** Provides the registration form for new users.
