@@ -1,0 +1,1093 @@
+[
+  {
+    "taskID": 1,
+    "text": ["Light up a", "LED for the first", "time"],
+    "icon": "icon1.svg",
+    "description": "The quintessential first step in electronics! Learn the basics of circuits and components by lighting up an LED.",
+    "tasks": [
+      "Gather necessary components (LED, resistor, battery, wires)",
+      "Learn about LED polarity and how to identify anode/cathode",
+      "Calculate appropriate resistor value for your LED and power source",
+      "Build a simple circuit on a breadboard to light the LED",
+      "Test the circuit and troubleshoot if needed",
+      "Experiment with different color LEDs and resistor values",
+      "Document your steps in a Google Drive doc and share its URL as evidence"
+    ],
+    "resources": [
+      "SparkFun's 'How to Use a Breadboard' tutorial: https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard",
+      "Adafruit's 'LED Circuit' guide: https://learn.adafruit.com/adafruit-arduino-lesson-2-leds/led-circuits",
+      "All About Circuits' 'Light-Emitting Diodes (LEDs)' lesson: https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/light-emitting-diodes-leds/",
+      "YouTube video: 'How To Light an LED - The Basics' by Paul McWhorter: https://www.youtube.com/watch?v=QzoPxvlM2qE"
+    ]
+  },
+  {
+    "taskID": 2,
+    "text": ["Learn to", "use wire strippers"],
+    "icon": "icon2.svg",
+    "description": "Learn the basics of safely and effectively using wire strippers to prepare wires for electronics projects.",
+    "tasks": [
+      "Understand the types of wire strippers and their uses",
+      "Learn to adjust the tool for different wire gauges",
+      "Practice stripping wires without damaging the conductors",
+      "Apply wire stripping to an actual circuit or project"
+    ],
+    "resources": [
+      "Guide: 'How to Use Wire Strippers' on https://www.instructables.com/How-to-Use-Wire-Strippers/",
+      "YouTube video: 'Wire Stripping Basics' on https://www.youtube.com/watch?v=3C35L0FC96s"
+    ]
+  },
+  {
+    "taskID": 3,
+    "text": ["Complete", "an electronics kit"],
+    "icon": "icon3.svg",
+    "description": "Build your confidence in electronics by completing a pre-packaged electronics kit.",
+    "tasks": [
+      "Choose an electronics kit suitable for your skill level",
+      "Gather necessary tools (soldering iron, screwdriver, etc.)",
+      "Follow the instructions to assemble the kit",
+      "Test the completed project to ensure it works correctly"
+    ],
+    "resources": [
+      "Guide: 'Best Electronics Kits for Beginners' on https://www.tomsguide.com/us/best-electronics-kits,review-2581.html",
+      "YouTube video: 'How to Assemble Electronics Kits' on https://www.youtube.com/watch?v=W2hY6XUN2JQ"
+    ]
+  },
+  {
+    "taskID": 4,
+    "text": ["Learn to Solder"],
+    "icon": "icon4.svg",
+    "description": "Master the fundamental skill of soldering to create strong, reliable connections in electronic circuits.",
+    "tasks": [
+      "Learn about safety precautions for soldering",
+      "Understand the types of solder and flux",
+      "Practice soldering on a practice board or simple circuit",
+      "Inspect solder joints for quality and rework if needed"
+    ],
+    "resources": [
+      "Guide: 'Soldering Basics' on https://learn.adafruit.com/adafruit-guide-excellent-soldering",
+      "YouTube video: 'Learn to Solder in 10 Minutes' on https://www.youtube.com/watch?v=QKbJxytERvg"
+    ]
+  },
+  {
+    "taskID": 5,
+    "text": ["Learn to use", "a breadboard"],
+    "icon": "icon5.svg",
+    "description": "Understand how to use a breadboard for building and testing electronic circuits without soldering.",
+    "tasks": [
+      "Identify the sections and layout of a breadboard",
+      "Learn to connect components using jumper wires",
+      "Practice building a simple circuit on the breadboard",
+      "Troubleshoot and modify the circuit as needed"
+    ],
+    "resources": [
+      "Tutorial: 'How to Use a Breadboard' on https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard",
+      "YouTube video: 'Breadboard Basics' on https://www.youtube.com/watch?v=6WReFkfrUIk"
+    ]
+  },
+  {
+    "taskID": 6,
+    "text": ["Get a circuit", "wrong and try", "again"],
+    "icon": "icon6.svg",
+    "description": "Embrace the learning process by intentionally making mistakes in a circuit and troubleshooting to find the solution.",
+    "tasks": [
+      "Build a circuit and introduce intentional errors",
+      "Learn to diagnose common issues (e.g., loose connections, incorrect polarity)",
+      "Fix the errors and verify the circuit works",
+      "Document the troubleshooting process for future reference"
+    ],
+    "resources": [
+      "Guide: 'Fixing Common Circuit Mistakes' on https://www.allaboutcircuits.com/technical-articles/common-electrical-circuit-problems-and-fixes/",
+      "YouTube video: 'How to Troubleshoot Circuits' on https://www.youtube.com/watch?v=j1yVyrIKLYw"
+    ]
+  },
+  {
+    "taskID": 7,
+    "text": ["Learn Ohm’s", "Law"],
+    "icon": "icon7.svg",
+    "description": "Learn the fundamental principle of Ohm’s Law to understand the relationship between voltage, current, and resistance in a circuit.",
+    "tasks": [
+      "Understand the formula V=IR and its components",
+      "Practice calculating voltage, current, or resistance",
+      "Apply Ohm’s Law to analyze a simple circuit",
+      "Build a circuit and verify calculations using measurements"
+    ],
+    "resources": [
+      "Lesson: 'Understanding Ohm’s Law' on https://www.electronics-tutorials.ws/dccircuits/dcp_2.html",
+      "YouTube video: 'Ohm’s Law Explained' on https://www.youtube.com/watch?v=9W3B5du88nI"
+    ]
+  },
+  {
+    "taskID": 8,
+    "text": ["Fix something", "that’s broken"],
+    "icon": "icon8.svg",
+    "description": "Apply your electronics skills to troubleshoot and repair a broken device or circuit.",
+    "tasks": [
+      "Identify a broken device or circuit to repair",
+      "Diagnose the problem and identify faulty components",
+      "Replace or repair the components as needed",
+      "Test the repaired device to ensure it works"
+    ],
+    "resources": [
+      "Repair Guide: 'How to Fix Electronics' on https://www.ifixit.com/",
+      "YouTube video: 'Electronics Repair Basics' on https://www.youtube.com/watch?v=RcOjo-KZxNk"
+    ]
+  },
+  {
+    "taskID": 9,
+    "text": ["Measure", "voltage with", "a multimeter"],
+    "icon": "icon9.svg",
+    "description": "Learn to use a multimeter to accurately measure voltage in electronic circuits.",
+    "tasks": [
+      "Understand the functions and settings of a multimeter",
+      "Learn to measure DC and AC voltage",
+      "Practice measuring voltage in a circuit",
+      "Interpret the readings and verify circuit behavior"
+    ],
+    "resources": [
+      "Guide: 'Using a Multimeter' on https://learn.sparkfun.com/tutorials/how-to-use-a-multimeter",
+      "YouTube video: 'Multimeter Basics' on https://www.youtube.com/watch?v=TdUK6RPdIrA"
+    ]
+  },
+  {
+    "taskID": 10,
+    "text": ["Learn to", "read a schematic"],
+    "icon": "icon10.svg",
+    "description": "Understand the symbols and conventions used in electronic schematics to design and interpret circuits.",
+    "tasks": [
+      "Learn the standard symbols for components (resistors, capacitors, etc.)",
+      "Practice reading simple schematics",
+      "Match schematic symbols to physical components",
+      "Build a circuit based on a provided schematic"
+    ],
+    "resources": [
+      "Tutorial: 'Reading Circuit Schematics' on https://learn.sparkfun.com/tutorials/how-to-read-a-schematic",
+      "YouTube video: 'Schematic Reading for Beginners' on https://www.youtube.com/watch?v=AkB_5veIf2E"
+    ]
+  },
+  {
+    "taskID": 11,
+    "text": ["Learn to read", "a datasheet"],
+    "icon": "icon11.svg",
+    "description": "Understand how to extract key specifications and usage details for electronic components from datasheets.",
+    "tasks": [
+      "Learn the structure and sections of a datasheet",
+      "Identify key parameters like voltage, current, and pin configurations",
+      "Practice using datasheet information to integrate a component into a circuit",
+      "Compare datasheets to choose suitable components for a project"
+    ],
+    "resources": [
+      "Guide: 'How to Read a Datasheet' on https://www.digikey.com/en/resources/design-tools/design-resources",
+      "YouTube video: 'Reading Component Datasheets' on https://www.youtube.com/watch?v=9QcLCziXaI4"
+    ]
+  },
+  {
+    "taskID": 12,
+    "text": ["Learn to", "control the", "brightness of", "an LED"],
+    "icon": "icon12.svg",
+    "description": "Learn techniques for adjusting the brightness of LEDs using resistors or PWM (Pulse Width Modulation).",
+    "tasks": [
+      "Understand how resistor values influence brightness",
+      "Learn to use a potentiometer to adjust brightness",
+      "Experiment with controlling brightness using PWM",
+      "Build a circuit to dynamically adjust LED brightness"
+    ],
+    "resources": [
+      "Tutorial: 'Controlling LED Brightness with PWM' on https://learn.adafruit.com/",
+      "YouTube video: 'LED Brightness Control Basics' on https://www.youtube.com/watch?v=ORwEd02mZYI"
+    ]
+  },
+  {
+    "taskID": 13,
+    "text": ["Learn to", "desolder a", "through hole", "component"],
+    "icon": "icon4.svg",
+    "description": "Master the skill of safely removing through-hole components from a circuit board.",
+    "tasks": [
+      "Learn about desoldering tools like solder suckers and wick",
+      "Practice desoldering on an old or unused circuit board",
+      "Understand how to avoid damaging components and boards",
+      "Successfully desolder and reuse a through-hole component"
+    ],
+    "resources": [
+      "Guide: 'How to Desolder Components' on https://learn.adafruit.com/",
+      "YouTube video: 'Desoldering Basics' on https://www.youtube.com/watch?v=66CzjxjIkQo"
+    ]
+  },
+  {
+    "taskID": 14,
+    "text": ["Make", "something that", "makes noise"],
+    "icon": "icon14.svg",
+    "description": "Use basic components to create a simple circuit that produces sound.",
+    "tasks": [
+      "Gather components like buzzers, speakers, or piezo elements",
+      "Learn how to generate sound using oscillators or microcontrollers",
+      "Build a noise-making circuit",
+      "Experiment with pitch and volume adjustments"
+    ],
+    "resources": [
+      "Project Guide: 'How to Build a Simple Buzzer Circuit' on https://www.electronicsclub.info/",
+      "YouTube video: 'Simple Sound Circuits' on https://www.youtube.com/watch?v=kHgh0Sh3h6g"
+    ]
+  },
+  {
+    "taskID": 15,
+    "text": ["Turn a", "breadboard", "circuit into a", "schematic"],
+    "icon": "icon10.svg",
+    "description": "Learn to document your breadboard circuit by translating it into a proper schematic diagram.",
+    "tasks": [
+      "Understand how to represent breadboard layouts schematically",
+      "Identify the components and connections in your circuit",
+      "Use software or draw a schematic on paper",
+      "Ensure the schematic accurately represents the breadboard circuit"
+    ],
+    "resources": [
+      "Guide: 'Creating Schematics from Breadboards' on https://learn.sparkfun.com/",
+      "YouTube video: 'Breadboard to Schematic' on https://www.youtube.com/watch?v=WBfdQvAlMe8"
+    ]
+  },
+  {
+    "taskID": 16,
+    "text": ["Measure", "current with a", "multimeter"],
+    "icon": "icon9.svg",
+    "description": "Learn how to safely and accurately measure current in a circuit using a multimeter.",
+    "tasks": [
+      "Understand the settings and probes for current measurement",
+      "Learn to connect the multimeter in series with the circuit",
+      "Practice measuring current in DC and AC circuits",
+      "Verify current measurements align with circuit calculations"
+    ],
+    "resources": [
+      "Tutorial: 'Measuring Current with a Multimeter' on https://learn.sparkfun.com/",
+      "YouTube video: 'Current Measurement Basics' on https://www.youtube.com/watch?v=bF3OyQ3HwfU"
+    ]
+  },
+  {
+    "taskID": 17,
+    "text": ["Make a voltage", "divider to lower", "the voltage", "for a project"],
+    "icon": "icon17.svg",
+    "description": "Learn to create a voltage divider to step down voltage levels for use in electronics projects.",
+    "tasks": [
+      "Understand the voltage divider formula and its applications",
+      "Choose appropriate resistors for your target voltage",
+      "Build a voltage divider circuit",
+      "Verify output voltage with a multimeter"
+    ],
+    "resources": [
+      "Guide: 'Voltage Divider Basics' on https://www.allaboutcircuits.com/",
+      "YouTube video: 'How to Make a Voltage Divider' on https://www.youtube.com/watch?v=rwBRhB4lOq4"
+    ]
+  },
+  {
+    "taskID": 18,
+    "text": ["Turn", "something", "on using", "a sensor"],
+    "icon": "icon18.svg",
+    "description": "Learn to use a sensor to control the activation of a device or circuit.",
+    "tasks": [
+      "Understand the types of sensors and their outputs",
+      "Interface a sensor with a microcontroller or circuit",
+      "Write code or design logic to turn a device on",
+      "Test and optimize the sensor-controlled circuit"
+    ],
+    "resources": [
+      "Guide: 'Introduction to Sensors in Electronics' on https://www.electronics-tutorials.ws/",
+      "YouTube video: 'Using Sensors to Control Circuits' on https://www.youtube.com/watch?v=DWDr8lWeA6c"
+    ]
+  },
+  {
+    "taskID": 19,
+    "text": ["Use a diode", "to protect your", "circuit from", "reverse voltages"],
+    "icon": "icon19.svg",
+    "description": "Learn how to use diodes to prevent damage to your circuit from reverse voltage.",
+    "tasks": [
+      "Understand the function of a diode in a circuit",
+      "Learn about reverse voltage protection techniques",
+      "Add a diode to protect a simple circuit",
+      "Test the circuit for normal operation and reverse voltage scenarios"
+    ],
+    "resources": [
+      "Tutorial: 'Diode Protection Basics' on https://learn.sparkfun.com/",
+      "YouTube video: 'Protecting Circuits with Diodes' on https://www.youtube.com/watch?v=0x8f4Liq4Pg"
+    ]
+  },
+  {
+    "taskID": 20,
+    "text": ["Make an", "oscillator that", "makes noise"],
+    "icon": "icon14.svg",
+    "description": "Learn to build an oscillator circuit that generates sound, such as a square wave tone.",
+    "tasks": [
+      "Understand the basics of oscillators and their components",
+      "Choose a method for generating oscillations (555 timer, transistor, etc.)",
+      "Build and test the oscillator circuit",
+      "Experiment with frequency and amplitude adjustments"
+    ],
+    "resources": [
+      "Guide: 'Simple Oscillator Circuits' on https://www.electronicsclub.info/",
+      "YouTube video: 'How to Build a Sound Oscillator' on https://www.youtube.com/watch?v=R_kB9GnSY3Y"
+    ]
+  },
+  {
+    "taskID": 21,
+    "text": ["Use a relay", "to switch", "something on at", "a higher voltage"],
+    "icon": "icon21.svg",
+    "description": "Learn to use relays to control devices operating at higher voltages than your control circuit.",
+    "tasks": [
+      "Understand how relays work and their applications",
+      "Learn to wire a relay into a circuit",
+      "Build a circuit to switch on a higher voltage device using a relay",
+      "Test and verify the relay's operation"
+    ],
+    "resources": [
+      "Guide: 'Relay Basics and Applications' on https://learn.sparkfun.com/",
+      "YouTube video: 'Using Relays in Electronics' on https://www.youtube.com/watch?v=NDpHVJjTPvY"
+    ]
+  },
+  {
+    "taskID": 22,
+    "text": ["Make a", "capacitor rocket", "(too much voltage)"],
+    "icon": "icon22.svg",
+    "description": "Experiment with capacitors to learn about their energy storage and potential hazards (safely).",
+    "tasks": [
+      "Learn about capacitor ratings and energy storage",
+      "Experiment with charging and discharging capacitors",
+      "Understand the risks of overvoltage and safety precautions",
+      "Observe the effects of pushing capacitor limits"
+    ],
+    "resources": [
+      "Guide: 'Capacitors in Electronics' on https://www.allaboutcircuits.com/",
+      "YouTube video: 'Capacitor Experiments' on https://www.youtube.com/watch?v=BCGLP2wGkwo"
+    ]
+  },
+  {
+    "taskID": 23,
+    "text": ["Learn to", "solder surface", "mount parts"],
+    "icon": "icon23.svg",
+    "description": "Master the art of soldering surface-mount components to a PCB.",
+    "tasks": [
+      "Learn the tools needed for surface-mount soldering",
+      "Practice soldering basic SMD components",
+      "Understand techniques like drag soldering and hot air rework",
+      "Complete a small SMD soldering project"
+    ],
+    "resources": [
+      "Guide: 'How to Solder Surface-Mount Parts' on https://learn.adafruit.com/",
+      "YouTube video: 'SMD Soldering Tips and Tricks' on https://www.youtube.com/watch?v=QPsYwGcNbsQ"
+    ]
+  },
+  {
+    "taskID": 24,
+    "text": ["Use a", "555 timer", "in a circuit"],
+    "icon": "icon24.svg",
+    "description": "Learn to use the versatile 555 timer IC to create time-based circuits.",
+    "tasks": [
+      "Understand the internal workings of the 555 timer",
+      "Learn the different modes (monostable, astable, and bistable)",
+      "Build a simple timer circuit using a 555 timer",
+      "Experiment with timing intervals by changing resistors and capacitors"
+    ],
+    "resources": [
+      "Guide: 'Using the 555 Timer' on https://www.electronics-tutorials.ws/",
+      "YouTube video: '555 Timer Projects' on https://www.youtube.com/watch?v=EaO6WjJwIOw"
+    ]
+  },
+  {
+    "taskID": 25,
+    "text": ["Make a sound", "louder with an", "amplifier"],
+    "icon": "icon14.svg",
+    "description": "Learn to build and use amplifiers to increase sound volume in circuits.",
+    "tasks": [
+      "Understand how amplifiers work and their components",
+      "Learn to design an audio amplifier circuit",
+      "Build an amplifier using an op-amp or transistor",
+      "Test the circuit with a speaker and adjust gain"
+    ],
+    "resources": [
+      "Guide: 'Building an Audio Amplifier' on https://www.circuitstoday.com/",
+      "YouTube video: 'How to Make an Amplifier Circuit' on https://www.youtube.com/watch?v=QsDjHzzNph4"
+    ]
+  },
+  {
+    "taskID": 26,
+    "text": ["Use", "addressable", "RGB LEDs in a", "project"],
+    "icon": "icon12.svg",
+    "description": "Learn to control addressable RGB LEDs like WS2812 to create colorful lighting effects.",
+    "tasks": [
+      "Understand how addressable LEDs work",
+      "Learn to program and control LEDs using a microcontroller",
+      "Experiment with colors and animations",
+      "Create a project with dynamic lighting effects"
+    ],
+    "resources": [
+      "Guide: 'Using Addressable RGB LEDs' on https://learn.adafruit.com/",
+      "YouTube video: 'WS2812 RGB LED Tutorial' on https://www.youtube.com/watch?v=fEOWuB8IUE4"
+    ]
+  },
+  {
+    "taskID": 27,
+    "text": ["Make a", "project", "with a", "Raspberry Pi"],
+    "icon": "icon27.svg",
+    "description": "Explore the Raspberry Pi platform by creating a fun or useful electronics project.",
+    "tasks": [
+      "Set up a Raspberry Pi with the necessary software",
+      "Choose a project idea and gather components",
+      "Write or download code to control the project",
+      "Test and refine the functionality of the project"
+    ],
+    "resources": [
+      "Guide: 'Getting Started with Raspberry Pi' on https://www.raspberrypi.org/",
+      "YouTube video: 'Raspberry Pi Beginner Projects' on https://www.youtube.com/watch?v=z5rVhN3F0K8"
+    ]
+  },
+  {
+    "taskID": 28,
+    "text": ["Let the", "smoke out", "accidentally"],
+    "icon": "icon28.svg",
+    "description": "Learn from mistakes by troubleshooting and understanding what went wrong in your circuit.",
+    "tasks": [
+      "Identify common reasons for component failure",
+      "Analyze what went wrong in your circuit",
+      "Learn how to prevent similar issues in the future",
+      "Document your findings for reference"
+    ],
+    "resources": [
+      "Guide: 'Troubleshooting Common Circuit Problems' on https://learn.sparkfun.com/",
+      "YouTube video: 'Electronics Troubleshooting Tips' on https://www.youtube.com/watch?v=8ZFsxdsRKxg"
+    ]
+  },
+  {
+    "taskID": 29,
+    "text": ["Use fritzing", "or TinkerCAD", "to create a", "circuit diagram"],
+    "icon": "icon29.svg",
+    "description": "Learn to use software tools to create and share circuit diagrams.",
+    "tasks": [
+      "Install and explore Fritzing or TinkerCAD",
+      "Learn to represent components and connections in software",
+      "Create a schematic for a breadboard circuit",
+      "Export and share your circuit diagram"
+    ],
+    "resources": [
+      "Guide: 'Getting Started with Fritzing' on https://fritzing.org/learning/",
+      "YouTube video: 'Circuit Design with TinkerCAD' on https://www.youtube.com/watch?v=shyfMCQ_Hf4"
+    ]
+  },
+  {
+    "taskID": 30,
+    "text": ["Make", "something", "with Arduino"],
+    "icon": "icon30.svg",
+    "description": "Use an Arduino board to build an interactive project.",
+    "tasks": [
+      "Set up an Arduino board with the IDE",
+      "Learn to program Arduino using basic sketches",
+      "Connect sensors or actuators to the board",
+      "Build and test a project with Arduino"
+    ],
+    "resources": [
+      "Guide: 'Getting Started with Arduino' on https://www.arduino.cc/",
+      "YouTube video: 'Arduino Beginner Projects' on https://www.youtube.com/watch?v=tbWU6A5EKi4"
+    ]
+  },
+  {
+    "taskID": 31,
+    "text": ["Let the smoke", "out of an Arduino", "accidentally"],
+    "icon": "icon31.svg",
+    "description": "Learn from mistakes by troubleshooting and understanding what went wrong with an Arduino circuit.",
+    "tasks": [
+      "Identify common causes of Arduino damage",
+      "Analyze what went wrong in your circuit or code",
+      "Learn how to prevent similar mistakes in the future",
+      "Document your findings to share with others"
+    ],
+    "resources": [
+      "Guide: 'Troubleshooting Arduino Circuits' on https://www.arduino.cc/",
+      "YouTube video: 'Arduino Common Mistakes and Fixes' on https://www.youtube.com/watch?v=9WxHkZ2Lh7U"
+    ]
+  },
+  {
+    "taskID": 32,
+    "text": ["Measure", "frequency with a", "multimeter"],
+    "icon": "icon9.svg",
+    "description": "Learn to measure the frequency of an AC signal or waveform using a multimeter.",
+    "tasks": [
+      "Understand how frequency is measured",
+      "Set up the multimeter to the frequency mode",
+      "Measure the frequency of an AC signal",
+      "Validate your readings against a known frequency source"
+    ],
+    "resources": [
+      "Guide: 'Using a Multimeter to Measure Frequency' on https://learn.sparkfun.com/",
+      "YouTube video: 'How to Measure Frequency with a Multimeter' on https://www.youtube.com/watch?v=Gk6YX43u_1M"
+    ]
+  },
+  {
+    "taskID": 33,
+    "text": ["Use an", "Op-Amp in", "a circuit"],
+    "icon": "icon33.svg",
+    "description": "Learn to use operational amplifiers (Op-Amps) in circuits for signal amplification and processing.",
+    "tasks": [
+      "Understand the basics of operational amplifiers",
+      "Learn about common configurations like inverting and non-inverting amplifiers",
+      "Build and test an Op-Amp circuit",
+      "Explore advanced applications like filters or oscillators"
+    ],
+    "resources": [
+      "Guide: 'Op-Amp Basics' on https://www.allaboutcircuits.com/",
+      "YouTube video: 'Op-Amps Explained' on https://www.youtube.com/watch?v=SHz4SArpHlY"
+    ]
+  },
+  {
+    "taskID": 34,
+    "text": ["Use a crowbar", "circuit to protect", "against over voltage"],
+    "icon": "icon17.svg",
+    "description": "Build a crowbar circuit to protect sensitive components from overvoltage conditions.",
+    "tasks": [
+      "Learn the purpose of a crowbar circuit",
+      "Understand how SCRs and zener diodes are used",
+      "Build and test a crowbar circuit",
+      "Analyze its behavior under overvoltage conditions"
+    ],
+    "resources": [
+      "Guide: 'Crowbar Circuits for Overvoltage Protection' on https://www.electronics-tutorials.ws/",
+      "YouTube video: 'Crowbar Circuit Design Tutorial' on https://www.youtube.com/watch?v=J6M4bCWwrOA"
+    ]
+  },
+  {
+    "taskID": 35,
+    "text": ["Use a surge", "diode to protect", "a circuit"],
+    "icon": "icon19.svg",
+    "description": "Protect circuits from voltage spikes using surge diodes.",
+    "tasks": [
+      "Learn the function and selection of surge diodes",
+      "Understand where to place surge diodes in a circuit",
+      "Install and test a surge diode in a circuit",
+      "Analyze its performance under transient voltage conditions"
+    ],
+    "resources": [
+      "Guide: 'Protecting Circuits with Surge Diodes' on https://www.allaboutcircuits.com/",
+      "YouTube video: 'How to Use TVS Diodes' on https://www.youtube.com/watch?v=czHcbIYVnQc"
+    ]
+  },
+  {
+    "taskID": 36,
+    "text": ["Make", "something", "for a friend"],
+    "icon": "icon36.svg",
+    "description": "Create a personalized electronics project as a gift or collaborative effort.",
+    "tasks": [
+      "Brainstorm project ideas based on your friend's interests",
+      "Design and plan the project",
+      "Build and test the project",
+      "Present it to your friend and explain how it works"
+    ],
+    "resources": [
+      "Guide: 'DIY Electronics Project Ideas' on https://makezine.com/",
+      "YouTube video: 'Cool Electronics Projects for Gifting' on https://www.youtube.com/watch?v=zVQwWb3iwYY"
+    ]
+  },
+  {
+    "taskID": 37,
+    "text": ["Make a motor", "controller with", "a H Bridge"],
+    "icon": "icon37.svg",
+    "description": "Control the direction and speed of a motor using an H-Bridge circuit.",
+    "tasks": [
+      "Learn the purpose and operation of an H-Bridge",
+      "Design an H-Bridge circuit using transistors or ICs",
+      "Connect the motor to the circuit and test bidirectional control",
+      "Experiment with PWM to adjust speed"
+    ],
+    "resources": [
+      "Guide: 'H-Bridge Motor Control' on https://learn.sparkfun.com/",
+      "YouTube video: 'How to Build an H-Bridge Motor Driver' on https://www.youtube.com/watch?v=yI5CoYi_bzk"
+    ]
+  },
+  {
+    "taskID": 38,
+    "text": ["Make a", "counter with", "logic gates"],
+    "icon": "icon38.svg",
+    "description": "Design and build a simple binary counter using logic gates.",
+    "tasks": [
+      "Understand how counters work and their logic",
+      "Design a counter circuit using flip-flops and gates",
+      "Assemble the circuit on a breadboard",
+      "Test the counter and troubleshoot if necessary"
+    ],
+    "resources": [
+      "Guide: 'Designing Digital Counters' on https://www.electronics-tutorials.ws/",
+      "YouTube video: 'Binary Counters Using Logic Gates' on https://www.youtube.com/watch?v=Fp-KSYXNxOY"
+    ]
+  },
+  {
+    "taskID": 39,
+    "text": ["Apply solder", "paste to a PCB", "with a stencil"],
+    "icon": "icon39.svg",
+    "description": "Learn to use stencils for precise application of solder paste on PCBs.",
+    "tasks": [
+      "Understand the purpose of solder paste and stencils",
+      "Practice aligning a stencil with a PCB",
+      "Apply solder paste evenly using the stencil",
+      "Inspect the application and clean up excess paste"
+    ],
+    "resources": [
+      "Guide: 'Solder Paste Application Basics' on https://www.solder.net/",
+      "YouTube video: 'PCB Solder Paste Stencil Tutorial' on https://www.youtube.com/watch?v=GpMtCGCNi1Q"
+    ]
+  },
+  {
+    "taskID": 40,
+    "text": ["Teach a", "friend an", "electronics skill"],
+    "icon": "icon40.svg",
+    "description": "Share your knowledge by teaching a friend a valuable electronics skill.",
+    "tasks": [
+      "Choose a skill your friend is interested in learning",
+      "Prepare materials and a simple demonstration",
+      "Guide them step-by-step through the process",
+      "Answer questions and ensure they understand the concepts"
+    ],
+    "resources": [
+      "Guide: 'How to Teach Electronics to Beginners' on https://learn.sparkfun.com/",
+      "YouTube video: 'Teaching Electronics to Friends' on https://www.youtube.com/watch?v=eJ6EHeYl0_A"
+    ]
+  },{
+  "taskID": 41,
+  "text": ["Make something", "with a 7", "segment display"],
+  "icon": "icon41.svg",
+  "description": "Learn to use a 7-segment display to show numbers or simple characters in your project.",
+  "tasks": [
+    "Understand how a 7-segment display works",
+    "Wire up the display to a microcontroller or IC",
+    "Write code to control each segment",
+    "Create a project that uses the display, like a timer or counter"
+  ],
+  "resources": [
+    "Guide: 'Using 7-Segment Displays' on https://learn.sparkfun.com/",
+    "YouTube video: 'Controlling 7-Segment Displays' on https://www.youtube.com/watch?v=zMRg02iGtNs"
+  ]
+},
+  {
+    "taskID": 42,
+    "text": ["Measure", "voltage with an", "oscilloscope"],
+    "icon": "icon42.svg",
+    "description": "Use an oscilloscope to measure and visualize voltage signals in a circuit.",
+    "tasks": [
+      "Understand the basics of oscilloscope operation",
+      "Learn to set up the probes and calibration",
+      "Measure voltage signals in your circuit",
+      "Interpret waveforms and analyze results"
+    ],
+    "resources": [
+      "Guide: 'Oscilloscope Basics' on https://www.tek.com/",
+      "YouTube video: 'How to Use an Oscilloscope for Beginners' on https://www.youtube.com/watch?v=5W9tpRCyqqk"
+    ]
+  },
+  {
+    "taskID": 43,
+    "text": ["Measure", "capacitor equivalent", "series resistance"],
+    "icon": "icon43.svg",
+    "description": "Learn to measure the equivalent series resistance (ESR) of capacitors to assess their quality.",
+    "tasks": [
+      "Understand the concept of ESR in capacitors",
+      "Use an ESR meter or multimeter with ESR mode",
+      "Measure and compare the ESR of different capacitors",
+      "Interpret results to identify faulty capacitors"
+    ],
+    "resources": [
+      "Guide: 'Measuring Capacitor ESR' on https://www.electronics-tutorials.ws/",
+      "YouTube video: 'Testing Capacitors and Measuring ESR' on https://www.youtube.com/watch?v=GCYYdXUlZWw"
+    ]
+  },
+  {
+    "taskID": 44,
+    "text": ["Make an", "Internet of Things", "(IoT) project"],
+    "icon": "icon44.svg",
+    "description": "Create an IoT project that connects devices to the internet for remote monitoring or control.",
+    "tasks": [
+      "Learn the basics of IoT and communication protocols",
+      "Choose a microcontroller with Wi-Fi or Bluetooth support",
+      "Develop code to send or receive data from the internet",
+      "Create a web or mobile interface for your project"
+    ],
+    "resources": [
+      "Guide: 'Getting Started with IoT Projects' on https://www.iotforall.com/",
+      "YouTube video: 'IoT Project Ideas for Beginners' on https://www.youtube.com/watch?v=6AEJmTnQpFw"
+    ]
+  },
+  {
+    "taskID": 45,
+    "text": ["Make", "something with", "solar panels"],
+    "icon": "icon45.svg",
+    "description": "Harness solar energy by integrating solar panels into your electronics project.",
+    "tasks": [
+      "Understand how solar panels work",
+      "Choose a suitable solar panel for your project",
+      "Design a circuit to utilize the solar energy",
+      "Build and test a solar-powered device"
+    ],
+    "resources": [
+      "Guide: 'Using Solar Panels in Electronics Projects' on https://www.makeuseof.com/",
+      "YouTube video: 'DIY Solar-Powered Projects' on https://www.youtube.com/watch?v=lHZbdu-BhWU"
+    ]
+  },
+  {
+    "taskID": 46,
+    "text": ["Look at an", "audio input", "on an oscilloscope"],
+    "icon": "icon46.svg",
+    "description": "Visualize and analyze audio waveforms using an oscilloscope.",
+    "tasks": [
+      "Learn how audio signals appear on an oscilloscope",
+      "Connect an audio source to the oscilloscope",
+      "Adjust the settings for clear waveform visualization",
+      "Analyze the frequency, amplitude, and waveform shape"
+    ],
+    "resources": [
+      "Guide: 'Analyzing Audio Signals with an Oscilloscope' on https://www.tek.com/",
+      "YouTube video: 'How to Use an Oscilloscope for Audio Signals' on https://www.youtube.com/watch?v=STBlBqVS9zA"
+    ]
+  },
+  {
+    "taskID": 47,
+    "text": ["Make a", "regulated", "power supply"],
+    "icon": "icon47.svg",
+    "description": "Design and build a power supply that provides a stable output voltage.",
+    "tasks": [
+      "Learn the basics of voltage regulation",
+      "Choose a voltage regulator IC or circuit design",
+      "Assemble the power supply on a breadboard or PCB",
+      "Test the power supply with various loads"
+    ],
+    "resources": [
+      "Guide: 'Building a Regulated Power Supply' on https://www.electronics-tutorials.ws/",
+      "YouTube video: 'DIY Regulated Power Supply Tutorial' on https://www.youtube.com/watch?v=9U9i6RXR6p8"
+    ]
+  },
+  {
+    "taskID": 48,
+    "text": ["Use a MOSFET", "instead of a relay", "in a project"],
+    "icon": "icon48.svg",
+    "description": "Learn to use a MOSFET for switching applications as a more efficient alternative to relays.",
+    "tasks": [
+      "Understand the difference between MOSFETs and relays",
+      "Choose a suitable MOSFET for your project",
+      "Replace a relay with a MOSFET in your circuit",
+      "Test the circuit and compare its performance"
+    ],
+    "resources": [
+      "Guide: 'Using MOSFETs in Switching Applications' on https://learn.sparkfun.com/",
+      "YouTube video: 'MOSFET Basics and Applications' on https://www.youtube.com/watch?v=DlfJpBtuvbM"
+    ]
+  },
+  {
+    "taskID": 49,
+    "text": ["Make your", "own", "USB cable"],
+    "icon": "icon49.svg",
+    "description": "Learn to build a custom USB cable tailored to your needs.",
+    "tasks": [
+      "Understand USB cable pinouts and standards",
+      "Gather materials like connectors, wires, and heat shrink tubing",
+      "Assemble and solder the USB cable",
+      "Test the cable for functionality"
+    ],
+    "resources": [
+      "Guide: 'DIY USB Cables' on https://www.instructables.com/",
+      "YouTube video: 'Making Custom USB Cables' on https://www.youtube.com/watch?v=xNsYp2r_rBw"
+    ]
+  },
+  {
+    "taskID": 50,
+    "text": ["Use an LED", "matrix in", "a project"],
+    "icon": "icon50.svg",
+    "description": "Learn to control an LED matrix to display patterns or text in your projects.",
+    "tasks": [
+      "Understand how an LED matrix works",
+      "Choose a driver IC or microcontroller to control the matrix",
+      "Write code to create patterns or text",
+      "Incorporate the LED matrix into a creative project"
+    ],
+    "resources": [
+      "Guide: 'Getting Started with LED Matrices' on https://learn.sparkfun.com/",
+      "YouTube video: 'LED Matrix Tutorial for Beginners' on https://www.youtube.com/watch?v=kPRv4Fb5ZpM"
+    ]
+  },
+  {
+    "taskID": 51,
+    "text": ["Filter", "unwanted noise", "from a signal"],
+    "icon": "icon46.svg",
+    "description": "Learn to design and apply filters to remove noise from electronic signals.",
+    "tasks": [
+      "Understand different types of filters (low-pass, high-pass, band-pass, etc.)",
+      "Choose a suitable filter design for your application",
+      "Build the filter circuit using passive or active components",
+      "Test the circuit and verify noise reduction"
+    ],
+    "resources": [
+      "Guide: 'Designing Electronic Filters' on https://www.allaboutcircuits.com/",
+      "YouTube video: 'Filter Design Basics' on https://www.youtube.com/watch?v=Ro4m3FPvhNo"
+    ]
+  },
+  {
+    "taskID": 52,
+    "text": ["Use a frequency", "analyser", "for a project"],
+    "icon": "icon9.svg",
+    "description": "Learn to use a frequency analyser to observe and measure signal frequencies in a project.",
+    "tasks": [
+      "Understand how a frequency analyser works",
+      "Connect the analyser to your circuit",
+      "Measure and interpret the frequency spectrum",
+      "Apply the results to improve your circuit design"
+    ],
+    "resources": [
+      "Guide: 'Using Frequency Analysers' on https://www.tek.com/",
+      "YouTube video: 'Frequency Analysis in Electronics' on https://www.youtube.com/watch?v=3bBPTrUPuik"
+    ]
+  },
+  {
+    "taskID": 53,
+    "text": ["Order a", "PCB with", "your design"],
+    "icon": "icon47.svg",
+    "description": "Learn to create and order a printed circuit board (PCB) for your electronic projects.",
+    "tasks": [
+      "Design a PCB layout using software",
+      "Export the design in Gerber format",
+      "Choose a PCB manufacturer and submit your files",
+      "Inspect and assemble the received PCB"
+    ],
+    "resources": [
+      "Guide: 'How to Order PCBs Online' on https://www.pcbway.com/",
+      "YouTube video: 'PCB Design and Ordering Guide' on https://www.youtube.com/watch?v=HQav07efQAA"
+    ]
+  },
+  {
+    "taskID": 54,
+    "text": ["Repair a", "broken trace", "on a PCB"],
+    "icon": "icon54.svg",
+    "description": "Learn to fix a damaged or broken trace on a printed circuit board (PCB).",
+    "tasks": [
+      "Identify the broken trace on the PCB",
+      "Clean the area around the damaged trace",
+      "Use a conductive pen, solder, or a wire bridge to repair the trace",
+      "Test the repaired PCB for continuity"
+    ],
+    "resources": [
+      "Guide: 'Repairing PCB Traces' on https://www.ifixit.com/",
+      "YouTube video: 'Fixing Broken PCB Traces' on https://www.youtube.com/watch?v=NRpCOk2ImTc"
+    ]
+  },
+  {
+    "taskID": 55,
+    "text": ["Use", "automatic", "gain control"],
+    "icon": "icon10.svg",
+    "description": "Learn to implement automatic gain control (AGC) in your audio or signal processing circuits.",
+    "tasks": [
+      "Understand the concept of automatic gain control",
+      "Design or integrate an AGC circuit using Op-Amps or ICs",
+      "Test the AGC circuit with varying input signal amplitudes",
+      "Optimize the circuit for your specific application"
+    ],
+    "resources": [
+      "Guide: 'Automatic Gain Control Basics' on https://www.analog.com/",
+      "YouTube video: 'Understanding AGC Circuits' on https://www.youtube.com/watch?v=xIvU2gDW7TI"
+    ]
+  },
+  {
+    "taskID": 56,
+    "text": ["Make a", "PID circuit", "with Op-Amps"],
+    "icon": "icon33.svg",
+    "description": "Design and build a PID (Proportional-Integral-Derivative) control circuit using operational amplifiers.",
+    "tasks": [
+      "Understand the basics of PID control",
+      "Design the proportional, integral, and derivative stages with Op-Amps",
+      "Assemble the circuit on a breadboard or PCB",
+      "Test and tune the PID circuit for stability and performance"
+    ],
+    "resources": [
+      "Guide: 'Designing PID Controllers' on https://www.electronics-tutorials.ws/",
+      "YouTube video: 'PID Control Circuit Tutorial' on https://www.youtube.com/watch?v=oBdx1IgbS1A"
+    ]
+  },
+  {
+    "taskID": 57,
+    "text": ["Teach a", "class on", "Electronics"],
+    "icon": "icon40.svg",
+    "description": "Share your knowledge and skills by teaching a class on basic or advanced electronics topics.",
+    "tasks": [
+      "Plan a lesson or course on an electronics topic",
+      "Prepare teaching materials like slides or handouts",
+      "Conduct the class with practical demonstrations",
+      "Gather feedback to improve your teaching skills"
+    ],
+    "resources": [
+      "Guide: 'Teaching Electronics Basics' on https://www.teachengineering.org/",
+      "YouTube video: 'How to Teach Electronics to Beginners' on https://www.youtube.com/watch?v=WfhTc6CywXc"
+    ]
+  },
+  {
+    "taskID": 58,
+    "text": ["Learn", "PCB Design", "Software"],
+    "icon": "icon47.svg",
+    "description": "Learn to use PCB design software to create layouts for electronic projects.",
+    "tasks": [
+      "Choose a PCB design software (e.g., Eagle, KiCAD, Altium)",
+      "Learn to create schematic diagrams and layouts",
+      "Design and simulate your circuit",
+      "Export Gerber files for manufacturing"
+    ],
+    "resources": [
+      "Guide: 'Getting Started with PCB Design Software' on https://www.pcbway.com/",
+      "YouTube video: 'KiCAD Tutorial for Beginners' on https://www.youtube.com/watch?v=VA52y8SD4y4"
+    ]
+  },
+  {
+    "taskID": 59,
+    "text": ["Use an", "e-paper display", "in a project"],
+    "icon": "icon59.svg",
+    "description": "Incorporate an e-paper display in your project for low-power, high-contrast screen applications.",
+    "tasks": [
+      "Learn how e-paper displays work",
+      "Choose a suitable e-paper module for your project",
+      "Write code to display text or images",
+      "Test the e-paper display with your circuit"
+    ],
+    "resources": [
+      "Guide: 'Using E-Paper Displays' on https://learn.adafruit.com/",
+      "YouTube video: 'E-Paper Display Tutorial' on https://www.youtube.com/watch?v=r9pqRZ5uk4k"
+    ]
+  },
+  {
+    "taskID": 60,
+    "text": ["Build a", "Radio Frequency", "(RF) Project"],
+    "icon": "icon60.svg",
+    "description": "Design and build a project that uses radio frequency (RF) communication or components.",
+    "tasks": [
+      "Learn the basics of RF communication",
+      "Choose RF modules or design an RF circuit",
+      "Integrate the RF system into your project",
+      "Test and troubleshoot RF performance"
+    ],
+    "resources": [
+      "Guide: 'RF Basics and Projects' on https://www.rfwireless-world.com/",
+      "YouTube video: 'Simple RF Projects for Beginners' on https://www.youtube.com/watch?v=MI5V4uFAgd8"
+    ]
+  }, {
+  "taskID": 61,
+  "text": ["Make an", "open source", "project"],
+  "icon": "icon61.svg",
+  "description": "Design and share an open-source electronics project to contribute to the maker community.",
+  "tasks": [
+    "Develop a unique electronics project",
+    "Document the project with clear instructions and schematics",
+    "Share the design files and code on platforms like GitHub",
+    "Engage with the community for feedback and improvements"
+  ],
+  "resources": [
+    "Guide: 'How to Create Open Source Hardware Projects' on https://www.oshwa.org/",
+    "YouTube video: 'Open Source Electronics Projects' on https://www.youtube.com/watch?v=lLxeGcy-mws"
+  ]
+},
+  {
+    "taskID": 62,
+    "text": ["Use capacitive", "touch in a PCB", "design"],
+    "icon": "icon62.svg",
+    "description": "Incorporate capacitive touch functionality in your PCB designs for modern, touch-sensitive interfaces.",
+    "tasks": [
+      "Learn the basics of capacitive touch technology",
+      "Design a PCB with capacitive touch sensors",
+      "Integrate touch sensing ICs or microcontroller libraries",
+      "Test the touch interface for responsiveness and reliability"
+    ],
+    "resources": [
+      "Guide: 'Adding Capacitive Touch to PCBs' on https://www.microchip.com/",
+      "YouTube video: 'Capacitive Touch Design Basics' on https://www.youtube.com/watch?v=bZtIF-Zm4qU"
+    ]
+  },
+  {
+    "taskID": 63,
+    "text": ["Make", "something", "with PCB Art"],
+    "icon": "icon63.svg",
+    "description": "Create a project that features artistic or decorative designs on the PCB itself.",
+    "tasks": [
+      "Explore creative PCB art designs and techniques",
+      "Use PCB design software to add artistic elements",
+      "Order the PCB with a manufacturer that supports custom art",
+      "Assemble and showcase your artistic electronics project"
+    ],
+    "resources": [
+      "Guide: 'PCB Art Techniques' on https://www.hackaday.com/",
+      "YouTube video: 'Beautiful PCB Art Projects' on https://www.youtube.com/watch?v=zpR-ZNYPhbc"
+    ]
+  },
+  {
+    "taskID": 64,
+    "text": ["Make an", "electronic", "sculpture"],
+    "icon": "icon64.svg",
+    "description": "Combine art and electronics to create a unique electronic sculpture.",
+    "tasks": [
+      "Plan a design that integrates electronics into a sculpture",
+      "Use LEDs, motors, or sensors for interactive elements",
+      "Build and assemble the sculpture",
+      "Document your creation for others to admire and learn from"
+    ],
+    "resources": [
+      "Guide: 'Electronics in Art' on https://www.instructables.com/",
+      "YouTube video: 'Electronic Sculpture Ideas' on https://www.youtube.com/watch?v=2-3UsZ8Jc8k"
+    ]
+  },
+  {
+    "taskID": 65,
+    "text": ["Make a switch", "mode power", "supply"],
+    "icon": "icon21.svg",
+    "description": "Design and build a highly efficient switch mode power supply for your projects.",
+    "tasks": [
+      "Learn the principles of switch mode power supplies (SMPS)",
+      "Choose a suitable topology (e.g., buck, boost, buck-boost)",
+      "Design and assemble the circuit with appropriate components",
+      "Test and verify the output voltage and efficiency"
+    ],
+    "resources": [
+      "Guide: 'Switch Mode Power Supply Basics' on https://www.ti.com/",
+      "YouTube video: 'Designing SMPS Circuits' on https://www.youtube.com/watch?v=F7t-bRaUJ6I"
+    ]
+  },
+  {
+    "taskID": 66,
+    "text": ["Release a", "tutorial on a", "project you've made"],
+    "icon": "icon66.svg",
+    "description": "Create a comprehensive tutorial to share your project and inspire others.",
+    "tasks": [
+      "Document the project with clear steps, photos, and videos",
+      "Publish the tutorial on platforms like YouTube, Instructables, or your blog",
+      "Engage with your audience by answering questions and comments",
+      "Promote the tutorial on social media or maker forums"
+    ],
+    "resources": [
+      "Guide: 'How to Create Maker Tutorials' on https://www.instructables.com/",
+      "YouTube video: 'Creating Effective Project Tutorials' on https://www.youtube.com/watch?v=4QoL7s2ARDo"
+    ]
+  },
+  {
+    "taskID": 67,
+    "text": ["Create an", "FPGA Project"],
+    "icon": "icon67.svg",
+    "description": "Dive into digital logic design by creating a project using an FPGA (Field Programmable Gate Array).",
+    "tasks": [
+      "Learn the basics of FPGA architecture and tools",
+      "Write and simulate your design using VHDL or Verilog",
+      "Program the FPGA with your design",
+      "Test and debug your project"
+    ],
+    "resources": [
+      "Guide: 'Getting Started with FPGAs' on https://www.intel.com/",
+      "YouTube video: 'Beginner FPGA Project Tutorial' on https://www.youtube.com/watch?v=E-j5o44KfTg"
+    ]
+  },
+  {
+    "taskID": 68,
+    "text": ["Write your", "own C/C++ library", "for a sensor from scratch"],
+    "icon": "icon68.svg",
+    "description": "Develop a custom C/C++ library to interface with a sensor for embedded systems.",
+    "tasks": [
+      "Understand the sensor's datasheet and communication protocol",
+      "Write the code to initialize and read data from the sensor",
+      "Optimize the library for efficient use of resources",
+      "Test and document the library for others to use"
+    ],
+    "resources": [
+      "Guide: 'Writing Arduino Libraries' on https://www.arduino.cc/",
+      "YouTube video: 'Creating Sensor Libraries in C++' on https://www.youtube.com/watch?v=wvWoM1K2f2U"
+    ]
+  }
+]
