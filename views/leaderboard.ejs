@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
     <link rel="stylesheet" href="/css/leaderboard.css">
+    <script src="/js/leaderboard.js"></script>
 </head>
 <body>
 <div class="container">
@@ -42,35 +43,25 @@
         </div>
     <% }); %>
 
-
     <!-- Descripción de las medallas -->
     <div class="medal-description">
-        <h3>Descripción de las Medallas</h3>
-        <ul>
-            <li><strong>Observador:</strong> Medalla para usuarios con menos de 10 puntos.</li>
-            <li><strong>Aspirante a Cadete:</strong> Medalla para usuarios con entre 10 y 19 puntos.</li>
-            <li><strong>Cadete:</strong> Medalla para usuarios con entre 20 y 29 puntos.</li>
-            <li><strong>Cadete nivel-1:</strong> Medalla para usuarios con entre 30 y 39 puntos.</li>
-            <li><strong>Cadete nivel-2:</strong> Medalla para usuarios con entre 40 y 49 puntos.</li>
-            <li><strong>Cadete nivel-3:</strong> Medalla para usuarios con entre 50 y 59 puntos.</li>
-            <li><strong>Aspirante a Padawan:</strong> Medalla para usuarios con entre 60 y 69 puntos.</li>
-            <li><strong>Aspirante a Padawan Nivel 1:</strong> Medalla para usuarios con entre 70 y 79 puntos.</li>
-            <li><strong>Aspirante a Padawan Nivel 2:</strong> Medalla para usuarios con entre 80 y 89 puntos.</li>
-            <li><strong>Aspirante a Padawan Nivel 3:</strong> Medalla para usuarios con entre 90 y 99 puntos.</li>
-            <li><strong>Padawan:</strong> Medalla para usuarios con entre 100 y 109 puntos.</li>
-            <li><strong>Padawan Nivel 1:</strong> Medalla para usuarios con entre 110 y 119 puntos.</li>
-            <li><strong>Padawan Nivel 2:</strong> Medalla para usuarios con entre 120 y 129 puntos.</li>
-            <li><strong>Padawan Nivel 3:</strong> Medalla para usuarios con entre 130 y 139 puntos.</li>
-            <li><strong>Aspirante a Jedi:</strong> Medalla para usuarios con entre 140 y 149 puntos.</li>
-            <li><strong>Aspirante a Jedi Nivel 1:</strong> Medalla para usuarios con entre 150 y 159 puntos.</li>
-            <li><strong>Aspirante a Jedi Nivel 2:</strong> Medalla para usuarios con entre 160 y 169 puntos.</li>
-            <li><strong>Aspirante a Jedi Nivel 3:</strong> Medalla para usuarios con entre 170 y 179 puntos.</li>
-            <li><strong>Jedi:</strong> Medalla para usuarios con entre 180 y 189 puntos.</li>
-            <li><strong>Jedi Nivel 1:</strong> Medalla para usuarios con entre 190 y 199 puntos.</li>
-            <li><strong>Jedi Nivel 2:</strong> Medalla para usuarios con entre 200 y 209 puntos.</li>
-            <li><strong>Jedi Nivel 3:</strong> Medalla para usuarios con entre 210 y 219 puntos.</li>
-            <li><strong>Caballero Jedi:</strong> Medalla para usuarios con entre 220 y 229 puntos.</li>
-        </ul>
+        <div class="user-bar">
+            Hello admin! | <a href="/">Electronics Skill Tree</a>
+        </div>
+        <h1>Range Explanations</h1>
+        <table id="range">
+            <thead>
+            <tr>
+                <th>Range</th>
+                <th>Badge</th>
+                <th>Required Bitpoints</th>
+            </tr>
+            </thead>
+            <tbody id="rangeBody">
+            <!-- Las filas se añadirán aquí -->
+            </tbody>
+        </table>
     </div>
 </div>
-
+</body>
+</html>
