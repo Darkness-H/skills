@@ -32,7 +32,41 @@ function createTable() {
     unSubTitle.insertAdjacentElement("afterend", table);
 }
 
-// Function to save evidence for a specific skill in localStorage
+// Function to create "Approve" and "Reject" buttons for a given evidence
+function createApproveRejectButtons(actionCell, currentSkill, row) {
+    const approveButton = document.createElement("button");
+    const rejectButton = document.createElement("button");
+
+    // "Approve" button
+    approveButton.textContent = "Approve";
+    approveButton.classList.add("verify-button");
+    approveButton.addEventListener("click", () => {
+        actionCell.innerHTML = ''; // Clear the action cell
+        const approvedMessage = document.createElement("span");
+        approvedMessage.innerHTML = "<strong style='color: #28a745;'>Approved</strong>";
+        actionCell.appendChild(approvedMessage);
+        saveEvidenceToLocalStorage(currentSkill, row, "Approved"); // Update status in localStorage
+        approveOrRejectEvidence(row.getAttribute("data-id"), "Approved"); // Update circles and statuses
+    });
+
+    // "Reject" button
+    rejectButton.textContent = "Reject";
+    rejectButton.classList.add("reject-button");
+    rejectButton.addEventListener("click", () => {
+        actionCell.innerHTML = ''; // Clear the action cell
+        const rejectedMessage = document.createElement("span");
+        rejectedMessage.innerHTML = "<strong style='color: #dc3545;'>Rejected</strong>";
+        actionCell.appendChild(rejectedMessage);
+        saveEvidenceToLocalStorage(currentSkill, row, "Rejected"); // Update status in localStorage
+        approveOrRejectEvidence(row.getAttribute("data-id"), "Rejected"); // Update circles and statuses
+    });
+
+    // Append buttons to action cell
+    actionCell.appendChild(approveButton);
+    actionCell.appendChild(rejectButton);
+}
+
+// Function to update the state of evidence in localStorage
 function saveEvidenceToLocalStorage(currentSkill, row, status) {
     const evidenceData = {
         id: row.getAttribute("data-id"),
@@ -53,52 +87,6 @@ function saveEvidenceToLocalStorage(currentSkill, row, status) {
     localStorage.setItem(currentSkill, JSON.stringify(storedEvidence));
 }
 
-// Function to create "Approve" and "Reject" buttons for a given evidence
-function createApproveRejectButtons(actionCell, currentSkill, row) {
-    const approveButton = document.createElement("button");
-    const rejectButton = document.createElement("button");
-
-    // "Approve" button
-    approveButton.textContent = "Approve";
-    approveButton.classList.add("verify-button");
-    approveButton.addEventListener("click", () => {
-        actionCell.innerHTML = '';
-        const approvedMessage = document.createElement("span");
-        approvedMessage.innerHTML = "<strong style='color: #28a745;'>Approved</strong>";
-        actionCell.appendChild(approvedMessage);
-        saveEvidenceToLocalStorage(currentSkill, row, "Approved");
-    });
-
-    // Change the button color on hover
-    approveButton.addEventListener("mouseover", () => {
-        approveButton.style.backgroundColor = "#218838"; // Darker green on hover
-    });
-    approveButton.addEventListener("mouseout", () => {
-        approveButton.style.backgroundColor = "#28a745"; // Original green color
-    });
-
-    // "Reject" button
-    rejectButton.textContent = "Reject";
-    rejectButton.classList.add("reject-button");
-    rejectButton.addEventListener("click", () => {
-        actionCell.innerHTML = '';
-        const rejectedMessage = document.createElement("span");
-        rejectedMessage.innerHTML = "<strong style='color: #dc3545;'>Rejected</strong>";
-        actionCell.appendChild(rejectedMessage);
-        saveEvidenceToLocalStorage(currentSkill, row, "Rejected");
-    });
-
-    // Change the button color on hover
-    rejectButton.addEventListener("mouseover", () => {
-        rejectButton.style.backgroundColor = "#c0392b"; // Darker red on hover
-    });
-    rejectButton.addEventListener("mouseout", () => {
-        rejectButton.style.backgroundColor = "#dc3545"; // Original green color
-    });
-
-    actionCell.appendChild(approveButton);
-    actionCell.appendChild(rejectButton);
-}
 
 // Function to load evidence for the specific skill from localStorage
 function loadEvidenceFromLocalStorage(currentSkill) {

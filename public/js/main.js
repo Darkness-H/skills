@@ -23,6 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 hexagon.classList.add('hexagon');
                 svg.appendChild(hexagon);
 
+                // Agregar círculos rojos y verdes
+                const statusCircle = document.createElement('div');
+                statusCircle.classList.add('status-circle');
+                statusCircle.classList.add(skill.status === 'completed' ? 'completed' : 'pending');
+                wrapper.appendChild(statusCircle);
+
                 // Añadir eventos de mouseover y mouseout
                 wrapper.addEventListener('mouseover', () => {
                     svg.style.transform = 'scale(1.2)';
@@ -117,10 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Agregar evento de clic al icono del cuaderno
                 notebookIcon.addEventListener('click', () => {
-                    // TO-DO Parte 2: Guardar el skill seleccionado en localStorage
-                    //
+                    // Guardamos el skill seleccionado en localStorage
+                    localStorage.setItem('selectedSkill', JSON.stringify(skill));
                     window.location.href = '../html/skillNotebook.html';
                 });
+
 
                 wrapper.appendChild(svg);
                 container.appendChild(wrapper);
