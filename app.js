@@ -266,6 +266,7 @@ app.get('/users/leaderboard', async (req, res) => {
             'Jedi Nivel 3': [],
             'Caballero Jedi': []
         };
+
         // Función para obtener el rango y la medalla basada en los bitpoints del usuario
         function getBadgeForUser(bitpoints) {
             for (let badge of badgesData) {
