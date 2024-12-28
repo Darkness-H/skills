@@ -2,8 +2,9 @@
   {
     "taskID": 1,
     "text": ["Light up a", "LED for the first", "time"],
-    "icon": "icon1.svg",
+    "icon": "/electronics/icons/icon1.svg",
     "description": "The quintessential first step in electronics! Learn the basics of circuits and components by lighting up an LED.",
+    "set": "electronics",
     "tasks": [
       "Gather necessary components (LED, resistor, battery, wires)",
       "Learn about LED polarity and how to identify anode/cathode",
@@ -23,8 +24,9 @@
   {
     "taskID": 2,
     "text": ["Learn to", "use wire strippers"],
-    "icon": "icon2.svg",
+    "icon": "/electronics/icons/icon2.svg",
     "description": "Learn the basics of safely and effectively using wire strippers to prepare wires for electronics projects.",
+    "set": "electronics",
     "tasks": [
       "Understand the types of wire strippers and their uses",
       "Learn to adjust the tool for different wire gauges",
@@ -39,8 +41,9 @@
   {
     "taskID": 3,
     "text": ["Complete", "an electronics kit"],
-    "icon": "icon3.svg",
+    "icon": "/electronics/icons/icon3.svg",
     "description": "Build your confidence in electronics by completing a pre-packaged electronics kit.",
+    "set": "electronics",
     "tasks": [
       "Choose an electronics kit suitable for your skill level",
       "Gather necessary tools (soldering iron, screwdriver, etc.)",
@@ -55,8 +58,9 @@
   {
     "taskID": 4,
     "text": ["Learn to Solder"],
-    "icon": "icon4.svg",
+    "icon": "/electronics/icons/icon4.svg",
     "description": "Master the fundamental skill of soldering to create strong, reliable connections in electronic circuits.",
+    "set": "electronics",
     "tasks": [
       "Learn about safety precautions for soldering",
       "Understand the types of solder and flux",
@@ -71,8 +75,9 @@
   {
     "taskID": 5,
     "text": ["Learn to use", "a breadboard"],
-    "icon": "icon5.svg",
+    "icon": "/electronics/icons/icon5.svg",
     "description": "Understand how to use a breadboard for building and testing electronic circuits without soldering.",
+    "set": "electronics",
     "tasks": [
       "Identify the sections and layout of a breadboard",
       "Learn to connect components using jumper wires",
@@ -87,8 +92,9 @@
   {
     "taskID": 6,
     "text": ["Get a circuit", "wrong and try", "again"],
-    "icon": "icon6.svg",
+    "icon": "/electronics/icons/icon6.svg",
     "description": "Embrace the learning process by intentionally making mistakes in a circuit and troubleshooting to find the solution.",
+    "set": "electronics",
     "tasks": [
       "Build a circuit and introduce intentional errors",
       "Learn to diagnose common issues (e.g., loose connections, incorrect polarity)",
@@ -103,8 +109,9 @@
   {
     "taskID": 7,
     "text": ["Learn Ohm’s", "Law"],
-    "icon": "icon7.svg",
+    "icon": "/electronics/icons/icon7.svg",
     "description": "Learn the fundamental principle of Ohm’s Law to understand the relationship between voltage, current, and resistance in a circuit.",
+    "set": "electronics",
     "tasks": [
       "Understand the formula V=IR and its components",
       "Practice calculating voltage, current, or resistance",
@@ -119,8 +126,9 @@
   {
     "taskID": 8,
     "text": ["Fix something", "that’s broken"],
-    "icon": "icon8.svg",
+    "icon": "/electronics/icons/icon8.svg",
     "description": "Apply your electronics skills to troubleshoot and repair a broken device or circuit.",
+    "set": "electronics",
     "tasks": [
       "Identify a broken device or circuit to repair",
       "Diagnose the problem and identify faulty components",
@@ -135,8 +143,9 @@
   {
     "taskID": 9,
     "text": ["Measure", "voltage with", "a multimeter"],
-    "icon": "icon9.svg",
+    "icon": "/electronics/icons/icon9.svg",
     "description": "Learn to use a multimeter to accurately measure voltage in electronic circuits.",
+    "set": "electronics",
     "tasks": [
       "Understand the functions and settings of a multimeter",
       "Learn to measure DC and AC voltage",
@@ -151,8 +160,9 @@
   {
     "taskID": 10,
     "text": ["Learn to", "read a schematic"],
-    "icon": "icon10.svg",
+    "icon": "/electronics/icons/icon10.svg",
     "description": "Understand the symbols and conventions used in electronic schematics to design and interpret circuits.",
+    "set": "electronics",
     "tasks": [
       "Learn the standard symbols for components (resistors, capacitors, etc.)",
       "Practice reading simple schematics",
@@ -167,8 +177,9 @@
   {
     "taskID": 11,
     "text": ["Learn to read", "a datasheet"],
-    "icon": "icon11.svg",
+    "icon": "/electronics/icons/icon11.svg",
     "description": "Understand how to extract key specifications and usage details for electronic components from datasheets.",
+    "set": "electronics",
     "tasks": [
       "Learn the structure and sections of a datasheet",
       "Identify key parameters like voltage, current, and pin configurations",
@@ -183,8 +194,9 @@
   {
     "taskID": 12,
     "text": ["Learn to", "control the", "brightness of", "an LED"],
-    "icon": "icon12.svg",
+    "icon": "/electronics/icons/icon12.svg",
     "description": "Learn techniques for adjusting the brightness of LEDs using resistors or PWM (Pulse Width Modulation).",
+    "set": "electronics",
     "tasks": [
       "Understand how resistor values influence brightness",
       "Learn to use a potentiometer to adjust brightness",
@@ -199,8 +211,9 @@
   {
     "taskID": 13,
     "text": ["Learn to", "desolder a", "through hole", "component"],
-    "icon": "icon4.svg",
+    "icon": "/electronics/icons/icon4.svg",
     "description": "Master the skill of safely removing through-hole components from a circuit board.",
+    "set": "electronics",
     "tasks": [
       "Learn about desoldering tools like solder suckers and wick",
       "Practice desoldering on an old or unused circuit board",
@@ -215,8 +228,9 @@
   {
     "taskID": 14,
     "text": ["Make", "something that", "makes noise"],
-    "icon": "icon14.svg",
+    "icon": "/electronics/icons/icon14.svg",
     "description": "Use basic components to create a simple circuit that produces sound.",
+    "set": "electronics",
     "tasks": [
       "Gather components like buzzers, speakers, or piezo elements",
       "Learn how to generate sound using oscillators or microcontrollers",
@@ -231,8 +245,9 @@
   {
     "taskID": 15,
     "text": ["Turn a", "breadboard", "circuit into a", "schematic"],
-    "icon": "icon10.svg",
+    "icon": "/electronics/icons/icon10.svg",
     "description": "Learn to document your breadboard circuit by translating it into a proper schematic diagram.",
+    "set": "electronics",
     "tasks": [
       "Understand how to represent breadboard layouts schematically",
       "Identify the components and connections in your circuit",
@@ -247,8 +262,9 @@
   {
     "taskID": 16,
     "text": ["Measure", "current with a", "multimeter"],
-    "icon": "icon9.svg",
+    "icon": "/electronics/icons/icon9.svg",
     "description": "Learn how to safely and accurately measure current in a circuit using a multimeter.",
+    "set": "electronics",
     "tasks": [
       "Understand the settings and probes for current measurement",
       "Learn to connect the multimeter in series with the circuit",
@@ -263,8 +279,9 @@
   {
     "taskID": 17,
     "text": ["Make a voltage", "divider to lower", "the voltage", "for a project"],
-    "icon": "icon17.svg",
+    "icon": "/electronics/icons/icon17.svg",
     "description": "Learn to create a voltage divider to step down voltage levels for use in electronics projects.",
+    "set": "electronics",
     "tasks": [
       "Understand the voltage divider formula and its applications",
       "Choose appropriate resistors for your target voltage",
@@ -279,8 +296,9 @@
   {
     "taskID": 18,
     "text": ["Turn", "something", "on using", "a sensor"],
-    "icon": "icon18.svg",
+    "icon": "/electronics/icons/icon18.svg",
     "description": "Learn to use a sensor to control the activation of a device or circuit.",
+    "set": "electronics",
     "tasks": [
       "Understand the types of sensors and their outputs",
       "Interface a sensor with a microcontroller or circuit",
@@ -295,8 +313,9 @@
   {
     "taskID": 19,
     "text": ["Use a diode", "to protect your", "circuit from", "reverse voltages"],
-    "icon": "icon19.svg",
+    "icon": "/electronics/icons/icon19.svg",
     "description": "Learn how to use diodes to prevent damage to your circuit from reverse voltage.",
+    "set": "electronics",
     "tasks": [
       "Understand the function of a diode in a circuit",
       "Learn about reverse voltage protection techniques",
@@ -311,8 +330,9 @@
   {
     "taskID": 20,
     "text": ["Make an", "oscillator that", "makes noise"],
-    "icon": "icon14.svg",
+    "icon": "/electronics/icons/icon14.svg",
     "description": "Learn to build an oscillator circuit that generates sound, such as a square wave tone.",
+    "set": "electronics",
     "tasks": [
       "Understand the basics of oscillators and their components",
       "Choose a method for generating oscillations (555 timer, transistor, etc.)",
@@ -327,8 +347,9 @@
   {
     "taskID": 21,
     "text": ["Use a relay", "to switch", "something on at", "a higher voltage"],
-    "icon": "icon21.svg",
+    "icon": "/electronics/icons/icon21.svg",
     "description": "Learn to use relays to control devices operating at higher voltages than your control circuit.",
+    "set": "electronics",
     "tasks": [
       "Understand how relays work and their applications",
       "Learn to wire a relay into a circuit",
@@ -343,8 +364,9 @@
   {
     "taskID": 22,
     "text": ["Make a", "capacitor rocket", "(too much voltage)"],
-    "icon": "icon22.svg",
+    "icon": "/electronics/icons/icon22.svg",
     "description": "Experiment with capacitors to learn about their energy storage and potential hazards (safely).",
+    "set": "electronics",
     "tasks": [
       "Learn about capacitor ratings and energy storage",
       "Experiment with charging and discharging capacitors",
@@ -359,8 +381,9 @@
   {
     "taskID": 23,
     "text": ["Learn to", "solder surface", "mount parts"],
-    "icon": "icon23.svg",
+    "icon": "/electronics/icons/icon23.svg",
     "description": "Master the art of soldering surface-mount components to a PCB.",
+    "set": "electronics",
     "tasks": [
       "Learn the tools needed for surface-mount soldering",
       "Practice soldering basic SMD components",
@@ -375,8 +398,9 @@
   {
     "taskID": 24,
     "text": ["Use a", "555 timer", "in a circuit"],
-    "icon": "icon24.svg",
+    "icon": "/electronics/icons/icon24.svg",
     "description": "Learn to use the versatile 555 timer IC to create time-based circuits.",
+    "set": "electronics",
     "tasks": [
       "Understand the internal workings of the 555 timer",
       "Learn the different modes (monostable, astable, and bistable)",
@@ -391,8 +415,9 @@
   {
     "taskID": 25,
     "text": ["Make a sound", "louder with an", "amplifier"],
-    "icon": "icon14.svg",
+    "icon": "/electronics/icons/icon14.svg",
     "description": "Learn to build and use amplifiers to increase sound volume in circuits.",
+    "set": "electronics",
     "tasks": [
       "Understand how amplifiers work and their components",
       "Learn to design an audio amplifier circuit",
@@ -407,8 +432,9 @@
   {
     "taskID": 26,
     "text": ["Use", "addressable", "RGB LEDs in a", "project"],
-    "icon": "icon12.svg",
+    "icon": "/electronics/icons/icon12.svg",
     "description": "Learn to control addressable RGB LEDs like WS2812 to create colorful lighting effects.",
+    "set": "electronics",
     "tasks": [
       "Understand how addressable LEDs work",
       "Learn to program and control LEDs using a microcontroller",
@@ -423,8 +449,9 @@
   {
     "taskID": 27,
     "text": ["Make a", "project", "with a", "Raspberry Pi"],
-    "icon": "icon27.svg",
+    "icon": "/electronics/icons/icon27.svg",
     "description": "Explore the Raspberry Pi platform by creating a fun or useful electronics project.",
+    "set": "electronics",
     "tasks": [
       "Set up a Raspberry Pi with the necessary software",
       "Choose a project idea and gather components",
@@ -439,8 +466,9 @@
   {
     "taskID": 28,
     "text": ["Let the", "smoke out", "accidentally"],
-    "icon": "icon28.svg",
+    "icon": "/electronics/icons/icon28.svg",
     "description": "Learn from mistakes by troubleshooting and understanding what went wrong in your circuit.",
+    "set": "electronics",
     "tasks": [
       "Identify common reasons for component failure",
       "Analyze what went wrong in your circuit",
@@ -455,8 +483,9 @@
   {
     "taskID": 29,
     "text": ["Use fritzing", "or TinkerCAD", "to create a", "circuit diagram"],
-    "icon": "icon29.svg",
+    "icon": "/electronics/icons/icon29.svg",
     "description": "Learn to use software tools to create and share circuit diagrams.",
+    "set": "electronics",
     "tasks": [
       "Install and explore Fritzing or TinkerCAD",
       "Learn to represent components and connections in software",
@@ -471,8 +500,9 @@
   {
     "taskID": 30,
     "text": ["Make", "something", "with Arduino"],
-    "icon": "icon30.svg",
+    "icon": "/electronics/icons/icon30.svg",
     "description": "Use an Arduino board to build an interactive project.",
+    "set": "electronics",
     "tasks": [
       "Set up an Arduino board with the IDE",
       "Learn to program Arduino using basic sketches",
@@ -487,8 +517,9 @@
   {
     "taskID": 31,
     "text": ["Let the smoke", "out of an Arduino", "accidentally"],
-    "icon": "icon31.svg",
+    "icon": "/electronics/icons/icon31.svg",
     "description": "Learn from mistakes by troubleshooting and understanding what went wrong with an Arduino circuit.",
+    "set": "electronics",
     "tasks": [
       "Identify common causes of Arduino damage",
       "Analyze what went wrong in your circuit or code",
@@ -503,8 +534,9 @@
   {
     "taskID": 32,
     "text": ["Measure", "frequency with a", "multimeter"],
-    "icon": "icon9.svg",
+    "icon": "/electronics/icons/icon9.svg",
     "description": "Learn to measure the frequency of an AC signal or waveform using a multimeter.",
+    "set": "electronics",
     "tasks": [
       "Understand how frequency is measured",
       "Set up the multimeter to the frequency mode",
@@ -519,8 +551,9 @@
   {
     "taskID": 33,
     "text": ["Use an", "Op-Amp in", "a circuit"],
-    "icon": "icon33.svg",
+    "icon": "/electronics/icons/icon33.svg",
     "description": "Learn to use operational amplifiers (Op-Amps) in circuits for signal amplification and processing.",
+    "set": "electronics",
     "tasks": [
       "Understand the basics of operational amplifiers",
       "Learn about common configurations like inverting and non-inverting amplifiers",
@@ -535,8 +568,9 @@
   {
     "taskID": 34,
     "text": ["Use a crowbar", "circuit to protect", "against over voltage"],
-    "icon": "icon17.svg",
+    "icon": "/electronics/icons/icon17.svg",
     "description": "Build a crowbar circuit to protect sensitive components from overvoltage conditions.",
+    "set": "electronics",
     "tasks": [
       "Learn the purpose of a crowbar circuit",
       "Understand how SCRs and zener diodes are used",
@@ -551,8 +585,9 @@
   {
     "taskID": 35,
     "text": ["Use a surge", "diode to protect", "a circuit"],
-    "icon": "icon19.svg",
+    "icon": "/electronics/icons/icon19.svg",
     "description": "Protect circuits from voltage spikes using surge diodes.",
+    "set": "electronics",
     "tasks": [
       "Learn the function and selection of surge diodes",
       "Understand where to place surge diodes in a circuit",
@@ -567,8 +602,9 @@
   {
     "taskID": 36,
     "text": ["Make", "something", "for a friend"],
-    "icon": "icon36.svg",
+    "icon": "/electronics/icons/icon36.svg",
     "description": "Create a personalized electronics project as a gift or collaborative effort.",
+    "set": "electronics",
     "tasks": [
       "Brainstorm project ideas based on your friend's interests",
       "Design and plan the project",
@@ -583,8 +619,9 @@
   {
     "taskID": 37,
     "text": ["Make a motor", "controller with", "a H Bridge"],
-    "icon": "icon37.svg",
+    "icon": "/electronics/icons/icon37.svg",
     "description": "Control the direction and speed of a motor using an H-Bridge circuit.",
+    "set": "electronics",
     "tasks": [
       "Learn the purpose and operation of an H-Bridge",
       "Design an H-Bridge circuit using transistors or ICs",
@@ -599,8 +636,9 @@
   {
     "taskID": 38,
     "text": ["Make a", "counter with", "logic gates"],
-    "icon": "icon38.svg",
+    "icon": "/electronics/icons/icon38.svg",
     "description": "Design and build a simple binary counter using logic gates.",
+    "set": "electronics",
     "tasks": [
       "Understand how counters work and their logic",
       "Design a counter circuit using flip-flops and gates",
@@ -615,8 +653,9 @@
   {
     "taskID": 39,
     "text": ["Apply solder", "paste to a PCB", "with a stencil"],
-    "icon": "icon39.svg",
+    "icon": "/electronics/icons/icon39.svg",
     "description": "Learn to use stencils for precise application of solder paste on PCBs.",
+    "set": "electronics",
     "tasks": [
       "Understand the purpose of solder paste and stencils",
       "Practice aligning a stencil with a PCB",
@@ -631,8 +670,9 @@
   {
     "taskID": 40,
     "text": ["Teach a", "friend an", "electronics skill"],
-    "icon": "icon40.svg",
+    "icon": "/electronics/icons/icon40.svg",
     "description": "Share your knowledge by teaching a friend a valuable electronics skill.",
+    "set": "electronics",
     "tasks": [
       "Choose a skill your friend is interested in learning",
       "Prepare materials and a simple demonstration",
@@ -646,8 +686,9 @@
   },{
   "taskID": 41,
   "text": ["Make something", "with a 7", "segment display"],
-  "icon": "icon41.svg",
+  "icon": "/electronics/icons/icon41.svg",
   "description": "Learn to use a 7-segment display to show numbers or simple characters in your project.",
+  "set": "electronics",
   "tasks": [
     "Understand how a 7-segment display works",
     "Wire up the display to a microcontroller or IC",
@@ -662,8 +703,9 @@
   {
     "taskID": 42,
     "text": ["Measure", "voltage with an", "oscilloscope"],
-    "icon": "icon42.svg",
+    "icon": "/electronics/icons/icon42.svg",
     "description": "Use an oscilloscope to measure and visualize voltage signals in a circuit.",
+    "set": "electronics",
     "tasks": [
       "Understand the basics of oscilloscope operation",
       "Learn to set up the probes and calibration",
@@ -678,8 +720,9 @@
   {
     "taskID": 43,
     "text": ["Measure", "capacitor equivalent", "series resistance"],
-    "icon": "icon43.svg",
+    "icon": "/electronics/icons/icon43.svg",
     "description": "Learn to measure the equivalent series resistance (ESR) of capacitors to assess their quality.",
+    "set": "electronics",
     "tasks": [
       "Understand the concept of ESR in capacitors",
       "Use an ESR meter or multimeter with ESR mode",
@@ -694,8 +737,9 @@
   {
     "taskID": 44,
     "text": ["Make an", "Internet of Things", "(IoT) project"],
-    "icon": "icon44.svg",
+    "icon": "/electronics/icons/icon44.svg",
     "description": "Create an IoT project that connects devices to the internet for remote monitoring or control.",
+    "set": "electronics",
     "tasks": [
       "Learn the basics of IoT and communication protocols",
       "Choose a microcontroller with Wi-Fi or Bluetooth support",
@@ -710,8 +754,9 @@
   {
     "taskID": 45,
     "text": ["Make", "something with", "solar panels"],
-    "icon": "icon45.svg",
+    "icon": "/electronics/icons/icon45.svg",
     "description": "Harness solar energy by integrating solar panels into your electronics project.",
+    "set": "electronics",
     "tasks": [
       "Understand how solar panels work",
       "Choose a suitable solar panel for your project",
@@ -726,8 +771,9 @@
   {
     "taskID": 46,
     "text": ["Look at an", "audio input", "on an oscilloscope"],
-    "icon": "icon46.svg",
+    "icon": "/electronics/icons/icon46.svg",
     "description": "Visualize and analyze audio waveforms using an oscilloscope.",
+    "set": "electronics",
     "tasks": [
       "Learn how audio signals appear on an oscilloscope",
       "Connect an audio source to the oscilloscope",
@@ -742,8 +788,9 @@
   {
     "taskID": 47,
     "text": ["Make a", "regulated", "power supply"],
-    "icon": "icon47.svg",
+    "icon": "/electronics/icons/icon47.svg",
     "description": "Design and build a power supply that provides a stable output voltage.",
+    "set": "electronics",
     "tasks": [
       "Learn the basics of voltage regulation",
       "Choose a voltage regulator IC or circuit design",
@@ -758,8 +805,9 @@
   {
     "taskID": 48,
     "text": ["Use a MOSFET", "instead of a relay", "in a project"],
-    "icon": "icon48.svg",
+    "icon": "/electronics/icons/icon48.svg",
     "description": "Learn to use a MOSFET for switching applications as a more efficient alternative to relays.",
+    "set": "electronics",
     "tasks": [
       "Understand the difference between MOSFETs and relays",
       "Choose a suitable MOSFET for your project",
@@ -774,8 +822,9 @@
   {
     "taskID": 49,
     "text": ["Make your", "own", "USB cable"],
-    "icon": "icon49.svg",
+    "icon": "/electronics/icons/icon49.svg",
     "description": "Learn to build a custom USB cable tailored to your needs.",
+    "set": "electronics",
     "tasks": [
       "Understand USB cable pinouts and standards",
       "Gather materials like connectors, wires, and heat shrink tubing",
@@ -790,8 +839,9 @@
   {
     "taskID": 50,
     "text": ["Use an LED", "matrix in", "a project"],
-    "icon": "icon50.svg",
+    "icon": "/electronics/icons/icon50.svg",
     "description": "Learn to control an LED matrix to display patterns or text in your projects.",
+    "set": "electronics",
     "tasks": [
       "Understand how an LED matrix works",
       "Choose a driver IC or microcontroller to control the matrix",
@@ -806,8 +856,9 @@
   {
     "taskID": 51,
     "text": ["Filter", "unwanted noise", "from a signal"],
-    "icon": "icon46.svg",
+    "icon": "/electronics/icons/icon46.svg",
     "description": "Learn to design and apply filters to remove noise from electronic signals.",
+    "set": "electronics",
     "tasks": [
       "Understand different types of filters (low-pass, high-pass, band-pass, etc.)",
       "Choose a suitable filter design for your application",
@@ -822,8 +873,9 @@
   {
     "taskID": 52,
     "text": ["Use a frequency", "analyser", "for a project"],
-    "icon": "icon9.svg",
+    "icon": "/electronics/icons/icon9.svg",
     "description": "Learn to use a frequency analyser to observe and measure signal frequencies in a project.",
+    "set": "electronics",
     "tasks": [
       "Understand how a frequency analyser works",
       "Connect the analyser to your circuit",
@@ -838,8 +890,9 @@
   {
     "taskID": 53,
     "text": ["Order a", "PCB with", "your design"],
-    "icon": "icon47.svg",
+    "icon": "/electronics/icons/icon47.svg",
     "description": "Learn to create and order a printed circuit board (PCB) for your electronic projects.",
+    "set": "electronics",
     "tasks": [
       "Design a PCB layout using software",
       "Export the design in Gerber format",
@@ -854,8 +907,9 @@
   {
     "taskID": 54,
     "text": ["Repair a", "broken trace", "on a PCB"],
-    "icon": "icon54.svg",
+    "icon": "/electronics/icons/icon54.svg",
     "description": "Learn to fix a damaged or broken trace on a printed circuit board (PCB).",
+    "set": "electronics",
     "tasks": [
       "Identify the broken trace on the PCB",
       "Clean the area around the damaged trace",
@@ -870,8 +924,9 @@
   {
     "taskID": 55,
     "text": ["Use", "automatic", "gain control"],
-    "icon": "icon10.svg",
+    "icon": "/electronics/icons/icon10.svg",
     "description": "Learn to implement automatic gain control (AGC) in your audio or signal processing circuits.",
+    "set": "electronics",
     "tasks": [
       "Understand the concept of automatic gain control",
       "Design or integrate an AGC circuit using Op-Amps or ICs",
@@ -886,8 +941,9 @@
   {
     "taskID": 56,
     "text": ["Make a", "PID circuit", "with Op-Amps"],
-    "icon": "icon33.svg",
+    "icon": "/electronics/icons/icon33.svg",
     "description": "Design and build a PID (Proportional-Integral-Derivative) control circuit using operational amplifiers.",
+    "set": "electronics",
     "tasks": [
       "Understand the basics of PID control",
       "Design the proportional, integral, and derivative stages with Op-Amps",
@@ -902,8 +958,9 @@
   {
     "taskID": 57,
     "text": ["Teach a", "class on", "Electronics"],
-    "icon": "icon40.svg",
+    "icon": "/electronics/icons/icon40.svg",
     "description": "Share your knowledge and skills by teaching a class on basic or advanced electronics topics.",
+    "set": "electronics",
     "tasks": [
       "Plan a lesson or course on an electronics topic",
       "Prepare teaching materials like slides or handouts",
@@ -918,8 +975,9 @@
   {
     "taskID": 58,
     "text": ["Learn", "PCB Design", "Software"],
-    "icon": "icon47.svg",
+    "icon": "/electronics/icons/icon47.svg",
     "description": "Learn to use PCB design software to create layouts for electronic projects.",
+    "set": "electronics",
     "tasks": [
       "Choose a PCB design software (e.g., Eagle, KiCAD, Altium)",
       "Learn to create schematic diagrams and layouts",
@@ -934,8 +992,9 @@
   {
     "taskID": 59,
     "text": ["Use an", "e-paper display", "in a project"],
-    "icon": "icon59.svg",
+    "icon": "/electronics/icons/icon59.svg",
     "description": "Incorporate an e-paper display in your project for low-power, high-contrast screen applications.",
+    "set": "electronics",
     "tasks": [
       "Learn how e-paper displays work",
       "Choose a suitable e-paper module for your project",
@@ -950,8 +1009,9 @@
   {
     "taskID": 60,
     "text": ["Build a", "Radio Frequency", "(RF) Project"],
-    "icon": "icon60.svg",
+    "icon": "/electronics/icons/icon60.svg",
     "description": "Design and build a project that uses radio frequency (RF) communication or components.",
+    "set": "electronics",
     "tasks": [
       "Learn the basics of RF communication",
       "Choose RF modules or design an RF circuit",
@@ -965,8 +1025,9 @@
   }, {
   "taskID": 61,
   "text": ["Make an", "open source", "project"],
-  "icon": "icon61.svg",
+  "icon": "/electronics/icons/icon61.svg",
   "description": "Design and share an open-source electronics project to contribute to the maker community.",
+  "set": "electronics",
   "tasks": [
     "Develop a unique electronics project",
     "Document the project with clear instructions and schematics",
@@ -981,8 +1042,9 @@
   {
     "taskID": 62,
     "text": ["Use capacitive", "touch in a PCB", "design"],
-    "icon": "icon62.svg",
+    "icon": "/electronics/icons/icon62.svg",
     "description": "Incorporate capacitive touch functionality in your PCB designs for modern, touch-sensitive interfaces.",
+    "set": "electronics",
     "tasks": [
       "Learn the basics of capacitive touch technology",
       "Design a PCB with capacitive touch sensors",
@@ -997,8 +1059,9 @@
   {
     "taskID": 63,
     "text": ["Make", "something", "with PCB Art"],
-    "icon": "icon63.svg",
+    "icon": "/electronics/icons/icon63.svg",
     "description": "Create a project that features artistic or decorative designs on the PCB itself.",
+    "set": "electronics",
     "tasks": [
       "Explore creative PCB art designs and techniques",
       "Use PCB design software to add artistic elements",
@@ -1013,8 +1076,9 @@
   {
     "taskID": 64,
     "text": ["Make an", "electronic", "sculpture"],
-    "icon": "icon64.svg",
+    "icon": "/electronics/icons/icon64.svg",
     "description": "Combine art and electronics to create a unique electronic sculpture.",
+    "set": "electronics",
     "tasks": [
       "Plan a design that integrates electronics into a sculpture",
       "Use LEDs, motors, or sensors for interactive elements",
@@ -1029,8 +1093,9 @@
   {
     "taskID": 65,
     "text": ["Make a switch", "mode power", "supply"],
-    "icon": "icon21.svg",
+    "icon": "/electronics/icons/icon21.svg",
     "description": "Design and build a highly efficient switch mode power supply for your projects.",
+    "set": "electronics",
     "tasks": [
       "Learn the principles of switch mode power supplies (SMPS)",
       "Choose a suitable topology (e.g., buck, boost, buck-boost)",
@@ -1045,8 +1110,9 @@
   {
     "taskID": 66,
     "text": ["Release a", "tutorial on a", "project you've made"],
-    "icon": "icon66.svg",
+    "icon": "/electronics/icons/icon66.svg",
     "description": "Create a comprehensive tutorial to share your project and inspire others.",
+    "set": "electronics",
     "tasks": [
       "Document the project with clear steps, photos, and videos",
       "Publish the tutorial on platforms like YouTube, Instructables, or your blog",
@@ -1061,8 +1127,9 @@
   {
     "taskID": 67,
     "text": ["Create an", "FPGA Project"],
-    "icon": "icon67.svg",
+    "icon": "/electronics/icons/icon67.svg",
     "description": "Dive into digital logic design by creating a project using an FPGA (Field Programmable Gate Array).",
+    "set": "electronics",
     "tasks": [
       "Learn the basics of FPGA architecture and tools",
       "Write and simulate your design using VHDL or Verilog",
@@ -1077,8 +1144,9 @@
   {
     "taskID": 68,
     "text": ["Write your", "own C/C++ library", "for a sensor from scratch"],
-    "icon": "icon68.svg",
+    "icon": "/electronics/icons/icon68.svg",
     "description": "Develop a custom C/C++ library to interface with a sensor for embedded systems.",
+    "set": "electronics",
     "tasks": [
       "Understand the sensor's datasheet and communication protocol",
       "Write the code to initialize and read data from the sensor",

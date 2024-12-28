@@ -3,8 +3,12 @@
   <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Web-Skill Tree : Electronics</title>
+   <title>Web-Skill Tree : <%= skillTreeName.toUpperCase()%></title>
    <link rel='stylesheet' href='/css/style.css'/>
+    <script>
+      // Load session data
+      const currentUser = <%- JSON.stringify(user || null) %>;
+    </script>
     <script src="/js/main.js"></script>
     <script src="/js/scripts/redGreenCircles.js"></script>
     <link rel='stylesheet' href='/css/redGreenCircles.css'/>
@@ -12,7 +16,13 @@
   </head>
   <body>
   <div class="user-bar"> Hello admin! | <a href="/leaderboard">Leaderboard</a> | <a href="/logout">Logout</a> </div>
-    <h1>ELECTRONICS</h1>
+    <h1><%= skillTreeName.toUpperCase()%></h1>
+    <% if (user.admin) { %>
+        <br>
+        <a id="admin-button" class="admin-button" href="/skills/<%= skillTreeName %>/add"> Add Skill</a>
+        </button>
+        <br>
+    <% } %>
 
 
     <!-- Contenedor para los hexagonos -->

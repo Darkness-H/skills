@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById('svg-container');
     const descriptionContainer = document.getElementById('skill-description');
 
-    fetch('/js/scripts/skills.json')
+    fetch('/js/scripts/skills_complete.json')// Esto hay que sustituirlo por la ruta correcta que devuelve todos los skills
         .then(response => response.json())
         .then(skills => {
             console.log(skills) //verificamos que los datos se cargan correctamente
@@ -26,12 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Añadir eventos de mouseover y mouseout
                 wrapper.addEventListener('mouseover', () => {
                     svg.style.transform = 'scale(1.2)';
-                    pencilIcon.style.display = 'block';
+                    if (currentUser.admin) {
+                        pencilIcon.style.display = 'block';
+                    }
                     notebookIcon.style.display = 'block';
                     descriptionContainer.style.display = 'block';
                     //descriptionContainer.textContent = skill.description;
                     descriptionContainer.style.zIndex = '10';
-                    descriptionContainer.textContent = skill.text;
+                    descriptionContainer.textContent = skill.description;
                 });
 
                 wrapper.addEventListener('mouseout', () => {
@@ -44,43 +46,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
                 text.setAttribute("x", "50%");
-                text.setAttribute("y", "20%");
+                text.setAttribute("y", "30%");
                 text.setAttribute("text-anchor", "middle");
                 text.setAttribute("fill", "black");
                 text.setAttribute("font-size", "10"); // Tamaño de fuente más pequeño
 
-                const maxLineLength = 32;
-                const words = skill.text.split(' ');
-                let currentLine = '';
-
+                const words = skill.text;
                 words.forEach((word, index) => {
-                    // Verificamos si agregar la palabra actual excede la longitud máxima
-                    if (currentLine.length + word.length + 1 <= maxLineLength) {
-                        currentLine += word + ' ';
-                    } else {
-                        // Crea una nueva línea para el tspan
-                        const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-                        tspan.setAttribute("x", "50%");
-                        tspan.setAttribute("dy", "1.2em");
-                        tspan.setAttribute("font-weight", "bold");
-                        tspan.textContent = currentLine.trim();
-                        text.appendChild(tspan);
-
-
-                        currentLine = word + ' ';
-                    }
-                });
-
-                // Agregar la última línea si hay texto restante
-                if (currentLine) {
                     const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
                     tspan.setAttribute("x", "50%");
-                    tspan.setAttribute("dy", "1.2em");
+                    tspan.setAttribute("dy", index === 0 ? "0" : "1.2em");
                     tspan.setAttribute("font-weight", "bold");
-                    tspan.textContent = currentLine.trim();
+                    tspan.textContent = word;
                     text.appendChild(tspan);
-                }
-
+                });
 
                 svg.appendChild(text);
 
@@ -90,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 image.setAttribute("y", "60%");
                 image.setAttribute("width", "30");
                 image.setAttribute("height", "30");
-                image.setAttribute("href", `/electronics/icons/${skill.icon}`);
+                image.setAttribute("href", skill.icon);
                 svg.appendChild(image);
 
                 // Crear iconos de lápiz y cuaderno usando emojis
@@ -120,6 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     // TO-DO Parte 2: Guardar el skill seleccionado en localStorage
                     //
                     window.location.href = '../html/skillNotebook.html';
+                });
+
+                pencilIcon.addEventListener('click', () => {
+                    const skillTreeName = skill.set;
+                    const skillID = skill.taskID;
+                    window.location.href = `/skills/${skillTreeName}/edit/${skillID}`;
                 });
 
                 wrapper.appendChild(svg);

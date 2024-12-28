@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 // Routers
 const usersRouter = require('./routes/users.routes');
+const skillsRouter = require('./routes/skills.routes');
 //var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 
@@ -63,6 +64,8 @@ app.use(passport.session());
 //app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 app.use('/users', usersRouter);
+app.use('/skills', skillsRouter);
+
 
 /////////////////////
 /// Autenticación ///
@@ -174,7 +177,8 @@ app.post('/login', async (req, res) => {
         }
 
         // Set session
-        req.session.user = username;
+        //req.session.user = username;
+        req.session.user = user;
         // Redirecionar a la página principal
         res.redirect('/system');
     } catch (error) {
@@ -186,11 +190,7 @@ app.post('/login', async (req, res) => {
 
 // Endpoint de la página principal (protected)
 app.get('/system', (req, res) => {
-    if (!req.session.user) {
-        // Redireccionar al Login
-        return res.redirect('/');
-    }
-    res.render('index');
+    res.redirect('/skills');
 });
 
 // Endpoint de logout: GET /users/logout

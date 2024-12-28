@@ -158,3 +158,20 @@ footer {
 .user-bar a:hover {
   text-decoration: underline;
 }
+
+.admin-button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 20px; /* Ajustar el margen */
+  cursor: pointer;
+  position: absolute; /* Cambiar a absolute para posicionarlo en el lado derecho */
+  top: 50px; /* Ajustar la altura para alinearlo con el título H1 */
+  right: 40px; /* Ajustar el margen derecho para que coincida con el de los hexágonos */
+  border-radius: 5px;
+}
