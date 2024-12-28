@@ -230,15 +230,12 @@ app.get('/users/leaderboard', async (req, res) => {
         return res.redirect('/');
     }
 
-
     try {
         // Leer los datos del archivo badges.json
         const badgesData = JSON.parse(fs.readFileSync(path.join(__dirname, 'public/js/scripts/badges.json')));
 
-
-        // Obtener todos los usuarios ordenados por bitpoints (de mayor a menor)
-        const users = await User.find().sort({ bitpoints: -1 });
-
+        // Obtener todos los usuarios ordenados por puntuación (score)
+        const users = await User.find().sort({ score: -1 });
 
         // Crear un objeto para organizar los usuarios por medalla
         const leaderboard = {
@@ -267,34 +264,30 @@ app.get('/users/leaderboard', async (req, res) => {
             'Caballero Jedi': []
         };
 
-        // Función para obtener el rango y la medalla basada en los bitpoints del usuario
-        function getBadgeForUser(bitpoints) {
+        // Función para obtener el rango y la medalla basada en el score del usuario
+        function getBadgeForUser(score) {
             for (let badge of badgesData) {
-                if (bitpoints >= badge.bitpoints_min && bitpoints <= badge.bitpoints_max) {
+                if (score >= badge.bitpoints_min && score <= badge.bitpoints_max) {
                     return badge;
                 }
             }
             return null;
         }
 
-
-
-
         // Clasificar a los usuarios en su medalla de mayor rango
         const usersArray = Array.from(users);  // Convierte a array si no es ya un array
         usersArray.forEach((user) => {
-            const badge = getBadgeForUser(user.bitpoints);
+            const badge = getBadgeForUser(user.score);
             if (badge) {
                 if (!leaderboard[badge.rango].find(u => u.username === user.username)) {
                     leaderboard[badge.rango].push({
                         username: user.username,
-                        score: user.bitpoints,
+                        score: user.score,
                         badge: badge.png
                     });
                 }
             }
         });
-
 
         // Renderizar la vista 'leaderboard.ejs' pasando los datos
         res.render('leaderboard', { leaderboard });
@@ -303,6 +296,7 @@ app.get('/users/leaderboard', async (req, res) => {
         res.status(500).send('Error fetching leaderboard');
     }
 });
+
 
 
 // Ruta para iniciar la autenticación con GitHub
