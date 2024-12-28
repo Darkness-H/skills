@@ -11,11 +11,11 @@ mongoose.connect('mongodb://localhost:27017/projectSW', {
 
 // Usuarios de ejemplo
 const users = [
-    { username: 'observador', password: '123456', score: 1},
-    { username: 'cadete', password: '123456', score: 25 },
-    { username: 'padawan_N1', password: '123456', score: 112 },
-    { username: 'jedi_N2', password: '123456', score: 203 },
-    { username: 'caballeroJedi', password: '123456', score: 227 }
+    { username: 'A', password: '123456', score: 1},
+    { username: 'B', password: '123456', score: 25 },
+    { username: 'C', password: '123456', score: 112 },
+    { username: 'D', password: '123456', score: 203 },
+    { username: 'E', password: '123456', score: 227 }
 ];
 
 // Insertar usuarios

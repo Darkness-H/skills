@@ -283,7 +283,8 @@ app.get('/users/leaderboard', async (req, res) => {
                     leaderboard[badge.rango].push({
                         username: user.username,
                         score: user.score,
-                        badge: badge.png
+                        badge: badge.png,
+                        range: leaderboard[badge.rango]
                     });
                 }
             }
