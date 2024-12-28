@@ -7,6 +7,7 @@
    <link rel='stylesheet' href='/css/style.css'/>
     <script>
       // Load session data
+      const skillsData = <%- JSON.stringify(skills) %>;
       const currentUser = <%- JSON.stringify(user || null) %>;
     </script>
     <script src="/js/main.js"></script>
@@ -26,11 +27,15 @@
 
 
     <!-- Contenedor para los hexagonos -->
-    <div id="svg-container" class="svg-container">
-      <!-- EXISTING SVGs -->
-    </div>
+<!--    <div id="svg-container" class="svg-container">-->
+<!--      &lt;!&ndash; EXISTING SVGs &ndash;&gt;-->
+<!--    </div>-->
+  <div id="svg-container" class="svg-container">
+    <!-- EXISTING SVGs -->
+  </div>
 
-    <div id="skill-description" class="skill-description">
+
+  <div id="skill-description" class="skill-description">
         <!-- Skill description -->
     </div>
 
