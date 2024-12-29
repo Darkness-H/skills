@@ -5,15 +5,15 @@
         <a href="/skills/<%= skillTreeName %>">
             <%= skillTreeName %> (<%= skills.length %>)
         </a> |
-        <a href="/leaderboard">Leaderboard</a> |
+        <a href="/users/leaderboard">Leaderboard</a> |
         <a href="/about">About</a> |
-        <a href="/logout">Logout</a>
+        <a href="/users/logout">Logout</a>
         <% if (user.admin) { %>
             | <a href="/admin">Admin Dashboard</a>
         <% } %>
 
     <% } else { %> <!-- Cuando la sesión no está inicializada -->
-        <a href="/login">Login</a> |
-        <a href="/about">About</a>
+        <a href="/users/login">Login</a> |
+        <a href="/users/about">About</a>
     <% } %>
 </div>
