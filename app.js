@@ -7,6 +7,7 @@ var logger = require('morgan');
 // Routers
 const usersRouter = require('./routes/users.routes');
 const skillsRouter = require('./routes/skills.routes');
+const adminRouter = require('./routes/admin.routes');
 //var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 
@@ -66,6 +67,7 @@ app.use(passport.session());
 //app.use('/users', usersRouter);
 app.use('/users', usersRouter);
 app.use('/skills', skillsRouter);
+app.use('/admin', adminRouter);
 
 // Ruta por defecto que redirige a '/users/login'
 app.get('/', (req, res) => {

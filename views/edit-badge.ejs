@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/skillNotebookStyle.css">
+    <title>Edit Badge</title>
+    <script>
+        function redirectToAdminBadge() {
+            window.location.href = '/admin/badges';
+        }
+
+        function updateImagePreview() {
+            const imageUrl = document.getElementById('png').value;
+            const imagePreview = document.getElementById('imagePreview');
+            imagePreview.src = imageUrl; // Actualiza la fuente de la imagen
+        }
+    </script>
+</head>
+<body>
+<%- include('partials/username-display') %>
+<div class="container">
+    <h1 class="skill-title">Edit Badge</h1>
+    <form action="/admin/badges/edit/<%= badge.id %>" method="POST">
+        <div class="form-group">
+            <label for="rango">Range:</label>
+            <input type="text" id="rango" name="rango" value="<%= badge.rango || '' %>" required>
+        </div>
+        <div class="form-group">
+            <label for="bitpoints_min">Minimum Bitpoints:</label>
+            <input type="number" id="bitpoints_min" name="bitpoints_min" value="<%= badge.bitpoints_min || 0 %>" required min="0">
+        </div>
+        <div class="form-group">
+            <label for=bitpoints_max">Maximum Bitpoints:</label>
+            <input type="number" id="bitpoints_max" name="bitpoints_max" value="<%= badge.bitpoints_max || 0 %>" required min="0">
+        </div>
+        <div class="form-group">
+            <label for="png">Image URL:</label>
+            <input
+                    type="text"
+                    id="png"
+                    name="png"
+                    value="<%= badge.png || '' %>"
+                    required
+                    oninput="updateImagePreview()"
+            >
+        </div>
+        <!-- Previsualización de la imagen -->
+        <div class="form-group">
+            <img
+                    id="imagePreview"
+                    src="<%= badge.png || '' %>"
+                    alt="Badge Preview"
+                    style="max-width: 200px; max-height: 200px; display: block; margin-top: 10px;"
+            >
+        </div>
+        <div class="button-group">
+            <button type="submit" class="verify-button">Update Badge</button>
+            <button type="button" class="neutral-button" onclick="redirectToAdminBadge()">Cancel</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
