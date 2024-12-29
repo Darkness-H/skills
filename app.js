@@ -24,6 +24,7 @@ require('./config/passport-config'); // Configuración de Passport
 
 // Importar eschemas definidos
 const User = require('./models/user.model');
+const Skill = require('./models/skill.model');
 
 var app = express();
 
@@ -74,6 +75,29 @@ app.get('/', (req, res) => {
 // Endpoint de la página principal (protected)
 app.get('/system', (req, res) => {
     res.redirect('/skills');
+});
+
+// Endpoint de la página de about
+// Endpoint de la página de about
+app.get('/about', async (req, res) => {
+    try {
+        // Realiza la agregación y espera el resultado
+        const skillTreesWithCount = await Skill.aggregate([
+            { $group: { _id: "$set", skillCount: { $sum: 1 } } }
+        ]);
+
+        // Transformar los datos para facilitar su uso en la plantilla
+        const skillTrees = skillTreesWithCount.map(tree => ({
+            name: tree._id,
+            count: tree.skillCount
+        }));
+
+        // Renderiza la página con los datos necesarios
+        res.render('about', { user: req.session.user, skillTrees: skillTrees });
+    } catch (err) {
+        console.error("Error en el endpoint /about:", err);
+        res.status(500).send("Error interno del servidor");
+    }
 });
 
 //////////////////////////

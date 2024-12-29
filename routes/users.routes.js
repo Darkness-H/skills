@@ -20,4 +20,7 @@ router.get('/logout', userController.logoutSystem);
 // GET /users/leaderboard
 router.get('/leaderboard', userController.visualizeLeaderboard);
 
+// GET /users/about
+router.get('/about', userController.showAboutPage);
+
 module.exports = router;

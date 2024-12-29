@@ -143,3 +143,8 @@ exports.visualizeLeaderboard = async (req, res, next) => {
     // res.render('leaderboard');
     res.render('/')
 };
+
+// Función que muestra la página de about
+exports.showAboutPage = async (req, res, next) => {
+        res.render('about', { user: req.session.user });
+};

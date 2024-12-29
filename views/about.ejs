@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel='stylesheet' href='/css/style.css'/>
+    <style>
+        .description {
+            text-align: left;
+            margin: 20px; /* Ajusta el margen según sea necesario */
+            line-height: 1.5; /* Para mejorar la legibilidad */
+        }
+    </style>
 </head>
 <body>
     <%- include('partials/username-display') %> <!-- Muestra la barra de usuario -->
@@ -23,12 +30,6 @@
         </ul>
         <p>Este sistema es ideal para aprender de manera interactiva y colaborativa, mientras se fomenta la auto-superación y la participación activa.</p>
     </div>
-
-    <div class="links">
-        <a href="/users/login">Iniciar sesión</a> <!-- Link a login -->
-        <a href="/">Volver a la página principal</a> <!-- Link a la página principal -->
-    </div>
-
     <footer>
         <p>&copy; 2024 Skills Project. Todos los derechos reservados.</p>
     </footer>
