@@ -21,21 +21,21 @@ exports.addNewUser = async (req, res, next) => {
         // Se deben llenar todos los campos
         if (!username || !password || !password2) {
             console.log('Missing username or password');
-            return res.render('register', {success_msg: null, error_msg: 'Missing username or password', error: null});
+            return res.render('register', {success_msg: null, error_msg: 'Missing username or password', error: null, user: null});
             //return res.status(400).send('Username and password are required');
         }
 
         // Check if the passwords are the same (Las contraseñas deben coincidir)
         if (password !== password2) {
             console.log('Both passwords must be the same!');
-            return res.render('register', {success_msg: null, error_msg: 'Both passwords must be the same!', error: null});
+            return res.render('register', {success_msg: null, error_msg: 'Both passwords must be the same!', error: null, user: null});
             //return res.status(400).send('Both passwords must be the same!');
         }
 
         // Las contraseñas deben tener al menos 6 caracteres
         if (password.length < 6) {
             console.log('The password must contain at least 6 characters!');
-            return res.render('register', {success_msg: null, error_msg: 'The password must contain at least 6 characters!', error: null});
+            return res.render('register', {success_msg: null, error_msg: 'The password must contain at least 6 characters!', error: null, user: null});
             //return res.status(400).send('The password must contain at least 6 characters!');
         }
 
@@ -43,7 +43,7 @@ exports.addNewUser = async (req, res, next) => {
         const existingUser = await User.findOne({ username });
         if (existingUser) {
             console.log('Username already exists:', username);
-            return res.render('register', {success_msg: null, error_msg: 'Username already exists', error: null});
+            return res.render('register', {success_msg: null, error_msg: 'Username already exists', error: null, user: null});
             //return res.status(400).send('Username already exists');
         }
 
