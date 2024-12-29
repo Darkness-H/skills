@@ -9,6 +9,7 @@ exports.showRegisterPage = async (req, res, next) => {
         success_msg: message || null,
         error_msg: null,
         error: null,
+        user: null
     });
 };
 

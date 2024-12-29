@@ -1,0 +1,206 @@
+[
+  {
+    "taskID": 1,
+    "text": ["Understand the", "Basics of LLMs"],
+    "description": "Learn the foundational concepts behind large language models and how they are trained.",
+    "set": "llms",
+    "tasks": [
+      "Research the purpose and applications of LLMs",
+      "Understand terms like tokenization, embeddings, and transformers",
+      "Learn the architecture of popular models like GPT or BERT",
+      "Summarize your findings in a shared document"
+    ],
+    "resources": [
+      "Article: 'Introduction to LLMs' on https://towardsdatascience.com/",
+      "Video: 'How Transformers Work' on https://www.youtube.com/",
+      "Book: 'Deep Learning for NLP' by Palash Goyal et al."
+    ]
+  },
+  {
+    "taskID": 2,
+    "text": ["Set Up", "an API for", "an LLM"],
+    "description": "Learn how to access and interact with an LLM using APIs like OpenAI, Hugging Face, or Cohere.",
+    "set": "llms",
+    "tasks": [
+      "Create an account on a platform offering LLM APIs",
+      "Generate API keys and understand rate limits",
+      "Write a script to send a query and process responses",
+      "Experiment with different prompts and settings"
+    ],
+    "resources": [
+      "Documentation: OpenAI API on https://platform.openai.com/",
+      "Tutorial: Hugging Face Transformers on https://huggingface.co/",
+      "Guide: 'Building Applications with LLMs' on https://docs.example.com/"
+    ]
+  },
+  {
+    "taskID": 3,
+    "text": ["Master", "Prompt Engineering"],
+    "description": "Develop effective prompts to get the most accurate and useful responses from an LLM.",
+    "set": "llms",
+    "tasks": [
+      "Learn the principles of crafting clear, unambiguous prompts",
+      "Experiment with few-shot and zero-shot examples",
+      "Compare outputs from various prompts for the same task",
+      "Document your best practices and results"
+    ],
+    "resources": [
+      "Article: 'Prompt Engineering for LLMs' on https://towardsdatascience.com/",
+      "Video: 'Mastering Prompts' on https://www.youtube.com/",
+      "Interactive Guide: 'Prompt Engineering for Beginners' on https://learn.prompting.com/"
+    ]
+  },
+  {
+    "taskID": 4,
+    "text": ["Fine-Tune", "an LLM"],
+    "description": "Learn how to adapt a large language model to specific tasks by fine-tuning it with custom datasets.",
+    "set": "llms",
+    "tasks": [
+      "Understand the difference between fine-tuning and training",
+      "Prepare a dataset for fine-tuning (e.g., cleaning and formatting)",
+      "Use tools like Hugging Face's Trainer API to fine-tune a model",
+      "Evaluate the model's performance on test data"
+    ],
+    "resources": [
+      "Guide: 'Fine-Tuning with Hugging Face' on https://huggingface.co/",
+      "Tutorial: 'How to Fine-Tune GPT Models' on https://openai.com/",
+      "Dataset: 'Popular Datasets for NLP' on https://www.kaggle.com/"
+    ]
+  },
+  {
+    "taskID": 5,
+    "text": ["Understand", "Ethics of LLMs"],
+    "description": "Explore ethical considerations in the development and deployment of LLMs.",
+    "set": "llms",
+    "tasks": [
+      "Research biases in training datasets and their impacts",
+      "Learn about misuse cases and how to mitigate them",
+      "Explore ethical AI frameworks and principles",
+      "Present your findings in a team discussion or report"
+    ],
+    "resources": [
+      "Article: 'Ethical AI Development' on https://ai.googleblog.com/",
+      "Report: 'Fairness in AI Models' by MIT on https://www.mit.edu/",
+      "Video: 'AI Ethics Explained' on https://www.youtube.com/"
+    ]
+  },
+  {
+    "taskID": 6,
+    "text": ["Build an", "LLM-Powered Chatbot"],
+    "description": "Create a chatbot application using an LLM to simulate conversational interactions.",
+    "set": "llms",
+    "tasks": [
+      "Define the purpose and scope of the chatbot",
+      "Set up an LLM API for conversational responses",
+      "Implement conversation flow logic in your application",
+      "Test and refine the chatbot with user feedback"
+    ],
+    "resources": [
+      "Guide: 'How to Build a Chatbot' on https://developer.openai.com/",
+      "Tutorial: 'Chatbot with Python' on https://realpython.com/",
+      "Video: 'Building Chatbots with GPT' on https://www.youtube.com/"
+    ]
+  },
+  {
+    "taskID": 7,
+    "text": ["Analyze", "Token Usage"],
+    "description": "Learn how to analyze and optimize token usage to create efficient queries for LLMs.",
+    "set": "llms",
+    "tasks": [
+      "Understand what tokens are and how they are counted",
+      "Calculate the token usage for various inputs and outputs",
+      "Experiment with shortening prompts to reduce token count",
+      "Optimize a complex query to fit within token limits"
+    ],
+    "resources": [
+      "Article: 'Understanding Tokenization' on https://platform.openai.com/",
+      "Tool: 'Token Counter' on https://openaicalc.com/",
+      "Guide: 'Efficient Prompting for LLMs' on https://towardsdatascience.com/"
+    ]
+  },
+  {
+    "taskID": 8,
+    "text": ["Perform", "Text Summarization"],
+    "description": "Use LLMs to summarize long pieces of text effectively.",
+    "set": "llms",
+    "tasks": [
+      "Choose a dataset with long-form text (e.g., articles or essays)",
+      "Experiment with different summarization prompts",
+      "Evaluate the quality of summaries generated by the LLM",
+      "Refine prompts for more concise or detailed summaries"
+    ],
+    "resources": [
+      "Video: 'Text Summarization with LLMs' on https://www.youtube.com/",
+      "Guide: 'Summarization Techniques' on https://huggingface.co/",
+      "Dataset: 'CNN/Daily Mail Dataset' on https://huggingface.co/datasets"
+    ]
+  },
+  {
+    "taskID": 9,
+    "text": ["Generate", "Creative Writing"],
+    "description": "Explore the creative capabilities of LLMs by generating stories, poems, or dialogues.",
+    "set": "llms",
+    "tasks": [
+      "Choose a genre or style for creative writing",
+      "Write a few example prompts for your chosen style",
+      "Generate multiple outputs and select the best examples",
+      "Analyze how well the LLM captures tone and creativity"
+    ],
+    "resources": [
+      "Guide: 'Creative Writing with AI' on https://www.creativeai.com/",
+      "Video: 'AI in Literature' on https://www.youtube.com/",
+      "Examples: 'Generated Stories with GPT' on https://github.com/openai/examples"
+    ]
+  },
+  {
+    "taskID": 10,
+    "text": ["Classify", "Text Data"],
+    "description": "Use LLMs to perform text classification tasks, such as sentiment analysis or topic detection.",
+    "set": "llms",
+    "tasks": [
+      "Understand the basics of text classification",
+      "Prepare a labeled dataset for training or testing",
+      "Experiment with classification prompts for the LLM",
+      "Evaluate the accuracy and refine the process"
+    ],
+    "resources": [
+      "Guide: 'Text Classification with LLMs' on https://huggingface.co/",
+      "Dataset: 'IMDB Sentiment Dataset' on https://ai.stanford.edu/",
+      "Video: 'Sentiment Analysis with GPT' on https://www.youtube.com/"
+    ]
+  },
+  {
+    "taskID": 11,
+    "text": ["Translate", "Text Between", "Languages"],
+    "description": "Learn how to use LLMs for high-quality text translation between multiple languages.",
+    "set": "llms",
+    "tasks": [
+      "Research the supported languages for your chosen LLM",
+      "Test translations with various sentence structures",
+      "Compare LLM translations with traditional translation tools",
+      "Refine prompts to improve translation accuracy"
+    ],
+    "resources": [
+      "Tool: 'DeepL Translator' on https://www.deepl.com/",
+      "Video: 'AI for Language Translation' on https://www.youtube.com/",
+      "Guide: 'Translation with Hugging Face Transformers' on https://huggingface.co/"
+    ]
+  },
+  {
+    "taskID": 12,
+    "text": ["Debug", "Prompt Failures"],
+    "description": "Learn to identify and resolve issues when LLM outputs do not meet expectations.",
+    "set": "llms",
+    "tasks": [
+      "Identify common reasons for poor outputs (e.g., vague prompts)",
+      "Test variations of a prompt to isolate the problem",
+      "Experiment with techniques like chain-of-thought prompting",
+      "Document effective strategies for debugging prompts"
+    ],
+    "resources": [
+      "Article: 'Prompt Debugging Techniques' on https://www.promptengineering.com/",
+      "Tool: 'Prompt Tester' on https://prompttester.io/",
+      "Video: 'How to Debug AI Prompts' on https://www.youtube.com/"
+    ]
+  }
+]

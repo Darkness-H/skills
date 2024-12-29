@@ -1,6 +1,18 @@
 const Skill = require('../models/skill.model');
 const path = require('path');
 
+// Función auxiliar para obtener árboles de habilidades con conteo
+const getSkillTreesWithCount = async () => {
+    const skillTreesWithCount = await Skill.aggregate([
+        { $group: { _id: "$set", skillCount: { $sum: 1 } } }
+    ]);
+    return skillTreesWithCount.map(tree => ({
+        name: tree._id,
+        count: tree.skillCount
+    }));
+}
+
+
 // Función que redirecciona a la página de la competencia defecto
 exports.showDefaultSkillTree = async (req, res, next) => {
     res.redirect('/skills/electronics');
@@ -19,16 +31,7 @@ exports.showSkillTree = async (req, res, next) => {
             set: skillTreeName
         });
 
-        // Obtener todos los árboles de habilidades con sus conteos
-        const skillTreesWithCount = await Skill.aggregate([
-            { $group: { _id: "$set", skillCount: { $sum: 1 } } }
-        ]);
-
-        // Transformar los datos para facilitar su uso en la plantilla
-        const skillTrees = skillTreesWithCount.map(tree => ({
-            name: tree._id,
-            count: tree.skillCount
-        }));
+        const skillTrees = await getSkillTreesWithCount();
         res.render('index', {skills: skills, skillTreeName: skillTreeName, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
         next(error);
@@ -51,7 +54,9 @@ exports.showEditSkillForm = async (req, res, next) => {
         if (!skill) {
             return res.status(404).send('404 Error: Skill not found');
         }
-        res.render('editSkill', {skill: skill, success_msg: null, error_msg: null, error: null});
+
+        const skillTrees = await getSkillTreesWithCount();
+        res.render('editSkill', {skill: skill, success_msg: null, error_msg: null, error: null, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
         next(error);
     }
@@ -80,7 +85,9 @@ exports.updateSkill = async (req, res, next) => {
         const skill = await Skill.findOneAndUpdate({ set: skillTreeName, taskID: skillID }, updateData, {
             new: true, runValidators: true
         });
-        res.render('editSkill', {skill: skill, success_msg: 'Saved Successfully', error_msg: null, error: null});
+
+        const skillTrees = await getSkillTreesWithCount();
+        res.render('editSkill', {skill: skill, success_msg: 'Saved Successfully', error_msg: null, error: null, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
         //res.render('editSkill', {skill: skill, success_msg: null, error_msg: 'Save failed', error: error});
         res.render('partials/messages', {success_msg: null, error_msg: 'Save failed', error: error});
@@ -114,7 +121,9 @@ exports.showAddSkillForm = async (req, res, next) => {
     }
     try {
         const skillTreeName = req.params.skillTreeName;
-        res.render('addSkill', {skillTreeName: skillTreeName, success_msg: null, error_msg: null, error: null});
+
+        const skillTrees = await getSkillTreesWithCount();
+        res.render('addSkill', {skillTreeName: skillTreeName, success_msg: null, error_msg: null, error: null, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
         next(error);
     }
