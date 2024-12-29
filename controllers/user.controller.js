@@ -92,7 +92,7 @@ exports.loginSystem = async (req, res, next) => {
         const user = await User.findOne({ username });
         if (!user) {
             console.log('User not found');
-            return res.render('login', {success_msg: null, error_msg: 'User not found', error: null});
+            return res.render('login', {success_msg: null, error_msg: 'User not found', error: null, user: null});
             //return res.status(400).send('User not found');
         }
 
@@ -100,7 +100,7 @@ exports.loginSystem = async (req, res, next) => {
         const validPassword = await bcrypt.compare(password, user.password);
         if (!validPassword) {
             console.log('Invalid password');
-            return res.render('login', {success_msg: null, error_msg: 'Invalid password', error: null});
+            return res.render('login', {success_msg: null, error_msg: 'Invalid password', error: null, user: null});
             //return res.status(400).send('Invalid password');
         }
 
