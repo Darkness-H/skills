@@ -83,6 +83,7 @@ app.get('/login/:message?', (req, res) => {
         success_msg: message || null,
         error_msg: null,
         error: null,
+        user: null
     });
 });
 
