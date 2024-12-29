@@ -1,10 +1,12 @@
 <!--<div class="user-bar"> Hello admin! | <a href="/leaderboard">Leaderboard</a> | <a href="/logout">Logout</a> </div>-->
 <div class="user-bar">
     <% if (user) { %> <!-- Cuando el usuario está autenticado -->
-        Hello <%= user.username %>! |
-        <a href="/skills/<%= skillTreeName %>">
-            <%= skillTreeName %> (<%= skills.length %>)
-        </a> |
+        Hello <%= user.username %>! | SkillTrees:
+        <% skillTrees.forEach(skillTree => { %>
+            <a href="/skills/<%= skillTree.name %>">
+                <%= skillTree.name %> (<%= skillTree.count %>)
+            </a> |
+        <%}); %>
         <a href="/leaderboard">Leaderboard</a> |
         <a href="/about">About</a> |
         <a href="/logout">Logout</a>

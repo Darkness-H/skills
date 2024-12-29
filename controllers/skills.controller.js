@@ -18,7 +18,18 @@ exports.showSkillTree = async (req, res, next) => {
         const skills = await Skill.find({
             set: skillTreeName
         });
-        res.render('index', {skills: skills, skillTreeName: skillTreeName, user: req.session.user});
+
+        // Obtener todos los árboles de habilidades con sus conteos
+        const skillTreesWithCount = await Skill.aggregate([
+            { $group: { _id: "$set", skillCount: { $sum: 1 } } }
+        ]);
+
+        // Transformar los datos para facilitar su uso en la plantilla
+        const skillTrees = skillTreesWithCount.map(tree => ({
+            name: tree._id,
+            count: tree.skillCount
+        }));
+        res.render('index', {skills: skills, skillTreeName: skillTreeName, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
         next(error);
     }
