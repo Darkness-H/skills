@@ -7,108 +7,107 @@
     <link rel="stylesheet" href="/css/skillNotebookStyle.css">
 </head>
 <body>
-    <!-- Incluir el partial de cabecera -->
-    <%- include('partials/username-display') %>
-    <div class="container">
-        <h1>Add Skill</h1>
 
-        <h2><%= skillTreeName.toUpperCase() %></h2>
+<div class="container">
+    <h1>Add Skill</h1>
 
-        <form action="/skills/<%= skillTreeName %>/add/" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <div class="skill-preview">
-                    <svg width="100" height="100" viewBox="0 0 100 100">
-                        <polygon class="hexagon" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
-                        <text id="hexagon-text" x="50%" y="30%" text-anchor="middle" fill="black" font-size="10">
-                        </text>
-                        <image id="hexagon-image" x="35%" y="60%" width="30" height="30"/>
-                    </svg>
-                </div>
+    <h2><%= skillTreeName.toUpperCase() %></h2>
+
+    <form action="/skills/<%= skillTreeName %>/add/" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="skill-preview">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <polygon class="hexagon" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+                    <text id="hexagon-text" x="50%" y="30%" text-anchor="middle" fill="black" font-size="10">
+                    </text>
+                    <image id="hexagon-image" x="35%" y="60%" width="30" height="30"/>
+                </svg>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="skillText">Skill Text:</label>
-                <textarea id="skillText" name="text" required oninput="updateHexagonText()"></textarea>
-            </div>
+        <div class="form-group">
+            <label for="skillText">Skill Text:</label>
+            <textarea id="skillText" name="text" required oninput="updateHexagonText()"></textarea>
+        </div>
 
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea>
-            </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
 
-            <div class="form-group">
-                <label>Tasks to Complete (one per line):</label>
-                <textarea name="tasks" required></textarea>
-            </div>
+        <div class="form-group">
+            <label>Tasks to Complete (one per line):</label>
+            <textarea name="tasks" required></textarea>
+        </div>
 
-            <div class="form-group">
-                <label>Resources (one per line):</label>
-                <textarea name="resources" required></textarea>
-            </div>
+        <div class="form-group">
+            <label>Resources (one per line):</label>
+            <textarea name="resources" required></textarea>
+        </div>
 
-            <div class="form-group">
-                <label for="skillScore">Skill Score:</label>
-                <input type="number" id="skillScore" name="score" value="1" required min="1">
-            </div>
+        <div class="form-group">
+            <label for="skillScore">Skill Score:</label>
+            <input type="number" id="skillScore" name="score" value="1" required min="1">
+        </div>
 
-            <div class="form-group">
-                <label for="icon">Upload Icon (30x30 png):</label>
-                <input type="file" id="icon" name="icon" accept=".png">
-            </div>
+        <div class="form-group">
+            <label for="icon">Upload Icon (30x30 png):</label>
+            <input type="file" id="icon" name="icon" accept=".png">
+        </div>
 
-            <div class="button-group" id="action-buttons">
-                <button type="submit" class="verify-button" id="approve-btn">Save</button>
-                <button type="button" class="neutral-button" id="cancel-btn">Cancel</button>
-            </div>
+        <div class="button-group" id="action-buttons">
+            <button type="submit" class="verify-button" id="approve-btn">Save</button>
+            <button type="button" class="neutral-button" id="cancel-btn">Cancel</button>
+        </div>
 
-            <br>
+        <br>
 
-            <%- include('./partials/messages') %>
-        </form>
-    </div>
-    <script>
-        const cancelBtn = document.getElementById('cancel-btn');
-        let icon = document.getElementById('icon');
+        <%- include('./partials/messages') %>
+    </form>
+</div>
+<script>
+    const cancelBtn = document.getElementById('cancel-btn');
+    let icon = document.getElementById('icon');
 
 
-        // Cancel button
-        cancelBtn.addEventListener('click', () => {
-            window.location.href = '/skills/<%= skillTreeName %>';
-            //window.location.href = '/skills';
-        });
+    // Cancel button
+    cancelBtn.addEventListener('click', () => {
+        window.location.href = '/skills/<%= skillTreeName %>';
+        //window.location.href = '/skills';
+    });
 
-        // Icon change event
-        icon.addEventListener('change', function(event) {
-            updateHexagonImage(event);
-        });
+    // Icon change event
+    icon.addEventListener('change', function(event) {
+        updateHexagonImage(event);
+    });
 
-        function updateHexagonImage(event) {
-            const hexagonImage = document.getElementById('hexagon-image');
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    hexagonImage.setAttribute('href', e.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
+    function updateHexagonImage(event) {
+        const hexagonImage = document.getElementById('hexagon-image');
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                hexagonImage.setAttribute('href', e.target.result);
+            };
+            reader.readAsDataURL(file);
         }
+    }
 
-        function updateHexagonText() {
-            const skillText = document.getElementById('skillText');
-            const hexagonText = document.getElementById('hexagon-text');
-            const lines = skillText.value.split('\n');
-            hexagonText.innerHTML = '';
-            lines.forEach((line, index) => {
-                const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-                tspan.setAttribute('x', '50%');
-                tspan.setAttribute('dy', index === 0 ? '0' : '1.2em');
-                tspan.setAttribute('font-weight', 'bold');
-                tspan.textContent = line;
-                hexagonText.appendChild(tspan);
-            });
-        }
+    function updateHexagonText() {
+        const skillText = document.getElementById('skillText');
+        const hexagonText = document.getElementById('hexagon-text');
+        const lines = skillText.value.split('\n');
+        hexagonText.innerHTML = '';
+        lines.forEach((line, index) => {
+            const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+            tspan.setAttribute('x', '50%');
+            tspan.setAttribute('dy', index === 0 ? '0' : '1.2em');
+            tspan.setAttribute('font-weight', 'bold');
+            tspan.textContent = line;
+            hexagonText.appendChild(tspan);
+        });
+    }
 
-    </script>
+</script>
 </body>
 </html>

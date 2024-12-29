@@ -97,6 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
             //
             window.location.href = '../html/skillNotebook.html';
         });
+                // Agregar evento de clic al icono del cuaderno
+                notebookIcon.addEventListener('click', () => {
+                    const skillTreeName = skill.set;
+                    const skillID = skill.taskID;
+                    window.location.href = `/skills/${skillTreeName}/view/${skillID}`;
+                });
 
         pencilIcon.addEventListener('click', () => {
             const skillTreeName = skill.set;

@@ -1,18 +1,6 @@
 const Skill = require('../models/skill.model');
 const path = require('path');
 
-// Función auxiliar para obtener árboles de habilidades con conteo
-const getSkillTreesWithCount = async () => {
-    const skillTreesWithCount = await Skill.aggregate([
-        { $group: { _id: "$set", skillCount: { $sum: 1 } } }
-    ]);
-    return skillTreesWithCount.map(tree => ({
-        name: tree._id,
-        count: tree.skillCount
-    }));
-}
-
-
 // Función que redirecciona a la página de la competencia defecto
 exports.showDefaultSkillTree = async (req, res, next) => {
     res.redirect('/skills/electronics');
@@ -31,14 +19,21 @@ exports.showSkillTree = async (req, res, next) => {
             set: skillTreeName
         });
 
-        const skillTrees = await getSkillTreesWithCount();
+        // Obtener todos los árboles de habilidades con sus conteos
+        const skillTreesWithCount = await Skill.aggregate([
+            { $group: { _id: "$set", skillCount: { $sum: 1 } } }
+        ]);
+
+        // Transformar los datos para facilitar su uso en la plantilla
+        const skillTrees = skillTreesWithCount.map(tree => ({
+            name: tree._id,
+            count: tree.skillCount
+        }));
         res.render('index', {skills: skills, skillTreeName: skillTreeName, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
         next(error);
     }
 }
-
-
 
 
 // Función que muestra la pantalla de edición de la skill seleccionada
@@ -54,9 +49,7 @@ exports.showEditSkillForm = async (req, res, next) => {
         if (!skill) {
             return res.status(404).send('404 Error: Skill not found');
         }
-
-        const skillTrees = await getSkillTreesWithCount();
-        res.render('editSkill', {skill: skill, success_msg: null, error_msg: null, error: null, user: req.session.user, skillTrees: skillTrees});
+        res.render('editSkill', {skill: skill, success_msg: null, error_msg: null, error: null});
     } catch (error) {
         next(error);
     }
@@ -85,9 +78,7 @@ exports.updateSkill = async (req, res, next) => {
         const skill = await Skill.findOneAndUpdate({ set: skillTreeName, taskID: skillID }, updateData, {
             new: true, runValidators: true
         });
-
-        const skillTrees = await getSkillTreesWithCount();
-        res.render('editSkill', {skill: skill, success_msg: 'Saved Successfully', error_msg: null, error: null, user: req.session.user, skillTrees: skillTrees});
+        res.render('editSkill', {skill: skill, success_msg: 'Saved Successfully', error_msg: null, error: null});
     } catch (error) {
         //res.render('editSkill', {skill: skill, success_msg: null, error_msg: 'Save failed', error: error});
         res.render('partials/messages', {success_msg: null, error_msg: 'Save failed', error: error});
@@ -121,9 +112,7 @@ exports.showAddSkillForm = async (req, res, next) => {
     }
     try {
         const skillTreeName = req.params.skillTreeName;
-
-        const skillTrees = await getSkillTreesWithCount();
-        res.render('addSkill', {skillTreeName: skillTreeName, success_msg: null, error_msg: null, error: null, user: req.session.user, skillTrees: skillTrees});
+        res.render('addSkill', {skillTreeName: skillTreeName, success_msg: null, error_msg: null, error: null});
     } catch (error) {
         next(error);
     }
@@ -161,5 +150,29 @@ exports.addSkill = async (req, res) => {
     } catch (error) {
         console.log(error)
         res.render('partials/messages', {success_msg: null, error_msg: 'Save failed', error: error});
+    }
+}
+
+// Función que muestra la pantalla de la skill seleccionada
+exports.viewSkill = async (req, res, next) => {
+    if (!req.session.user) {
+        //return res.redirect('/user/login');
+        return res.redirect('/login');
+    }
+    try {
+        const skillTreeName = req.params.skillTreeName;
+        const skillID = req.params.skillID;
+        const skill = await Skill.findOne({ set: skillTreeName, taskID: skillID });
+        const user = req.session.user;
+        // Mirar si existe userskill, si no existe crear
+
+
+
+        if (!skill) {
+            return res.status(404).send('404 Error: Skill not found');
+        }
+        res.render('skillNotebook', {skill: skill});
+    } catch (error) {
+        next(error);
     }
 }

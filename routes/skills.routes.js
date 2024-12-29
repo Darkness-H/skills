@@ -16,7 +16,7 @@ router.get('/:skillTreeName/add', skillsController.showAddSkillForm);
 router.post('/:skillTreeName/add', upload.single('icon'), skillsController.addSkill);
 
 // GET /skills/:skillTreeName/view/:skillID
-//router.get('/:skillTreeName/view/:skillID', skillsController.viewSkill);
+router.get('/:skillTreeName/view/:skillID', skillsController.viewSkill);
 
 // POST /skills/:skillTreeName/:skillID/verify
 //router.post('/:skillTreeName/:skillID/verify', skillsController.verifySkill);

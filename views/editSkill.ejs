@@ -7,126 +7,124 @@
     <link rel="stylesheet" href="/css/skillNotebookStyle.css">
 </head>
 <body>
-    <!-- Incluir el partial de cabecera -->
-    <%- include('partials/username-display') %>
 
-    <div class="container">
-        <h1>Edit Skill: <%= skill.text.join(" ") %></h1>
+<div class="container">
+    <h1>Edit Skill: <%= skill.text.join(" ") %></h1>
 
-        <h2><%= skill.set.toUpperCase() %></h2>
+    <h2><%= skill.set.toUpperCase() %></h2>
 
-        <form action="/skills/<%= skill.set %>/edit/<%= skill.taskID %>" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <div class="skill-preview">
-                    <svg width="100" height="100" viewBox="0 0 100 100">
-                        <polygon class="hexagon" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
-                        <text id="hexagon-text" x="50%" y="30%" text-anchor="middle" fill="black" font-size="10">
-                            <% skill.text.forEach((word, index) => { %>
-                                <tspan x="50%" dy="<%= index === 0 ? '0' : '1.2em' %>" font-weight="bold"><%= word %></tspan>
-                            <% }) %>
-                        </text>
-                        <% if (skill.icon) { %>
-                            <image id="hexagon-image" x="35%" y="60%" width="30" height="30" href="<%= skill.icon %>"/>
-                        <% } %>
-                    </svg>
-                </div>
+    <form action="/skills/<%= skill.set %>/edit/<%= skill.taskID %>" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="skill-preview">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <polygon class="hexagon" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+                    <text id="hexagon-text" x="50%" y="30%" text-anchor="middle" fill="black" font-size="10">
+                        <% skill.text.forEach((word, index) => { %>
+                            <tspan x="50%" dy="<%= index === 0 ? '0' : '1.2em' %>" font-weight="bold"><%= word %></tspan>
+                        <% }) %>
+                    </text>
+                    <% if (skill.icon) { %>
+                        <image id="hexagon-image" x="35%" y="60%" width="30" height="30" href="<%= skill.icon %>"/>
+                    <% } %>
+                </svg>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="skillText">Skill Text:</label>
-                <textarea id="skillText" name="text" required oninput="updateHexagonText()"><%= skill.text.join('\n')  %></textarea>
-            </div>
+        <div class="form-group">
+            <label for="skillText">Skill Text:</label>
+            <textarea id="skillText" name="text" required oninput="updateHexagonText()"><%= skill.text.join('\n')  %></textarea>
+        </div>
 
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required><%= skill.description %></textarea>
-            </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required><%= skill.description %></textarea>
+        </div>
 
-            <div class="form-group">
-                <label>Tasks to Complete (one per line):</label>
-                <textarea name="tasks" required><%= skill.tasks.join('\n') %></textarea>
-            </div>
+        <div class="form-group">
+            <label>Tasks to Complete (one per line):</label>
+            <textarea name="tasks" required><%= skill.tasks.join('\n') %></textarea>
+        </div>
 
-            <div class="form-group">
-                <label>Resources (one per line):</label>
-                <textarea name="resources" required><%= skill.resources.join('\n') %></textarea>
-            </div>
+        <div class="form-group">
+            <label>Resources (one per line):</label>
+            <textarea name="resources" required><%= skill.resources.join('\n') %></textarea>
+        </div>
 
-            <div class="form-group">
-                <label for="skillScore">Skill Score:</label>
-                <input type="number" id="skillScore" name="score" value="<%= skill.score %>" required min="1">
-            </div>
+        <div class="form-group">
+            <label for="skillScore">Skill Score:</label>
+            <input type="number" id="skillScore" name="score" value="<%= skill.score %>" required min="1">
+        </div>
 
-            <div class="form-group">
-                <label for="icon">Upload Icon (30x30 png):</label>
-                <input type="file" id="icon" name="icon" accept=".png">
-            </div>
+        <div class="form-group">
+            <label for="icon">Upload Icon (30x30 png):</label>
+            <input type="file" id="icon" name="icon" accept=".png">
+        </div>
 
-            <div class="button-group" id="action-buttons">
-                <button type="submit" class="verify-button" id="approve-btn">Save</button>
-                <button type="button" class="neutral-button" id="cancel-btn">Cancel</button>
-                <button type="button" class="reject-button" id="delete-btn">Delete Skill</button>
-            </div>
+        <div class="button-group" id="action-buttons">
+            <button type="submit" class="verify-button" id="approve-btn">Save</button>
+            <button type="button" class="neutral-button" id="cancel-btn">Cancel</button>
+            <button type="button" class="reject-button" id="delete-btn">Delete Skill</button>
+        </div>
 
-            <br>
+        <br>
 
-            <%- include('./partials/messages') %>
-        </form>
-        <form id="deleteForm" action="/skills/<%= skill.set %>/delete/<%= skill.taskID %>" method="POST" style="display: none;"></form>
-    </div>
-    <script>
-        const approveBtn = document.getElementById('approve-btn');
-        const cancelBtn = document.getElementById('cancel-btn');
-        const deleteBtn = document.getElementById('delete-btn');
-        const deleteForm = document.getElementById('deleteForm');
-        let icon = document.getElementById('icon');
+        <%- include('./partials/messages') %>
+    </form>
+    <form id="deleteForm" action="/skills/<%= skill.set %>/delete/<%= skill.taskID %>" method="POST" style="display: none;"></form>
+</div>
+<script>
+    const approveBtn = document.getElementById('approve-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const deleteBtn = document.getElementById('delete-btn');
+    const deleteForm = document.getElementById('deleteForm');
+    let icon = document.getElementById('icon');
 
 
-        // Cancel button
-        cancelBtn.addEventListener('click', () => {
-            window.location.href = '/skills/<%= skill.set %>';
-            //window.location.href = '/skills';
-        });
+    // Cancel button
+    cancelBtn.addEventListener('click', () => {
+        window.location.href = '/skills/<%= skill.set %>';
+        //window.location.href = '/skills';
+    });
 
-        // Delete button
-        deleteBtn.addEventListener('click', () => {
-            if (confirm('Are you sure you want to delete this skill?')) {
-                deleteForm.submit();
-            }
-        });
-
-        // Icon change event
-        icon.addEventListener('change', function(event) {
-            updateHexagonImage(event);
-        });
-
-        function updateHexagonImage(event) {
-            const hexagonImage = document.getElementById('hexagon-image');
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    hexagonImage.setAttribute('href', e.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
+    // Delete button
+    deleteBtn.addEventListener('click', () => {
+        if (confirm('Are you sure you want to delete this skill?')) {
+            deleteForm.submit();
         }
+    });
 
-        function updateHexagonText() {
-            const skillText = document.getElementById('skillText');
-            const hexagonText = document.getElementById('hexagon-text');
-            const lines = skillText.value.split('\n');
-            hexagonText.innerHTML = '';
-            lines.forEach((line, index) => {
-                const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-                tspan.setAttribute('x', '50%');
-                tspan.setAttribute('dy', index === 0 ? '0' : '1.2em');
-                tspan.setAttribute('font-weight', 'bold');
-                tspan.textContent = line;
-                hexagonText.appendChild(tspan);
-            });
+    // Icon change event
+    icon.addEventListener('change', function(event) {
+        updateHexagonImage(event);
+    });
+
+    function updateHexagonImage(event) {
+        const hexagonImage = document.getElementById('hexagon-image');
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                hexagonImage.setAttribute('href', e.target.result);
+            };
+            reader.readAsDataURL(file);
         }
+    }
 
-    </script>
+    function updateHexagonText() {
+        const skillText = document.getElementById('skillText');
+        const hexagonText = document.getElementById('hexagon-text');
+        const lines = skillText.value.split('\n');
+        hexagonText.innerHTML = '';
+        lines.forEach((line, index) => {
+            const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+            tspan.setAttribute('x', '50%');
+            tspan.setAttribute('dy', index === 0 ? '0' : '1.2em');
+            tspan.setAttribute('font-weight', 'bold');
+            tspan.textContent = line;
+            hexagonText.appendChild(tspan);
+        });
+    }
+
+</script>
 </body>
 </html>

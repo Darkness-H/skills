@@ -175,3 +175,70 @@ footer {
   right: 40px; /* Ajustar el margen derecho para que coincida con el de los hexágonos */
   border-radius: 5px;
 }
+
+.big-admin-button {
+  display: block;
+  width: 80%; /* Botón ancho */
+  max-width: 300px; /* Máximo ancho del botón */
+  margin: 20px auto; /* Centrar en pantalla */
+  padding: 20px; /* Espaciado interno */
+  font-size: 1.5em; /* Texto grande */
+  background-color: #007bff; /* Color azul */
+  color: white; /* Texto blanco */
+  text-align: center; /* Texto centrado */
+  text-decoration: none; /* Sin subrayado */
+  border-radius: 10px; /* Bordes redondeados */
+  border: none; /* Sin borde */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.2s, background-color 0.2s; /* Animación suave */
+}
+
+.big-admin-button:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+  transform: scale(1.05); /* Efecto de zoom */
+}
+
+/* Estilo adicional para la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #cccccc;;
+  color: black;
+}
+
+td img {
+  width: 30px;
+  height: 30px;
+}
+
+.actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.actions .edit {
+  background-color: #007bff;
+  color: white;
+}
+
+.actions .delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.actions button:hover {
+  opacity: 0.9;
+}
