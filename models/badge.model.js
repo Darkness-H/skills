@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const badgeSchema = new mongoose.Schema({
-    name: {
+    rango: {
         type: String,
         required: true,
         unique: true
@@ -14,7 +14,7 @@ const badgeSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    image_url: {
+    png: {
         type: String,
         required: true
     }
