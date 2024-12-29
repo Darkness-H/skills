@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <%- include('partials/username-display') %> <!-- Muestra la barra de usuario -->
+
+    <h1>Sobre el Proyecto Skills</h1>
+    <div class="description">
+        <p>Skills es una plataforma diseñada para fomentar el aprendizaje práctico y colaborativo a través de competencias (skills). Los usuarios pueden completar tareas asociadas a diferentes competencias, subir evidencias de su progreso, y alcanzar logros en forma de medallas (badges).</p>
+
+        <p>La aplicación incluye elementos clave como:</p>
+        <ul>
+            <li><strong>Árboles de Competencias:</strong> Agrupaciones temáticas de habilidades que los usuarios pueden explorar y completar.</li>
+            <li><strong>Evidencias y Evaluaciones:</strong> Los usuarios deben proporcionar pruebas de haber completado las tareas asociadas a una competencia. Estas evidencias son evaluadas por otros usuarios o por administradores.</li>
+            <li><strong>Medallas:</strong> Representan hitos logrados basados en el puntaje acumulado. Cada nivel está asociado a la saga de Star Wars, comenzando desde "Observador" hasta alcanzar el título de "Caballero Jedi".</li>
+            <li><strong>Clasificación:</strong> Una tabla dinámica que muestra el progreso y la clasificación de los usuarios, promoviendo la competencia sana.</li>
+            <li><strong>Gestión Administrativa:</strong> Los administradores pueden crear, editar y eliminar competencias, así como gestionar usuarios y sus permisos.</li>
+        </ul>
+        <p>Este sistema es ideal para aprender de manera interactiva y colaborativa, mientras se fomenta la auto-superación y la participación activa.</p>
+    </div>
+
+    <div class="links">
+        <a href="/users/login">Iniciar sesión</a> <!-- Link a login -->
+        <a href="/">Volver a la página principal</a> <!-- Link a la página principal -->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Skills Project. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
