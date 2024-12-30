@@ -149,6 +149,7 @@ footer {
   font-weight: bold;
   font-size: 0.9em;
   font-family: Arial, sans-serif; /* Mismo tipo de letra */
+  z-index: 10;
 }
 .user-bar a {
   color: #1a73e8;
@@ -160,7 +161,7 @@ footer {
 }
 
 .admin-button {
-  background-color: blue;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -174,6 +175,12 @@ footer {
   top: 50px; /* Ajustar la altura para alinearlo con el título H1 */
   right: 40px; /* Ajustar el margen derecho para que coincida con el de los hexágonos */
   border-radius: 5px;
+  z-index: 0;
+}
+
+.admin-button:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+  transform: scale(1.05); /* Efecto de zoom */
 }
 
 .big-admin-button {
