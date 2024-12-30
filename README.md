@@ -143,3 +143,7 @@ Implemented Authentication OAuth for Github. The following modifications have be
 - **app.js**:
      - Integrated Passport middleware (passport.initialize() and passport.session()).
      - Defined routes for GitHub authentication and callback handling.
+ 
+  ### 12/26/2024 - 12/30/2024
+  The entire backend has been implemented, new functionalities have been added, and all templates have been updated to work dynamically with EJS. More information at the following link: https://docs.google.com/document/d/1lgYSPniqdpnUhlVHkmgpCmSTYw5xDjLKhRM7ebZk9jM/edit?usp=sharing
+  
