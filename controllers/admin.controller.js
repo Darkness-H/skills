@@ -5,20 +5,21 @@ const User = require('../models/user.model');
 const Skill = require("../models/skill.model");
 const bcrypt = require("bcrypt");
 
+// Función auxiliar para obtener árboles de habilidades con conteo
+const getSkillTreesWithCount = async () => {
+    const skillTreesWithCount = await Skill.aggregate([
+        { $group: { _id: "$set", skillCount: { $sum: 1 } } }
+    ]);
+    return skillTreesWithCount.map(tree => ({
+        name: tree._id,
+        count: tree.skillCount
+    }));
+}
+
 // Controlador para GET /admin/dashboard
 exports.getDashboard = async (req, res, next) => {
     try {
-        // Obtener todos los árboles de habilidades con sus conteos
-        const skillTreesWithCount = await Skill.aggregate([
-            {$group: {_id: "$set", skillCount: {$sum: 1}}}
-        ]);
-
-        // Transformar los datos para facilitar su uso en la plantilla
-        const skillTrees = skillTreesWithCount.map(tree => ({
-            name: tree._id,
-            count: tree.skillCount
-        }));
-
+        const skillTrees = await getSkillTreesWithCount();
         res.render('admin-dashboard', {user: req.session.user, skillTrees: skillTrees});
     }catch(error){
         next(error)
@@ -30,18 +31,7 @@ exports.getBadges = async (req, res, next) => {
     try{
         const badges = await Badge.find();
         const sortedBadges = badges.sort((a, b) => a.bitpoints_min - b.bitpoints_min);
-
-        // Obtener todos los árboles de habilidades con sus conteos
-        const skillTreesWithCount = await Skill.aggregate([
-            {$group: {_id: "$set", skillCount: {$sum: 1}}}
-        ]);
-
-        // Transformar los datos para facilitar su uso en la plantilla
-        const skillTrees = skillTreesWithCount.map(tree => ({
-            name: tree._id,
-            count: tree.skillCount
-        }));
-
+        const skillTrees = await getSkillTreesWithCount();
         res.render('admin-badges', { badges: sortedBadges, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
         next(error);
@@ -56,18 +46,7 @@ exports.editBadge = async (req, res, next) => {
         if (!badge) {
             return res.status(404).render('error', { message: 'Badge not found' });
         }
-
-        // Obtener todos los árboles de habilidades con sus conteos
-        const skillTreesWithCount = await Skill.aggregate([
-            {$group: {_id: "$set", skillCount: {$sum: 1}}}
-        ]);
-
-        // Transformar los datos para facilitar su uso en la plantilla
-        const skillTrees = skillTreesWithCount.map(tree => ({
-            name: tree._id,
-            count: tree.skillCount
-        }));
-
+        const skillTrees = await getSkillTreesWithCount();
         res.render('edit-badge', {badge: badge, user: req.session.user, skillTrees: skillTrees});
     }
     catch (error) {
@@ -113,7 +92,8 @@ exports.deleteBadge = async (req, res, next) => {
 exports.getUsers = async (req, res, next) => {
     try{
         const users = await User.find();
-        res.render('admin-users', {users: users});
+        const skillTrees = await getSkillTreesWithCount();
+        res.render('admin-users', {users: users, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
         next(error);
     }
