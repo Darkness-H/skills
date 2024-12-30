@@ -19,7 +19,7 @@ router.post('/:skillTreeName/add', upload.single('icon'), skillsController.addSk
 router.get('/:skillTreeName/view/:skillID', skillsController.viewSkill);
 
 // POST /skills/:skillTreeName/:skillID/verify
-//router.post('/:skillTreeName/:skillID/verify', skillsController.verifySkill);
+router.post('/:skillTreeName/:skillID/verify', skillsController.verifySkill);
 
 // GET /skills/:skillTreeName/edit/:skillID
 router.get('/:skillTreeName/edit/:skillID', skillsController.showEditSkillForm);

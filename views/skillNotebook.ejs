@@ -10,7 +10,7 @@
         // Identificar las tareas y establecer persistencia en localStorage
         function cargarDatos() {
             const taskCheckboxes = document.querySelectorAll(".task-checkbox");
-            const formContainer = document.getElementById("form-container");
+            const formContainer = document.getElementById("form-group");
             //const storageKey = `skill_${<%= user.id %>}_${<%= skill.taskID %>}`;
             const storageKey = "skill_<%= user.id %>_<%= skill.taskID %>";
 
@@ -47,10 +47,10 @@
 
                     // Cargar la tabla de evidencias (TO - DO)
                     // Mostrar el formulario
-                    //formContainer.style.display = "block";
+                    formContainer.style.display = "block";
                 } else {
                     // Ocultar el formulario
-                    //formContainer.style.display = "none";
+                    formContainer.style.display = "none";
                 }
 
                 // Actualizar el estado en localStorage
@@ -80,8 +80,7 @@
                 },
                 body: JSON.stringify({
                     evidence: evidence,
-                    skillId: "<%= skill.id %>",
-                    userSkillId: "<%= userSkill.id %>"
+                    skillId: "<%= skill.id %>"
                 })
             })
                 .then(response => response.json())
@@ -134,7 +133,8 @@
 
     <!-- Formulario para enviar evidencias -->
     <form onsubmit="event.preventDefault(); submitEvidence();">
-        <div id="form-group">
+        <div id="form-group" class="form-group">
+            <h3>Submit evidence</h3>
             <textarea id="evidence_text" placeholder="Enter your evidence here..."></textarea>
             <br><br>
             <button type="submit" class="verify-button">Submit Evidence</button>

@@ -173,20 +173,7 @@ exports.viewSkill = async (req, res, next) => {
         if (!skill) {
             return res.status(404).send('404 Error: Skill not found');
         }
-
-        // Mirar si existe userskill, si no existe crear
-        let userSkill = await UserSkill.findOne({ user: user._id, skill: skill._id });
-        if (!userSkill) {
-            userSkill = new UserSkill({
-                user: user._id,
-                skill: skill._id,
-                completed: false,
-                verified: false
-            });
-            await userSkill.save();
-        }
-
-        res.render('skillNotebook', {skill: skill, userSkill: userSkill, user: user});
+        res.render('skillNotebook', {skill: skill, user: user});
     } catch (error) {
         console.log(error);
     }
@@ -194,7 +181,7 @@ exports.viewSkill = async (req, res, next) => {
 
 // Función que maneja el envío de evidencia
 exports.submitEvidence = async (req, res) => {
-    if (!req.session.user || !req.session.user.admin) {
+    if (!req.session.user) {
         return res.redirect('/users/login');
     }
     try {
@@ -210,30 +197,36 @@ exports.submitEvidence = async (req, res) => {
             return res.status(400).json({ message: 'Evidence text needed.' });
         }
 
-        let userSkill =  await UserSkill.findById(userSkillId);
+        // Mirar si existe userskill, si no existe crear
+        let userSkill = await UserSkill.findOne({ user: userId, skill: skillId });
         if (!userSkill) {
-            return res.status(404).json({ message: 'UserSkill not found' });
+            userSkill = new UserSkill({
+                user: userId,
+                skill: skillId,
+                completed: false,
+                verified: false
+            });
         }
 
         // Actualizar userSkill
         userSkill.evidence = evidence;
-        userSkill.completed = true;
-        userSkill.completedAt = Date.now();
+        // userSkill.completed = true;
+        // userSkill.completedAt = Date.now();
 
         // Guardar el UserSkill (nuevo o actualizado)
         await userSkill.save();
 
-        // Actualizar el atributo completedSkills del usuario
-        const user = await User.findById(userId);
-
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-
-        if (!user.completedSkills.includes(skillId)) {
-            user.completedSkills.push(skillId);
-            await user.save();
-        }
+        // // Actualizar el atributo completedSkills del usuario
+        // const user = await User.findById(userId);
+        //
+        // if (!user) {
+        //     return res.status(404).json({ message: 'User not found' });
+        // }
+        //
+        // if (!user.completedSkills.includes(skillId)) {
+        //     user.completedSkills.push(skillId);
+        //     await user.save();
+        // }
 
         // Responder con un mensaje de éxito
         res.status(200).json({
@@ -242,6 +235,82 @@ exports.submitEvidence = async (req, res) => {
         });
     } catch (error) {
         console.error('Error sending evidence:', error);
+        res.status(500).json({ message: 'Internal server error', error });
+    }
+};
+
+// Función que confirma la evidencia de una competencia
+exports.verifySkill = async (req, res) => {
+    if (!req.session.user || !req.session.user.admin) {
+        return res.redirect('/users/login');
+    }
+    try {
+        const skillTreeName = req.params.skillTreeName; // electronics
+        const skillId = req.body.skillId; // id del skill a comprobar
+        const userSkillId = req.body.userSkillId; // id del userSkill
+        const userId = req.session.user._id; // id del usuario actual
+        const approved = req.params.approved; // false/true -> approve/reject del usuario actual
+
+        // Buscar la evidencia en la base de datos
+        let userSkill =  await UserSkill.findById(userSkillId);
+
+        // Añadir el usuario actual en la lista verifications del userSkill
+        userSkill.verifications.push({
+            user: userId,
+            approved: approved,
+            verifiedAt: Date.now()
+        })
+
+        // Verificando la evidencia
+        var approvedNumber = 0;
+        // Número que aparece dentro de los círculos verdes
+        // *** El número que aparece dentro de los círculos rojos no hace falta aquí,
+        // *** pero se puede calcular haciendo la suma de todos los objetos userSkill
+        // *** de un skill en los que el usuario actual no aparece en la lista verifications
+        // *** de los objetos userSkill (teniendo en cuenta que para que un usuario normal tenga
+        // *** permiso de aprobar una competencia, él mismo debe superar primero esa competencia).
+        for (const user of userSkill.verifications) {
+            try {
+                // Buscar el usuario en la base de datos
+                let user_i = await User.findById(user.user);
+                if (user.approved) {
+                    // Si el skill ya ha sido superada y solo queremos actualizar el número de approved
+                    if (user_i.admin && !userSkill.completed) {
+                        userSkill.completed = true;
+                        userSkill.completedAt = Date.now();
+                    }
+                    approvedNumber += 1;
+                }
+            } catch (error) {
+                console.error('Error verifying evidence:', error);
+                res.status(500).json({ message: 'Internal server error', error });
+            }
+        }
+        if (approvedNumber >= 3 && !userSkill.completed) {
+            userSkill.completed = true;
+            userSkill.completedAt = Date.now();
+        }
+
+        // Guardar el UserSkill (nuevo o actualizado)
+        await userSkill.save();
+
+        // Actualizar el atributo completedSkills del usuario que haya enviado la evidencia
+        const targetUser = await User.findById(userSkill.user);
+        if (userSkill.completed && !targetUser.completedSkills.includes(skillId)) {
+            targetUser.completedSkills.push(skillId);
+            //Guardar el User
+            await targetUser.save();
+        }
+
+        // + cargar la página de nuevo para que el usuario no pueda dar otra vez al botón
+
+        // Responder con un mensaje de éxito
+        res.status(200).json({
+            message: 'Evidence verified correctly',
+            userSkill: userSkill
+        });
+    } catch (error) {
+        console.error('Error verifying evidence:', error);
         res.status(500).json({ message: 'Internal server error', error });
     }
 };
