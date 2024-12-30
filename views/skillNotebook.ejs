@@ -8,10 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
     <script>
         // Identificar las tareas y establecer persistencia en localStorage
-        document.addEventListener("DOMContentLoaded", () => {
+        function cargarDatos() {
             const taskCheckboxes = document.querySelectorAll(".task-checkbox");
             const formContainer = document.getElementById("form-container");
-            const storageKey = `skill_${<%= user.id %>}_${<%= skill.taskID %>}`;
+            //const storageKey = `skill_${<%= user.id %>}_${<%= skill.taskID %>}`;
+            const storageKey = "skill_<%= user.id %>_<%= skill.taskID %>";
 
 
 
@@ -59,9 +60,12 @@
 
             // Actualizar la visibilidad del formulario al cargar la página
             handleCheckboxChange();
-        });
+        };
+        // Cargar los comboboxes cuando la página esté cargada
+        window.onload = function() {
+            cargarDatos();
+        };
 
-        // Función para enviar evidencia
         function submitEvidence() {
             const evidenceTextarea = document.getElementById("evidence_text");
             const evidence = evidenceTextarea.value;
@@ -69,7 +73,7 @@
             console.log("Hola")
 
             // POST request to submit the evidence
-            fetch(`/skills/<%= skill.set %>/submit-evidence`, {
+            fetch(`/skills/<%= skill.set %>/submitEvidence`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -129,13 +133,15 @@
     </div>
 
     <!-- Formulario para enviar evidencias -->
-    <form onsubmit="submitEvidence()">
+    <form onsubmit="event.preventDefault(); submitEvidence();">
         <div id="form-group">
-                <textarea id="evidence_text" placeholder="Enter your evidence here..."></textarea>
-                <br><br>
-                <button type="submit" class="verify-button">Submit Evidence</button>
+            <textarea id="evidence_text" placeholder="Enter your evidence here..."></textarea>
+            <br><br>
+            <button type="submit" class="verify-button">Submit Evidence</button>
         </div>
     </form>
+
+
 
     <div class="resources">
         <h3>Resources</h3>

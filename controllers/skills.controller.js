@@ -1,5 +1,6 @@
 const Skill = require('../models/skill.model');
 const UserSkill = require('../models/userskill.model');
+const User = require('../models/user.model');
 const path = require('path');
 
 // Función auxiliar para obtener árboles de habilidades con conteo
@@ -185,9 +186,6 @@ exports.viewSkill = async (req, res, next) => {
             await userSkill.save();
         }
 
-        console.log(skill)
-        console.log(user)
-        console.log(userSkill);
         res.render('skillNotebook', {skill: skill, userSkill: userSkill, user: user});
     } catch (error) {
         console.log(error);
@@ -197,7 +195,7 @@ exports.viewSkill = async (req, res, next) => {
 // Función que maneja el envío de evidencia
 exports.submitEvidence = async (req, res) => {
     if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/user/login');
+        return res.redirect('/users/login');
     }
     try {
         const skillTreeName = req.params.skillTreeName;
@@ -205,6 +203,8 @@ exports.submitEvidence = async (req, res) => {
         const userSkillId = req.body.userSkillId;
         const userId = req.session.user._id;
         const skillId = req.body.skillId;
+
+
 
         if (!evidence) {
             return res.status(400).json({ message: 'Evidence text needed.' });
