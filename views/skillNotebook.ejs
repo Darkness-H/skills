@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill: <%= skill.text.join(" ") %></title>
+    <link rel="stylesheet" href="/css/skillNotebookStyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Identificar las tareas y establecer persistencia en localStorage
+        function cargarDatos() {
+            const taskCheckboxes = document.querySelectorAll(".task-checkbox");
+            const formContainer = document.getElementById("form-group");
+            //const storageKey = `skill_${<%= user.id %>}_${<%= skill.taskID %>}`;
+            const storageKey = "skill_<%= user.id %>_<%= skill.taskID %>";
+
+
+
+            // Recuperar estados desde localStorage
+            const storedState = JSON.parse(localStorage.getItem(storageKey)) || [];
+            taskCheckboxes.forEach((checkbox, index) => {
+                checkbox.checked = storedState[index] || false;
+                checkbox.addEventListener("change", handleCheckboxChange);
+            });
+
+            function showConfetti() {
+                confetti({
+                    particleCount: 300,       // Número de partículas
+                    spread: 360,              // Dispersión completa (360 grados)
+                    origin: { x: 0.5, y: 0.5 }, // Origen en el centro de la pantalla (0.5, 0.5)
+                    colors: ['#ff0', '#0f0', '#00f', '#f00', '#0ff', '#f0f'], // Colores del confetti
+                    shapes: ['circle', 'square'], // Formas de las partículas
+                    scalar: 1.2,              // Escala de las partículas
+                    drift: 0.2,               // Movimiento lateral de las partículas
+                    gravity: 0.8,             // Gravedad que afecta las partículas
+                    tick: 50,                 // Velocidad de la animación
+                });
+            }
+
+            // Manejar cambio de estado de los checkboxes
+            function handleCheckboxChange() {
+                const allChecked = Array.from(taskCheckboxes).every(cb => cb.checked);
+
+                if (allChecked) {
+                    // Disparar confeti
+                    showConfetti();
+
+                    // Cargar la tabla de evidencias (TO - DO)
+                    // Mostrar el formulario
+                    formContainer.style.display = "block";
+                } else {
+                    // Ocultar el formulario
+                    formContainer.style.display = "none";
+                }
+
+                // Actualizar el estado en localStorage
+                const updatedState = Array.from(taskCheckboxes).map(cb => cb.checked);
+                localStorage.setItem(storageKey, JSON.stringify(updatedState));
+            }
+
+            // Actualizar la visibilidad del formulario al cargar la página
+            handleCheckboxChange();
+        };
+        // Cargar los comboboxes cuando la página esté cargada
+        window.onload = function() {
+            cargarDatos();
+        };
+
+        function submitEvidence() {
+            const evidenceTextarea = document.getElementById("evidence_text");
+            const evidence = evidenceTextarea.value;
+
+            console.log("Hola")
+
+            // POST request to submit the evidence
+            fetch(`/skills/<%= skill.set %>/submitEvidence`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    evidence: evidence,
+                    skillId: "<%= skill.id %>"
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // Clear the textarea
+                    evidenceTextarea.value = "";
+                })
+                .catch(error => {
+                    console.error("Error submitting evidence:", error);
+                });
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div>
+            <div class="skill-title">Skill: <%= skill.text.join(" ") %></div>
+            <div class="skill-score">Skill Score: <%= skill.score %> points</div>
+        </div>
+    </div>
+    <div class="svg-wrapper" data-id="<%= skill.taskID %>" data-custom="false">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+            <polygon class="hexagon" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+            <text id="hexagon-text" x="50%" y="30%" text-anchor="middle" fill="black" font-size="10">
+                <% skill.text.forEach((word, index) => { %>
+                    <tspan x="50%" dy="<%= index === 0 ? '0' : '1.2em' %>" font-weight="bold"><%= word %></tspan>
+                <% }) %>
+            </text>
+            <% if (skill.icon) { %>
+                <image id="hexagon-image" x="35%" y="60%" width="30" height="30" href="<%= skill.icon %>"/>
+            <% } %>
+        </svg>
+    </div>
+    <div class="description">
+        <h3>Description</h3>
+        <%= skill.description %>
+    </div>
+    <div class="tasks">
+        <h3>Tasks to Complete</h3>
+        <ul>
+            <% skill.tasks.forEach((task, index) => { %>
+                <li>
+                    <input type="checkbox" class="task-checkbox" data-task-index="<%= index %>"> <%= task %>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+
+    <!-- Formulario para enviar evidencias -->
+    <form onsubmit="event.preventDefault(); submitEvidence();">
+        <div id="form-group" class="form-group">
+            <h3>Submit evidence</h3>
+            <textarea id="evidence_text" placeholder="Enter your evidence here..."></textarea>
+            <br><br>
+            <button type="submit" class="verify-button">Submit Evidence</button>
+        </div>
+    </form>
+
+
+
+    <div class="resources">
+        <h3>Resources</h3>
+        <ul>
+            <% skill.resources.forEach(resource => { %>
+                <li>
+                    <%= resource %>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+
+

@@ -16,10 +16,10 @@ router.get('/:skillTreeName/add', skillsController.showAddSkillForm);
 router.post('/:skillTreeName/add', upload.single('icon'), skillsController.addSkill);
 
 // GET /skills/:skillTreeName/view/:skillID
-//router.get('/:skillTreeName/view/:skillID', skillsController.viewSkill);
+router.get('/:skillTreeName/view/:skillID', skillsController.viewSkill);
 
 // POST /skills/:skillTreeName/:skillID/verify
-//router.post('/:skillTreeName/:skillID/verify', skillsController.verifySkill);
+router.post('/:skillTreeName/:skillID/verify', skillsController.verifySkill);
 
 // GET /skills/:skillTreeName/edit/:skillID
 router.get('/:skillTreeName/edit/:skillID', skillsController.showEditSkillForm);
@@ -28,7 +28,7 @@ router.get('/:skillTreeName/edit/:skillID', skillsController.showEditSkillForm);
 router.post('/:skillTreeName/edit/:skillID', upload.single('icon'),  skillsController.updateSkill);
 
 // POST /skills/:skillTreeName/submit-evidence
-//router.post('/:skillTreeName/submitEvidence', skillsController.submitEvidence);
+router.post('/:skillTreeName/submitEvidence', skillsController.submitEvidence);
 
 // POST /skills/:skillTreeName/delete/:skillID
 router.post('/:skillTreeName/delete/:skillID', skillsController.deleteSkill);
