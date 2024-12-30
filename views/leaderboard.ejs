@@ -118,7 +118,6 @@
         }
 
     </style>
-    <script src="/js/leaderboard.js"></script>
 </head>
 <body>
 
@@ -177,7 +176,13 @@
             </tr>
             </thead>
             <tbody id="rangeBody">
-            <!-- Las filas se añadirán aquí -->
+            <% badges.forEach(badge => { %>
+                <tr>
+                    <td><%= badge.rango %></td>
+                    <td><img src="<%= badge.png %>" alt="<%= badge.rango %> Badge" class="badge-img"></td>
+                    <td><%= badge.bitpoints_min %> - <%= badge.bitpoints_max %></td>
+                </tr>
+            <% }); %>
             </tbody>
         </table>
     </div>

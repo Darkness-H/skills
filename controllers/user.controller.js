@@ -217,7 +217,7 @@ exports.visualizeLeaderboard = async (req, res, next) => {
         }));
 
         // Renderizar la vista 'leaderboard.ejs' pasando los datos
-        res.render('leaderboard', { leaderboard: leaderboard, user: req.session.user, skillTrees: skillTrees });
+        res.render('leaderboard', { leaderboard: leaderboard, user: req.session.user, skillTrees: skillTrees, badges: badges });
     } catch (error) {
         console.error('Error fetching leaderboard:', error);
         res.status(500).send('Error fetching leaderboard');
