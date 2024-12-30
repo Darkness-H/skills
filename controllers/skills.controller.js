@@ -163,3 +163,27 @@ exports.addSkill = async (req, res) => {
         res.render('partials/messages', {success_msg: null, error_msg: 'Save failed', error: error});
     }
 }
+
+// Función que muestra la pantalla de la skill seleccionada
+exports.viewSkill = async (req, res, next) => {
+    if (!req.session.user) {
+        //return res.redirect('/user/login');
+        return res.redirect('/login');
+    }
+    try {
+        const skillTreeName = req.params.skillTreeName;
+        const skillID = req.params.skillID;
+        const skill = await Skill.findOne({ set: skillTreeName, taskID: skillID });
+        const user = req.session.user;
+        // Mirar si existe userskill, si no existe crear
+
+
+
+        if (!skill) {
+            return res.status(404).send('404 Error: Skill not found');
+        }
+        res.render('skillNotebook', {skill: skill});
+    } catch (error) {
+        next(error);
+    }
+}

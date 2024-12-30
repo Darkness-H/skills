@@ -93,9 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Agregar evento de clic al icono del cuaderno
         notebookIcon.addEventListener('click', () => {
-            // TO-DO Parte 2: Guardar el skill seleccionado en localStorage
-            //
-            window.location.href = '../html/skillNotebook.html';
+            const skillTreeName = skill.set;
+            const skillID = skill.taskID;
+            window.location.href = `/skills/${skillTreeName}/view/${skillID}`;
         });
 
         pencilIcon.addEventListener('click', () => {
