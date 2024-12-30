@@ -1,44 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Web-Skill Tree : <%= skillTreeName.toUpperCase()%></title>
-   <link rel='stylesheet' href='/css/style.css'/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-Skill Tree : <%= skillTreeName.toUpperCase()%></title>
+    <link rel='stylesheet' href='/css/style.css'/>
     <script>
         // Load session data
         const skillsData = <%- JSON.stringify(skills) %>;
         const currentUser = <%- JSON.stringify(user || null) %>;
         const skillTreeName = <%- JSON.stringify(skillTreeName) %>;
+        const userSkillsData = <%- JSON.stringify(userSkills || null) %>;
+        const allUserSkills = <%- JSON.stringify(allUserSkills) %>;
+        const allSkills = <%- JSON.stringify(allSkills) %>;
+
+        // redGreenCircles.js
+        function redGreenCircles() {
+            // Los elementos .svg-wrapper se crean dinámicamente
+            // Usamos setInterval para verificar periódicamente si el elemento ya está en el DOM
+            const interval = setInterval(() => {
+                for (let skill of allSkills) {
+                    // Obtener el wrapper de cada skill
+                    const mainDiv = document.querySelector(`.svg-wrapper[data-id='${skill._id}']`);
+
+                    if (mainDiv) { // Elemento encontrado
+                        clearInterval(interval); // Detiene la búsqueda
+                        let userSkill = userSkillsData.find((userSkill) => userSkill.skill === skill._id);
+                        // Círculo verde
+                        if (userSkill) {
+                            let storedVerifications = userSkill.verifications;
+                            if (storedVerifications.length > 0) {
+                                let greenCircle = storedVerifications.reduce((acumulador, verification) => {
+                                    if (verification.approved) {
+                                        acumulador += 1;
+                                    }
+                                    return acumulador;
+                                }, 0);
+                                if (greenCircle !== 0) {
+                                    // Create the small attached circle
+                                    const attachedCircle = document.createElement("div");
+                                    attachedCircle.className = "circle-indicator green"; // Assign the class for styling
+                                    // Optional text inside the circle (like a number)
+                                    attachedCircle.textContent = greenCircle.toString();
+                                    // Position the small circle exactly at the upper-right corner
+                                    attachedCircle.style.top = "-7px"; // Attach at the top
+                                    attachedCircle.style.right = "5px"; // Attach to the right
+                                    // Attach the small circle to the main div
+                                    mainDiv.appendChild(attachedCircle);
+
+                                    // Paint the polygon
+                                    if (userSkill.completed && userSkill.verified) {
+                                        const polygon = mainDiv.querySelector(".hexagon");
+                                        polygon.style.fill = "#28a745"; // Cambia el color a verde
+                                    }
+                                }
+                            }
+                        }
+                        // Círculo rojo
+                        let redCircle = allUserSkills.reduce((acumulador, uSkill) => {
+                            // Mismo skill, sin completar/verificar
+                            if (uSkill.skill === skill._id && !uSkill.completed && !uSkill.verified) {
+                                acumulador += 1;
+                            }
+                            return acumulador
+                        }, 0)
+                        if (redCircle !== 0) {
+                            // Create the small attached circle
+                            const attachedCircle = document.createElement("div");
+                            attachedCircle.className = "circle-indicator red"; // Assign the class for styling
+                            // Optional text inside the circle (like a number)
+                            attachedCircle.textContent = redCircle.toString();
+                            // Position the small circle exactly at the upper-left corner
+                            attachedCircle.style.top = "-7px"; // Attach at the top
+                            attachedCircle.style.right = "75px"; // Attach to the right
+                            // Attach the small circle to the main div
+                            mainDiv.appendChild(attachedCircle);
+                        }
+                    }
+                }
+            }, 100); // Verifica cada 100 ms
+        }
+        window.onload = redGreenCircles;
     </script>
     <script src="/js/main.js"></script>
-    <script src="/js/scripts/redGreenCircles.js"></script>
+    <!-- <script src="/js/scripts/redGreenCircles.js"></script> -->
     <link rel='stylesheet' href='/css/redGreenCircles.css'/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/6.0.0-beta3/css/all.min.css">
-  </head>
-  <body>
-    <!-- Incluir el partial de cabecera -->
-    <%- include('partials/username-display') %>
-    <h1><%= skillTreeName.toUpperCase()%></h1>
-    <% if (user.admin) { %>
-        <br>
-        <a id="admin-button" class="admin-button" href="/skills/<%= skillTreeName %>/add"> Add Skill</a>
-        <br>
-    <% } %>
+</head>
+<body>
+<!-- Incluir el partial de cabecera -->
+<%- include('partials/username-display') %>
+<h1><%= skillTreeName.toUpperCase()%></h1>
+<% if (user.admin) { %>
+    <br>
+    <a id="admin-button" class="admin-button" href="/skills/<%= skillTreeName %>/add"> Add Skill</a>
+    </button>
+    <br>
+<% } %>
 
 
-    <!-- Contenedor para los hexagonos -->
+<!-- Contenedor para los hexagonos -->
+
 <!--    <div id="svg-container" class="svg-container">-->
 <!--      &lt;!&ndash; EXISTING SVGs &ndash;&gt;-->
 <!--    </div>-->
-  <div id="svg-container" class="svg-container">
+<div id="svg-container" class="svg-container">
     <!-- EXISTING SVGs -->
-  </div>
+</div>
 
 
-  <div id="skill-description" class="skill-description">
-        <!-- Skill description -->
-    </div>
+<div id="skill-description" class="skill-description">
+    <!-- Skill description -->
+</div>
 
-  </body>
+</body>
 </html>
+

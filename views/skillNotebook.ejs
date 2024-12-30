@@ -70,8 +70,6 @@
             const evidenceTextarea = document.getElementById("evidence_text");
             const evidence = evidenceTextarea.value;
 
-            console.log("Hola")
-
             // POST request to submit the evidence
             fetch(`/skills/<%= skill.set %>/submitEvidence`, {
                 method: "POST",
@@ -88,14 +86,52 @@
                     console.log(data);
                     // Clear the textarea
                     evidenceTextarea.value = "";
+                    // Reload the page
+                    window.location.reload();
                 })
                 .catch(error => {
                     console.error("Error submitting evidence:", error);
                 });
         }
+
+        function handleAccept(userSkillID) {
+            const URL = `/skills/<%= skill.set %>/<%= skill.taskID %>/verify`;
+            fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ approved: true, userSkillId: userSkillID})
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    location.reload(); // Recargar la página después de aceptar
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function handleReject(userSkillID) {
+            const URL = `/skills/<%= skill.set %>/<%= skill.taskID %>/verify`;
+            fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ approved: false, userSkillId: userSkillID})
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    location.reload(); // Recargar la página después de rechazar
+                })
+                .catch(error => console.error('Error:', error));
+        }
     </script>
+
 </head>
 <body>
+<%- include('partials/username-display') %>
 <div class="container">
     <div class="header">
         <div>
@@ -141,6 +177,41 @@
         </div>
     </form>
 
+    <%
+    // Verificar si el usuario es admin o si ha completado la habilidad actual
+    const isUserAllowed = user.admin || user.completedSkills.includes(skill.taskID.toString());
+    if (isUserAllowed) {
+    %>
+            <h3>Unverified Submissions</h3>
+            <table class="styled-table">
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Evidence</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% userSkills.forEach(userSkill => { %>
+                    <%
+                        const userHasVerified = userSkill.verifications.some(verification =>
+                                verification.user.toString() === user._id.toString()
+                        );
+                        const isCurrentUser = userSkill.user.toString() === user._id.toString();
+                    if (!userSkill.verified && !userHasVerified && !isCurrentUser) { %>
+                        <tr>
+                            <td><%= userSkill.username %></td>
+                            <td><%= userSkill.evidence || "No evidence provided" %></td>
+                            <td>
+                                <button class="verify-button" onclick="handleAccept('<%= userSkill._id %>')">Accept</button>
+                                <button class="reject-button" onclick="handleReject('<%= userSkill._id %>')">Reject</button>
+                            </td>
+                        </tr>
+                    <% } %>
+                <% }) %>
+                </tbody>
+            </table>
+    <% } %>
 
 
     <div class="resources">
@@ -153,6 +224,8 @@
             <% }) %>
         </ul>
     </div>
+
+
 </div>
 </body>
 </html>

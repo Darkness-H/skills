@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     skillsData.forEach(skill => {
         const wrapper = document.createElement('div');
         wrapper.classList.add('svg-wrapper');
-        wrapper.dataset.id = skill.id;
+        wrapper.dataset.id = skill._id;
         wrapper.dataset.custom = 'false';
 
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
