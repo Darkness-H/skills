@@ -3,6 +3,21 @@ const router = express.Router();
 const skillsController = require('../controllers/skills.controller');
 const upload = require('../middlewares/upload');
 
+// Middleware de autenticación
+function authenticateAdmin(req, res, next) {
+    if (req.session.user && req.session.user.admin) {
+        return next();
+    }
+    res.status(403).send('Access denied: admin role required.');
+}
+
+function authenticateUser(req, res, next) {
+    if (req.session.user) {
+        return next();
+    }
+    res.redirect('/users/login');
+}
+
 // GET /skills
 router.get('/', skillsController.showDefaultSkillTree);
 

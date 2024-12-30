@@ -13,6 +13,7 @@
         const userSkillsData = <%- JSON.stringify(userSkills || null) %>;
         const allUserSkills = <%- JSON.stringify(allUserSkills) %>;
         const allSkills = <%- JSON.stringify(allSkills) %>;
+        const numUsers = <%- JSON.stringify(numUsers) %>;
 
         // redGreenCircles.js
         function redGreenCircles() {
@@ -59,11 +60,11 @@
                         // Círculo rojo
                         let redCircle = allUserSkills.reduce((acumulador, uSkill) => {
                             // Mismo skill, sin completar/verificar
-                            if (uSkill.skill === skill._id && !uSkill.completed && !uSkill.verified) {
+                            if (uSkill.skill === skill._id && !uSkill.completed && !uSkill.verified && (uSkill.verifications < numUsers-1)) {
                                 acumulador += 1;
                             }
                             return acumulador
-                        }, 0)
+                        }, 0);
                         if (redCircle !== 0) {
                             // Create the small attached circle
                             const attachedCircle = document.createElement("div");

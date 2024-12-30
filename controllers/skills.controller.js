@@ -38,16 +38,15 @@ exports.showSkillTree = async (req, res, next) => {
         var allUserSkills = await UserSkill.find();
         var allSkills = await Skill.find();
         var userSkills = await UserSkill.find({user: req.session.user._id});
+        const numUsers = await User.countDocuments();
 
-        res.render('index', {skills: skills, skillTreeName: skillTreeName, user: req.session.user, skillTrees: skillTrees, userSkills: userSkills, allUserSkills: allUserSkills, allSkills: allSkills});
+        res.render('index', {skills: skills, skillTreeName: skillTreeName, user: req.session.user,
+            skillTrees: skillTrees, userSkills: userSkills, allUserSkills: allUserSkills,
+            allSkills: allSkills, numUsers: numUsers});
     } catch (error) {
         next(error);
     }
 }
-
-
-
-
 
 
 // Función que muestra la pantalla de edición de la skill seleccionada

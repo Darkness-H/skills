@@ -22,7 +22,7 @@ exports.getDashboard = async (req, res, next) => {
         const skillTrees = await getSkillTreesWithCount();
         res.render('admin-dashboard', {user: req.session.user, skillTrees: skillTrees});
     }catch(error){
-        next(error)
+        res.status(500).send('Error getting dashboard');
     }
 };
 
@@ -34,7 +34,7 @@ exports.getBadges = async (req, res, next) => {
         const skillTrees = await getSkillTreesWithCount();
         res.render('admin-badges', { badges: sortedBadges, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
-        next(error);
+        res.status(500).send('Error getting badges');
     }
 };
 
@@ -44,13 +44,13 @@ exports.editBadge = async (req, res, next) => {
         const badgeID = req.params.id;
         const badge = await Badge.findOne({ _id: badgeID });
         if (!badge) {
-            return res.status(404).render('error', { message: 'Badge not found' });
+            return res.status(404).send('Badge not found');
         }
         const skillTrees = await getSkillTreesWithCount();
         res.render('edit-badge', {badge: badge, user: req.session.user, skillTrees: skillTrees});
     }
     catch (error) {
-        next(error);
+        res.status(500).send('Error getting badge edition screen');
     }
 };
 
@@ -63,13 +63,15 @@ exports.updateBadge = async (req, res) => {
         const badge = await Badge.findOneAndUpdate({ _id: badgeID }, updateData, {
             new: true, runValidators: true
         });
+
         if (!badge) {
-            return res.status(404).render('error', { message: 'Badge not found' });
+            return res.status(404).send('Badge not found');
         }
+
         res.redirect('/admin/badges');
     }
     catch (error) {
-        return res.status(500).render('error', { message: 'Error updating badge' });
+        return res.status(500).send('Error updating badge');
     }
 };
 
@@ -79,7 +81,7 @@ exports.deleteBadge = async (req, res, next) => {
         const badgeID = req.params.id;
         const badge = await Badge.findOneAndDelete({ _id: badgeID });
         if (!badge) {
-            return res.status(404).render('error', { message: 'Badge not found' });
+            return res.status(404).send('Badge not found');
         }
         res.redirect('/admin/badges');
     }
@@ -95,7 +97,7 @@ exports.getUsers = async (req, res, next) => {
         const skillTrees = await getSkillTreesWithCount();
         res.render('admin-users', {users: users, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
-        next(error);
+        res.status(500).send('Error getting users');
     }
 };
 
@@ -109,13 +111,13 @@ exports.changePassword = async (req, res) => {
         });
 
         if (!user) {
-            return res.status(404).render('error', { error: 'User not found', message: 'User not found' });
+            return res.status(404).send('User not found');
         }
 
         // Responder con éxito
-        res.json({ success: true, message: 'Password updated successfully' });
+        res.status(200).json({ message: 'Password updated successfully' });
     } catch (error) {
         // Manejo de errores
-        return res.status(500).render('error', { error: error, message: 'Error updating password' });
+        return res.status(500).json({ message: 'Error updating password' });
     }
 };
