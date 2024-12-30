@@ -150,8 +150,8 @@ exports.visualizeLeaderboard = async (req, res, next) => {
             // Guardar los cambios en la base de datos
             await user.save();
         };
-
-        // *** Ordenar en relación a la puntuación (de mayor a menor) ***
+        users[0].score = 12;
+        // Ordenar en relación a la puntuación (de mayor a menor)
         const sortedUsers = users.sort((a, b) => b.score - a.score);
 
         // Crear un objeto para organizar los usuarios por medalla
@@ -191,16 +191,11 @@ exports.visualizeLeaderboard = async (req, res, next) => {
             // Buscar la primera clave del leaderboard que coincida parcialmente con el rango del badge (e.g 'Cadete' vs 'Cadete nivel-1')
             const leaderboardKey = Object.keys(leaderboard).find(key => badge.rango.startsWith(key));
 
-            // Comprobar si el score del usuario es mayor que 229 (o mayor que badgeWithMaxBitpoints.bitpoints_max), si es así asignamos el valor 9
-            let scoreToAdd = user.score % 10;  // Guardamos un número entre 0 y 9
-            if (user.score > badgeWithMaxBitpoints.bitpoints_max) {
-                scoreToAdd = 9;  // Asignar 9 si el score es mayor que 229
-            }
 
             // Agregar el usuario a la lista correspondiente dentro del leaderboard
             leaderboard[leaderboardKey].push({
                 username: user.username,
-                score: scoreToAdd, // Guardar un número entre 0 y 9
+                score: user.score, // Guardar un número entre 0 y 9
                 badge: badge.png, // Usar la URL de la imagen del badge
                 range: badge.rango
             }); // Siempre va a existir uno

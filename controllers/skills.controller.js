@@ -23,7 +23,7 @@ exports.showDefaultSkillTree = async (req, res, next) => {
 // Función que muestra la pantalla de la competencia seleccionada
 exports.showSkillTree = async (req, res, next) => {
     if (!req.session.user) {
-        return res.redirect('/user/login');
+        return res.redirect('/users/login');
     }
 
     try {
@@ -33,7 +33,13 @@ exports.showSkillTree = async (req, res, next) => {
         });
 
         const skillTrees = await getSkillTreesWithCount();
-        res.render('index', {skills: skills, skillTreeName: skillTreeName, user: req.session.user, skillTrees: skillTrees});
+
+        // Obtener todos los userSkills relacionados con el usuario actual
+        var allUserSkills = await UserSkill.find();
+        var allSkills = await Skill.find();
+        var userSkills = await UserSkill.find({user: req.session.user._id});
+
+        res.render('index', {skills: skills, skillTreeName: skillTreeName, user: req.session.user, skillTrees: skillTrees, userSkills: userSkills, allUserSkills: allUserSkills, allSkills: allSkills});
     } catch (error) {
         next(error);
     }
@@ -42,10 +48,12 @@ exports.showSkillTree = async (req, res, next) => {
 
 
 
+
+
 // Función que muestra la pantalla de edición de la skill seleccionada
 exports.showEditSkillForm = async (req, res, next) => {
     if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/user/login');
+        return res.redirect('/users/login');
     }
     try {
         const skillTreeName = req.params.skillTreeName;
@@ -65,7 +73,7 @@ exports.showEditSkillForm = async (req, res, next) => {
 // Función que actualiza la skill seleccionada
 exports.updateSkill = async (req, res, next) => {
     if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/user/login');
+        return res.redirect('/users/login');
     }
     try {
         const skillTreeName = req.params.skillTreeName;
@@ -96,7 +104,7 @@ exports.updateSkill = async (req, res, next) => {
 //Función para eliminar una skill
 exports.deleteSkill = async (req, res, next) => {
     if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/user/login');
+        return res.redirect('/users/login');
     }
     try {
         const skillTreeName = req.params.skillTreeName;
@@ -114,7 +122,7 @@ exports.deleteSkill = async (req, res, next) => {
 // Función que muestra la pantalla de añadir una skill
 exports.showAddSkillForm = async (req, res, next) => {
     if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/user/login');
+        return res.redirect('/users/login');
     }
     try {
         const skillTreeName = req.params.skillTreeName;
@@ -130,7 +138,7 @@ exports.showAddSkillForm = async (req, res, next) => {
 // Función que añade una skill
 exports.addSkill = async (req, res) => {
     if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/user/login');
+        return res.redirect('/users/login');
     }
     try {
         const skillTreeName = req.params.skillTreeName;
@@ -173,7 +181,32 @@ exports.viewSkill = async (req, res, next) => {
         if (!skill) {
             return res.status(404).send('404 Error: Skill not found');
         }
-        res.render('skillNotebook', {skill: skill, user: user});
+        const userSkills = await UserSkill.find({skill: skill._id, verified: false })
+
+        if (!userSkills) {
+            return res.status(404).send('404 Error: UserSkills not found');
+        }
+
+        //Obtener users que se encuentran en userSkills
+        for (let i = 0; i < userSkills.length; i++) {
+            const userSkill = userSkills[i];
+            const user = await User.findById(userSkill.user);
+            userSkills[i].username = user.username;
+        }
+
+        // Obtener todos los árboles de habilidades con sus conteos
+        const skillTreesWithCount = await Skill.aggregate([
+            {$group: {_id: "$set", skillCount: {$sum: 1}}}
+        ]);
+
+        // Transformar los datos para facilitar su uso en la plantilla
+        const skillTrees = skillTreesWithCount.map(tree => ({
+            name: tree._id,
+            count: tree.skillCount
+        }));
+
+
+        res.render('skillNotebook', {skill: skill, user: user, userSkills: userSkills, skillTrees: skillTrees});
     } catch (error) {
         console.log(error);
     }
@@ -241,15 +274,15 @@ exports.submitEvidence = async (req, res) => {
 
 // Función que confirma la evidencia de una competencia
 exports.verifySkill = async (req, res) => {
-    if (!req.session.user || !req.session.user.admin) {
+    if (!req.session.user) {
         return res.redirect('/users/login');
     }
     try {
         const skillTreeName = req.params.skillTreeName; // electronics
-        const skillId = req.body.skillId; // id del skill a comprobar
+        const skillId = req.params.skillID; // id del skill a comprobar
         const userSkillId = req.body.userSkillId; // id del userSkill
         const userId = req.session.user._id; // id del usuario actual
-        const approved = req.params.approved; // false/true -> approve/reject del usuario actual
+        const approved = req.body.approved; // false/true -> approve/reject del usuario actual
 
         // Buscar la evidencia en la base de datos
         let userSkill =  await UserSkill.findById(userSkillId);
@@ -263,12 +296,6 @@ exports.verifySkill = async (req, res) => {
 
         // Verificando la evidencia
         var approvedNumber = 0;
-        // Número que aparece dentro de los círculos verdes
-        // *** El número que aparece dentro de los círculos rojos no hace falta aquí,
-        // *** pero se puede calcular haciendo la suma de todos los objetos userSkill
-        // *** de un skill en los que el usuario actual no aparece en la lista verifications
-        // *** de los objetos userSkill (teniendo en cuenta que para que un usuario normal tenga
-        // *** permiso de aprobar una competencia, él mismo debe superar primero esa competencia).
         for (const user of userSkill.verifications) {
             try {
                 // Buscar el usuario en la base de datos
@@ -277,6 +304,7 @@ exports.verifySkill = async (req, res) => {
                     // Si el skill ya ha sido superada y solo queremos actualizar el número de approved
                     if (user_i.admin && !userSkill.completed) {
                         userSkill.completed = true;
+                        userSkill.verified = true;
                         userSkill.completedAt = Date.now();
                     }
                     approvedNumber += 1;
@@ -288,16 +316,25 @@ exports.verifySkill = async (req, res) => {
         }
         if (approvedNumber >= 3 && !userSkill.completed) {
             userSkill.completed = true;
+            userSkill.verified = true;
             userSkill.completedAt = Date.now();
         }
 
         // Guardar el UserSkill (nuevo o actualizado)
         await userSkill.save();
 
+        // Buscar skill
+        let skill =  await Skill.findOne({ set: skillTreeName, taskID: skillId });
+
+        if(!skill){
+            return res.status(404).json({ message: 'Skill not found' });
+        }
+
+
         // Actualizar el atributo completedSkills del usuario que haya enviado la evidencia
         const targetUser = await User.findById(userSkill.user);
-        if (userSkill.completed && !targetUser.completedSkills.includes(skillId)) {
-            targetUser.completedSkills.push(skillId);
+        if (userSkill.completed && !targetUser.completedSkills.includes(skill)) {
+            targetUser.completedSkills.push(skill);
             //Guardar el User
             await targetUser.save();
         }
