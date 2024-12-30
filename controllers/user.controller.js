@@ -151,6 +151,7 @@ exports.visualizeLeaderboard = async (req, res, next) => {
             await user.save();
         };
 
+
         // Ordenar en relación a la puntuación (de mayor a menor)
         const sortedUsers = users.sort((a, b) => b.score - a.score);
 
