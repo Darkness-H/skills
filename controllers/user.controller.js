@@ -150,7 +150,7 @@ exports.visualizeLeaderboard = async (req, res, next) => {
             // Guardar los cambios en la base de datos
             await user.save();
         };
-        users[0].score = 12;
+
         // Ordenar en relación a la puntuación (de mayor a menor)
         const sortedUsers = users.sort((a, b) => b.score - a.score);
 

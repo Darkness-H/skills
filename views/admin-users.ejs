@@ -14,6 +14,33 @@
             usernameInput.value = usernames[index];
             form.style.display = 'block';
         }
+
+        function handlePasswordChange() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/admin/change-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('password').value = '';
+                    document.getElementById('change-password-form').style.display = 'none';
+                    alert('Password changed successfully');
+                })
+                .catch(error => {
+                    console.error('Error changing password:', error);
+                    alert('Error changing password. Please try again.');
+                });
+        }
     </script>
 </head>
 <body>
@@ -43,7 +70,7 @@
 
     <div id="change-password-form" style="display: none; margin-top: 20px;">
         <h2>Change Password</h2>
-        <form action="/admin/change-password" method="POST">
+        <form onsubmit="event.preventDefault(); handlePasswordChange();">
             <input type="hidden" id="username" name="username" value="">
             <label for="password">New Password:</label>
             <input type="password" id="password" name="password" required>
