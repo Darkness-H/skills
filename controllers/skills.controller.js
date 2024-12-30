@@ -333,7 +333,7 @@ exports.verifySkill = async (req, res) => {
 
         // Actualizar el atributo completedSkills del usuario que haya enviado la evidencia
         const targetUser = await User.findById(userSkill.user);
-        if (userSkill.completed && !targetUser.completedSkills.includes(skill)) {
+        if (userSkill.completed && !targetUser.completedSkills.some(item => JSON.stringify(item) === JSON.stringify(skill))) {
             targetUser.completedSkills.push(skill);
             //Guardar el User
             await targetUser.save();

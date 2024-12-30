@@ -179,7 +179,7 @@
 
     <%
     // Verificar si el usuario es admin o si ha completado la habilidad actual
-    const isUserAllowed = user.admin || user.completedSkills.includes(skill.taskID.toString());
+    const isUserAllowed = user.admin || user.completedSkills.some(item => JSON.stringify(item) === JSON.stringify(skill));
     if (isUserAllowed) {
     %>
             <h3>Unverified Submissions</h3>
