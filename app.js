@@ -110,8 +110,8 @@ app.get('/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     (req, res) => {
         // Si la autenticación es exitosa, establece la sesión y  redirige al sistema principal
-        req.session.user = res.req.user.username;
-        res.redirect('/system');
+        req.session.user = res.req.user;
+        res.redirect('/skills');
     }
 );
 
