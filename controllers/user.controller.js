@@ -1,6 +1,7 @@
 const User = require('../models/user.model');
-const path = require('path');
 const bcrypt = require("bcrypt");
+const Badge = require('../models/badge.model');
+const Skill = require('../models/skill.model');
 
 // Función que muestra la pantalla para registrar una nueva cuenta (Register)
 exports.showRegisterPage = async (req, res, next) => {
@@ -137,15 +138,93 @@ exports.visualizeLeaderboard = async (req, res, next) => {
         return res.redirect('/');
     }
 
-    // Recalcular la puntuación de todos los usuarios
-    // Ordena en relación a la puntuación
-    // Asigna insignias en función de puntuación
-    // Resultado: redirecciona a la vista leaderboard.ejs con la clasificación
-    // res.render('leaderboard');
-    res.render('/')
+    try {
+
+        // *** Recalcular la puntuación de todos los usuarios ***
+        // Obtener todos los usuarios de la base de datos
+        const  users = await User.find();
+        // Actualizar la puntuación de cada usuario
+        for (let user of users) {
+            // Calcular la nueva puntuación sumando los scores de completedSkills
+            user.score = user.completedSkills.reduce((acumulador, skill) => acumulador + skill.score, 0);
+            // Guardar los cambios en la base de datos
+            await user.save();
+        };
+
+        // *** Ordenar en relación a la puntuación (de mayor a menor) ***
+        const sortedUsers = users.sort((a, b) => b.score - a.score);
+
+        // Crear un objeto para organizar los usuarios por medalla
+        const leaderboard = {
+            'Observador': [],
+            'Aspirante a Cadete': [],
+            'Cadete': [],
+            'Aspirante a Padawan': [],
+            'Padawan': [],
+            'Aspirante a Jedi': [],
+            'Jedi': [],
+            'Caballero Jedi': []
+        };
+
+        // *** Asigna insignias en función de puntuación ***
+        // Obtener todos los badges de la base de datos
+        const badges = await Badge.find();
+        // Encontrar el badge con el mayor bitpoint_max
+        const badgeWithMaxBitpoints = badges.reduce((max, current) => {
+            return (current.bitpoints_max > max.bitpoints_max) ? current : max;
+        }, badges[0]);
+        // Función para obtener el rango y la medalla basada en el score del usuario
+        function getBadgeForUser(score) {
+            for (let badge of badges) {
+                if (score >= badge.bitpoints_min && score <= badge.bitpoints_max) {
+                    return badge;
+                }
+            }
+            // El score del usuario excede el límite de 229 -> asignar insignia Caballero Jedi (o alguna otra insignia que ha sido añadido más tarde)
+            return badgeWithMaxBitpoints;
+        }
+        // Asignar insignias en función de la puntuación de cada usuario
+        const usersArray = Array.from(sortedUsers); // Convierte a array si no es ya un array
+        usersArray.forEach((user) => {
+            // Obtener el badge para el score del usuario actual
+            const badge = getBadgeForUser(user.score);
+            // Buscar la primera clave del leaderboard que coincida parcialmente con el rango del badge (e.g 'Cadete' vs 'Cadete nivel-1')
+            const leaderboardKey = Object.keys(leaderboard).find(key => badge.rango.startsWith(key));
+
+            // Comprobar si el score del usuario es mayor que 229 (o mayor que badgeWithMaxBitpoints.bitpoints_max), si es así asignamos el valor 9
+            let scoreToAdd = user.score % 10;  // Guardamos un número entre 0 y 9
+            if (user.score > badgeWithMaxBitpoints.bitpoints_max) {
+                scoreToAdd = 9;  // Asignar 9 si el score es mayor que 229
+            }
+
+            // Agregar el usuario a la lista correspondiente dentro del leaderboard
+            leaderboard[leaderboardKey].push({
+                username: user.username,
+                score: scoreToAdd, // Guardar un número entre 0 y 9
+                badge: badge.png, // Usar la URL de la imagen del badge
+                range: badge.rango
+            }); // Siempre va a existir uno
+        });
+
+        // Realiza la agregación y espera el resultado
+        const skillTreesWithCount = await Skill.aggregate([
+            { $group: { _id: "$set", skillCount: { $sum: 1 } } }
+        ]);
+        // Transformar los datos para facilitar su uso en la plantilla
+        const skillTrees = skillTreesWithCount.map(tree => ({
+            name: tree._id,
+            count: tree.skillCount
+        }));
+
+        // Renderizar la vista 'leaderboard.ejs' pasando los datos
+        res.render('leaderboard', { leaderboard: leaderboard, user: req.session.user, skillTrees: skillTrees });
+    } catch (error) {
+        console.error('Error fetching leaderboard:', error);
+        res.status(500).send('Error fetching leaderboard');
+    }
 };
 
 // Función que muestra la página de about
 exports.showAboutPage = async (req, res, next) => {
-        res.render('about', { user: req.session.user });
+    res.render('about', { user: req.session.user });
 };

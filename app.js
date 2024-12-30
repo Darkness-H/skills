@@ -63,8 +63,6 @@ app.use(passport.initialize());
 // Habilita el manejo de la sesión (Github) con Passport.
 app.use(passport.session());
 
-//app.use('/', indexRouter);
-//app.use('/users', usersRouter);
 app.use('/users', usersRouter);
 app.use('/skills', skillsRouter);
 app.use('/admin', adminRouter);
@@ -79,7 +77,6 @@ app.get('/system', (req, res) => {
     res.redirect('/skills');
 });
 
-// Endpoint de la página de about
 // Endpoint de la página de about
 app.get('/about', async (req, res) => {
     try {
