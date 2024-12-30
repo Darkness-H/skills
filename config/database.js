@@ -30,6 +30,10 @@ const connectDB = async () => {
             for (const skill of skillsData) {
                 await Skill.create(skill);
             }
+            const otherSkillsData = JSON.parse(fs.readFileSync('./public/js/scripts/otherSkills_complete.json', 'utf-8'));
+            for (const skill of otherSkillsData) {
+                await Skill.create(skill);
+            }
             console.log('Skill data successfully uploaded.');
         } else {
             console.log('Collection "skills" already exists. Skipping upload.');
