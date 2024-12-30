@@ -32,26 +32,33 @@ function createTable() {
     unSubTitle.insertAdjacentElement("afterend", table);
 }
 
-// Function to save evidence for a specific skill in localStorage
-function saveEvidenceToLocalStorage(currentSkill, row, status) {
-    const evidenceData = {
-        id: row.getAttribute("data-id"),
-        user: row.querySelector("td").textContent,
-        evidence: row.querySelectorAll("td")[1].textContent,
-        status: status
-    };
+// Función para hacer el POST de la evidencia
+function submitEvidence() {
+    const evidenceTextarea = document.getElementById("evidence_text");
+    const evidence = evidenceTextarea.value;
 
-    let storedEvidence = JSON.parse(localStorage.getItem(currentSkill)) || [];
-    const existingIndex = storedEvidence.findIndex(e => e.id === evidenceData.id);
-
-    if (existingIndex >= 0) {
-        storedEvidence[existingIndex] = evidenceData;
-    } else {
-        storedEvidence.push(evidenceData);
-    }
-
-    localStorage.setItem(currentSkill, JSON.stringify(storedEvidence));
+    // POST request to submit the evidence
+    fetch(`/skills/${skillTreeName}/submit-evidence`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({evidence: evidence, skillId: skillId, userSkillId: userSkillId})
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // Clear the textarea
+            evidenceTextarea.value = "";
+        })
+        .catch(error => {
+            console.error("Error submitting evidence:", error);
+        });
 }
+
+
+
+
 
 // Function to create "Approve" and "Reject" buttons for a given evidence
 function createApproveRejectButtons(actionCell, currentSkill, row) {
@@ -167,7 +174,7 @@ function main() {
             showConfetti();
 
             // Cargar la tabla de Evidencias (si existe)
-            loadEvidenceFromLocalStorage(currentSkill);
+            loadEvidenceFromLocalStorage(currentSkill); // Esto lo cargamos en el GET
 
             const formContainer = document.getElementById("form-container");
             formContainer.innerHTML = ''; // Clear any previous content
@@ -223,7 +230,7 @@ function main() {
             });
 
             // Submit the evidence
-            submitButton.addEventListener("click", (event) => {
+            submitButton.addEventListener("click", (event) => { // Usar POST para enviar la evidencia
                 event.preventDefault();
 
                 const texto = evidenceTextarea.value;

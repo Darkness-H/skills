@@ -28,7 +28,7 @@ router.get('/:skillTreeName/edit/:skillID', skillsController.showEditSkillForm);
 router.post('/:skillTreeName/edit/:skillID', upload.single('icon'),  skillsController.updateSkill);
 
 // POST /skills/:skillTreeName/submit-evidence
-//router.post('/:skillTreeName/submitEvidence', skillsController.submitEvidence);
+router.post('/:skillTreeName/submitEvidence', skillsController.submitEvidence);
 
 // POST /skills/:skillTreeName/delete/:skillID
 router.post('/:skillTreeName/delete/:skillID', skillsController.deleteSkill);
