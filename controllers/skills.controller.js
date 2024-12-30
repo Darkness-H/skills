@@ -16,16 +16,12 @@ const getSkillTreesWithCount = async () => {
 
 
 // Función que redirecciona a la página de la competencia defecto
-exports.showDefaultSkillTree = async (req, res, next) => {
+exports.showDefaultSkillTree = async (req, res) => {
     res.redirect('/skills/electronics');
 }
 
 // Función que muestra la pantalla de la competencia seleccionada
-exports.showSkillTree = async (req, res, next) => {
-    if (!req.session.user) {
-        return res.redirect('/users/login');
-    }
-
+exports.showSkillTree = async (req, res) => {
     try {
         const skillTreeName = req.params.skillTreeName;
         const skills = await Skill.find({
@@ -44,16 +40,13 @@ exports.showSkillTree = async (req, res, next) => {
             skillTrees: skillTrees, userSkills: userSkills, allUserSkills: allUserSkills,
             allSkills: allSkills, numUsers: numUsers});
     } catch (error) {
-        next(error);
+        res.status(500).send('Error getting skill tree');
     }
 }
 
 
 // Función que muestra la pantalla de edición de la skill seleccionada
-exports.showEditSkillForm = async (req, res, next) => {
-    if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/users/login');
-    }
+exports.showEditSkillForm = async (req, res) => {
     try {
         const skillTreeName = req.params.skillTreeName;
         const skillID = req.params.skillID;
@@ -65,15 +58,12 @@ exports.showEditSkillForm = async (req, res, next) => {
         const skillTrees = await getSkillTreesWithCount();
         res.render('editSkill', {skill: skill, success_msg: null, error_msg: null, error: null, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
-        next(error);
+        res.status(500).send('Error getting edit skill form');
     }
 }
 
 // Función que actualiza la skill seleccionada
-exports.updateSkill = async (req, res, next) => {
-    if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/users/login');
-    }
+exports.updateSkill = async (req, res) => {
     try {
         const skillTreeName = req.params.skillTreeName;
         const skillID = req.params.skillID;
@@ -96,15 +86,12 @@ exports.updateSkill = async (req, res, next) => {
         res.render('editSkill', {skill: skill, success_msg: 'Saved Successfully', error_msg: null, error: null, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
         //res.render('editSkill', {skill: skill, success_msg: null, error_msg: 'Save failed', error: error});
-        res.render('partials/messages', {success_msg: null, error_msg: 'Save failed', error: error});
+        res.status(500).send('Error updating skill');
     }
 }
 
 //Función para eliminar una skill
-exports.deleteSkill = async (req, res, next) => {
-    if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/users/login');
-    }
+exports.deleteSkill = async (req, res) => {
     try {
         const skillTreeName = req.params.skillTreeName;
         const skillID = req.params.skillID;
@@ -114,41 +101,33 @@ exports.deleteSkill = async (req, res, next) => {
         }
         res.redirect(`/skills/${skillTreeName}`);
     } catch (error) {
-        res.render('partials/messages', {success_msg: null, error_msg: 'Delete failed', error: error});
+        res.status(500).send('Error deleting skill');
     }
 }
 
 // Función que muestra la pantalla de añadir una skill
-exports.showAddSkillForm = async (req, res, next) => {
-    if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/users/login');
-    }
+exports.showAddSkillForm = async (req, res) => {
     try {
         const skillTreeName = req.params.skillTreeName;
 
         const skillTrees = await getSkillTreesWithCount();
         res.render('addSkill', {skillTreeName: skillTreeName, success_msg: null, error_msg: null, error: null, user: req.session.user, skillTrees: skillTrees});
     } catch (error) {
-        next(error);
+        res.status(500).send('Error getting add skill form');
     }
 }
 
 
 // Función que añade una skill
 exports.addSkill = async (req, res) => {
-    if (!req.session.user || !req.session.user.admin) {
-        return res.redirect('/users/login');
-    }
     try {
         const skillTreeName = req.params.skillTreeName;
         const newSkill = new Skill(req.body);
 
-        // Convert text, description, and tasks to arrays of strings
         newSkill.text = req.body.text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
         newSkill.tasks = req.body.tasks.split('\n').map(line => line.trim()).filter(line => line.length > 0);
         newSkill.resources = req.body.resources.split('\n').map(line => line.trim()).filter(line => line.length > 0);
 
-        //Add set and taskID
         newSkill.set = skillTreeName;
         const skills = await Skill.find
         ({
@@ -162,34 +141,33 @@ exports.addSkill = async (req, res) => {
         await newSkill.save();
         res.redirect(`/skills/${skillTreeName}`);
     } catch (error) {
-        console.log(error)
-        res.render('partials/messages', {success_msg: null, error_msg: 'Save failed', error: error});
+        res.status(500).send('Error adding skill');
     }
 }
 
 // Función que muestra la pantalla de la skill seleccionada
-exports.viewSkill = async (req, res, next) => {
-    if (!req.session.user) {
-        return res.redirect('/users/login');
-    }
+exports.viewSkill = async (req, res) => {
     try {
         const skillTreeName = req.params.skillTreeName;
         const skillID = req.params.skillID;
         const skill = await Skill.findOne({ set: skillTreeName, taskID: skillID });
         const user = req.session.user;
         if (!skill) {
-            return res.status(404).send('404 Error: Skill not found');
+            return res.status(404).send('Skill not found');
         }
         const userSkills = await UserSkill.find({skill: skill._id, verified: false })
 
         if (!userSkills) {
-            return res.status(404).send('404 Error: UserSkills not found');
+            return res.status(404).send('UserSkills not found');
         }
 
         //Obtener users que se encuentran en userSkills
         for (let i = 0; i < userSkills.length; i++) {
             const userSkill = userSkills[i];
             const user = await User.findById(userSkill.user);
+            if (!user) {
+                return res.status(404).send('User from userSkills not found');
+            }
             userSkills[i].username = user.username;
         }
 
@@ -207,15 +185,12 @@ exports.viewSkill = async (req, res, next) => {
 
         res.render('skillNotebook', {skill: skill, user: user, userSkills: userSkills, skillTrees: skillTrees});
     } catch (error) {
-        console.log(error);
+        res.status(500).send('Error getting skill');
     }
 }
 
 // Función que maneja el envío de evidencia
 exports.submitEvidence = async (req, res) => {
-    if (!req.session.user) {
-        return res.redirect('/users/login');
-    }
     try {
         const skillTreeName = req.params.skillTreeName;
         const evidence = req.body.evidence;
@@ -273,9 +248,6 @@ exports.submitEvidence = async (req, res) => {
 
 // Función que confirma la evidencia de una competencia
 exports.verifySkill = async (req, res) => {
-    if (!req.session.user) {
-        return res.redirect('/users/login');
-    }
     try {
         const skillTreeName = req.params.skillTreeName; // electronics
         const skillId = req.params.skillID; // id del skill a comprobar
@@ -346,7 +318,6 @@ exports.verifySkill = async (req, res) => {
             userSkill: userSkill
         });
     } catch (error) {
-        console.error('Error verifying evidence:', error);
         res.status(500).json({ message: 'Internal server error', error });
     }
 };

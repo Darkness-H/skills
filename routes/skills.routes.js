@@ -19,34 +19,34 @@ function authenticateUser(req, res, next) {
 }
 
 // GET /skills
-router.get('/', skillsController.showDefaultSkillTree);
+router.get('/', authenticateUser, skillsController.showDefaultSkillTree);
 
 // GET /skills/:skillTreeName
-router.get('/:skillTreeName', skillsController.showSkillTree);
+router.get('/:skillTreeName', authenticateUser, skillsController.showSkillTree);
 
 // GET /skills/:skillTreeName/add
-router.get('/:skillTreeName/add', skillsController.showAddSkillForm);
+router.get('/:skillTreeName/add', authenticateAdmin, skillsController.showAddSkillForm);
 
 // POST /skills/:skillTreeName/add
-router.post('/:skillTreeName/add', upload.single('icon'), skillsController.addSkill);
+router.post('/:skillTreeName/add', authenticateAdmin, upload.single('icon'), skillsController.addSkill);
 
 // GET /skills/:skillTreeName/view/:skillID
-router.get('/:skillTreeName/view/:skillID', skillsController.viewSkill);
+router.get('/:skillTreeName/view/:skillID', authenticateUser, skillsController.viewSkill);
 
 // POST /skills/:skillTreeName/:skillID/verify
-router.post('/:skillTreeName/:skillID/verify', skillsController.verifySkill);
+router.post('/:skillTreeName/:skillID/verify',authenticateUser, skillsController.verifySkill);
 
 // GET /skills/:skillTreeName/edit/:skillID
-router.get('/:skillTreeName/edit/:skillID', skillsController.showEditSkillForm);
+router.get('/:skillTreeName/edit/:skillID', authenticateAdmin, skillsController.showEditSkillForm);
 
 // POST /skills/:skillTreeName/edit/:skillID
-router.post('/:skillTreeName/edit/:skillID', upload.single('icon'),  skillsController.updateSkill);
+router.post('/:skillTreeName/edit/:skillID', authenticateAdmin, upload.single('icon'),  skillsController.updateSkill);
 
 // POST /skills/:skillTreeName/submit-evidence
-router.post('/:skillTreeName/submitEvidence', skillsController.submitEvidence);
+router.post('/:skillTreeName/submitEvidence', authenticateUser, skillsController.submitEvidence);
 
 // POST /skills/:skillTreeName/delete/:skillID
-router.post('/:skillTreeName/delete/:skillID', skillsController.deleteSkill);
+router.post('/:skillTreeName/delete/:skillID', authenticateAdmin, skillsController.deleteSkill);
 
 
 module.exports = router;

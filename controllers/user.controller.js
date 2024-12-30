@@ -4,18 +4,22 @@ const Badge = require('../models/badge.model');
 const Skill = require('../models/skill.model');
 
 // Función que muestra la pantalla para registrar una nueva cuenta (Register)
-exports.showRegisterPage = async (req, res, next) => {
-    const message = req.query.message;
-    res.render('register', {
-        success_msg: message || null,
-        error_msg: null,
-        error: null,
-        user: null
-    });
+exports.showRegisterPage = async (req, res) => {
+    try {
+        const message = req.query.message;
+        res.render('register', {
+            success_msg: message || null,
+            error_msg: null,
+            error: null,
+            user: null
+        });
+    } catch (error) {
+        res.status(500).send('Error fetching register page');
+    }
 };
 
 // Función que crea un nuevo usuario en la base de datos
-exports.addNewUser = async (req, res, next) => {
+exports.addNewUser = async (req, res) => {
     try {
         const { username, password, password2 } = req.body;
 
@@ -74,18 +78,22 @@ exports.addNewUser = async (req, res, next) => {
 };
 
 // Función que muestra la pantalla para iniciar sesión (Login)
-exports.showLoginPage = async (req, res, next) => {
-    const message = req.query.message;
-    res.render('login', {
-        success_msg: message || null,
-        error_msg: null,
-        error: null,
-        user: null
-    });
+exports.showLoginPage = async (req, res) => {
+    try{
+        const message = req.query.message;
+        res.render('login', {
+            success_msg: message || null,
+            error_msg: null,
+            error: null,
+            user: null
+        });
+    } catch (error) {
+        res.status(500).send('Error fetching login page');
+    }
 };
 
 // Función que inicia una sesión con los datos introducidos
-exports.loginSystem = async (req, res, next) => {
+exports.loginSystem = async (req, res) => {
     try {
         const { username, password } = req.body;
 
@@ -118,13 +126,7 @@ exports.loginSystem = async (req, res, next) => {
 };
 
 // Función que cierra la sesión actual
-exports.logoutSystem = async (req, res, next) => {
-    // Auntenticación
-    if (!req.session.user) {
-        // Redireccionar al Login
-        return res.redirect('/');
-    }
-
+exports.logoutSystem = async (req, res) => {
     // Destruir la sesión y redirigir a la página de Login
     req.session.destroy();
     res.redirect('/users/login?message=Logged out successfully');
@@ -132,12 +134,6 @@ exports.logoutSystem = async (req, res, next) => {
 
 // Función para visualizar la clasificación de usuarios
 exports.visualizeLeaderboard = async (req, res, next) => {
-    // Auntenticación
-    if (!req.session.user) {
-        // Redireccionar al Login
-        return res.redirect('/');
-    }
-
     try {
 
         // *** Recalcular la puntuación de todos los usuarios ***

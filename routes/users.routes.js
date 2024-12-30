@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/user.controller');
 
+// Middleware de autenticación
+function authenticateUser(req, res, next) {
+    if (req.session.user) {
+        return next();
+    }
+    res.redirect('/');
+}
+
 // GET /users/register
 router.get('/register/:message?', userController.showRegisterPage);
 
@@ -15,10 +23,10 @@ router.get('/login/:message?', userController.showLoginPage);
 router.post('/login', userController.loginSystem);
 
 // GET /users/logout
-router.get('/logout', userController.logoutSystem);
+router.get('/logout',  authenticateUser, userController.logoutSystem);
 
 // GET /users/leaderboard
-router.get('/leaderboard', userController.visualizeLeaderboard);
+router.get('/leaderboard',  authenticateUser, userController.visualizeLeaderboard);
 
 // GET /users/about
 router.get('/about', userController.showAboutPage);
